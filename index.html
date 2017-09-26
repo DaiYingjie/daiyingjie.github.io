@@ -35,6 +35,62 @@
 
 	<article>
 	
+		<h1><a href="/2017/09/26/expansion-quote-regex/">expansion-quote-regex</a></h1>
+	
+	<div class="article__infos">
+		<span class="article__date">2017-09-26</span><br />
+		
+		
+	</div>
+
+	
+
+	
+		<h4 id="Expansion"><a href="#Expansion" class="headerlink" title="Expansion:"></a>Expansion:</h4><p>Each time you type a command line and press the enter key, bash performs several processes upon the text before it carries out your command. We have seen a couple of cases of how a simple character sequence, for example “*”, can have a lot of meaning to the shell. The process that makes this happen is called expansion. With expansion, you type something and it is expanded into something else before the shell acts upon it.</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> echo *</div><div class="line">Desktop Documents ls-output.txt Music Pictures Public Templates Videos</div></pre></td></tr></table></figure>
+<p>More Expansion</p>
+<p>pathname expansion: *</p>
+<p>tilde character expansion: ~</p>
+<p>arithmetic expansion: $((expression))</p>
+<p>brace expansion: {a..z}, {1, 2, 3}, {A{1, 2}, B{3, 4}}</p>
+<p>parameter expansion: $HOME</p>
+<p>command substitution: $(command line), `command line`</p>
+<h4 id="Quote"><a href="#Quote" class="headerlink" title="Quote:"></a>Quote:</h4><p>The shell provides a mechanism called quoting to selectively suppress unwanted expansions.</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> echo The total is $100.00</div><div class="line">The total is 00.00</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> echo The total is \$100.00</div><div class="line">The total is 100.00</div></pre></td></tr></table></figure>
+<p>More quote:</p>
+<p>double quotes:</p>
+<p>The first type of quoting we will look at is double quotes. If you place text inside double quotes, all the special characters used by the shell lose their special meaning and are treated as ordinary characters. The exceptions are $, \ (backslash), and ` (back-quote). This means that word-splitting, pathname expansion, tilde expansion, and brace expansion are suppressed, but parameter expansion, arithmetic expansion, and command substitution are still carried out.</p>
+<p>single quotes:</p>
+<p>If we need to suppress all expansions, we use single quotes. </p>
+<p>escape character:</p>
+<p>Sometimes we only want to quote a single character. To do this, we can precede a character with a backslash, which in this context is called the escape character. </p>
+<h4 id="Regular-Expression"><a href="#Regular-Expression" class="headerlink" title="Regular Expression:"></a>Regular Expression:</h4><p>Simply put, regular expressions are symbolic notations used to identify patterns in text.</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> ls /usr/bin | grep zip</div></pre></td></tr></table></figure>
+<p>While it may not seem apparent, our grep searches have been using regular expressions all along, albeit very simple ones. The regular expression “bzip” is taken to mean that a match will occur only if the line in the file contains at least four characters and that somewhere in the line the characters “b”, “z”, “i”, and “p” are found in that order, with no other characters in between. The characters in the string “bzip” are all literal characters, in that they match themselves. In addition to literals, regular expressions may also include metacharacters that are used to specify more complex matches. Regular expression metacharacters consist of the following:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">^ $ . [ ] &#123; &#125; - ? * + ( ) | \</div></pre></td></tr></table></figure>
+<blockquote>
+<p>Note: As we can see, many of the regular expression metacharacters are also characters that have meaning to the shell when expansion is performed. When we pass regular expressions containing metacharacters on the command line, it is vital that they be enclosed in quotes to prevent the shell from attempting to expand them.</p>
+</blockquote>
+<p><strong>Remember: Expansion and Regex are different things!!!</strong></p>
+<p>More Regular Expression Detail:</p>
+<p><a href="https://github.com/HeGaoYuan/notes_of_python_for_everyone/blob/master/using_python_to_access_web_data/week2/regular_expression.ipynb" target="_blank" rel="external">https://github.com/HeGaoYuan/notes_of_python_for_everyone/blob/master/using_python_to_access_web_data/week2/regular_expression.ipynb</a></p>
+<p>Reference: </p>
+<p><a href="https://billie66.github.io/TLCL/book/chap08.html" target="_blank" rel="external">https://billie66.github.io/TLCL/book/chap08.html</a></p>
+<p><a href="https://billie66.github.io/TLCL/book/chap20.html" target="_blank" rel="external">https://billie66.github.io/TLCL/book/chap20.html</a></p>
+<p><a href="https://github.com/HeGaoYuan/notes_of_python_for_everyone/blob/master/using_python_to_access_web_data/week2/regular_expression.ipynb" target="_blank" rel="external">https://github.com/HeGaoYuan/notes_of_python_for_everyone/blob/master/using_python_to_access_web_data/week2/regular_expression.ipynb</a></p>
+
+	
+
+	
+
+</article>
+
+
+
+
+	<article>
+	
 		<h1><a href="/2017/08/29/goal/">goal</a></h1>
 	
 	<div class="article__infos">
