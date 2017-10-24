@@ -68,6 +68,11 @@
 <blockquote>
 <p>Note: As we can see, many of the regular expression metacharacters are also characters that have meaning to the shell when expansion is performed. When we pass regular expressions containing metacharacters on the command line, it is vital that they be enclosed in quotes to prevent the shell from attempting to expand them.</p>
 </blockquote>
+<p><strong>Added on 2017.10.24</strong></p>
+<p>In above, it described the basic function of grep command, match the specific pattern. Sometimes, we want to extract the specific pattern. For example, recently I want to extract the frame_id from a string, the string looks like “test_1536x1088_wide_1.yuv”, “test1536_1088_wide2.yuv”,……”test1536_1088_wide56.yuv”….., what I want to do is extract the frame_id substring.</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="meta">prompt&gt;</span> var=test1536x1088_wide56.yuv</div><div class="line"></div><div class="line"><span class="meta">prompt&gt;</span> echo $var | grep -oE "wide.*" </div><div class="line"></div><div class="line"><span class="meta">prompt&gt;</span> wide_56.yuv</div><div class="line"></div><div class="line"><span class="meta">prompt&gt;</span> echo $var | grep -oE "wide.*" | grep -oE [0-9]+</div><div class="line"></div><div class="line"><span class="meta">prompt&gt;</span> 56</div></pre></td></tr></table></figure>
+<p>Notes: -o means output the specific pattern</p>
+<p>​             -E means extended regular expression; if you use metacharacters, you should use -E</p>
 <p><strong>Remember: Expansion and Regex are different things!!!</strong></p>
 <p>More Regular Expression Detail:</p>
 <p><a href="https://github.com/HeGaoYuan/notes_of_python_for_everyone/blob/master/using_python_to_access_web_data/week2/regular_expression.ipynb" target="_blank" rel="external">https://github.com/HeGaoYuan/notes_of_python_for_everyone/blob/master/using_python_to_access_web_data/week2/regular_expression.ipynb</a></p>
