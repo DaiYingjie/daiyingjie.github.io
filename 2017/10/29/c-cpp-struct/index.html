@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta name="theme-color" content="#33474d">
+	<title>c-cpp-struct | </title>
+	<link rel="stylesheet" href="/css/style.css" />
+	
+      <link rel="alternate" href="/atom.xml" title="" type="application/atom+xml">
+    
+</head>
+
+<body>
+
+	<header class="header">
+		<nav class="header__nav">
+			
+				<a href="/archives" class="header__link">Archive</a>
+			
+				<a href="/tags" class="header__link">Tags</a>
+			
+				<a href="/atom.xml" class="header__link">RSS</a>
+			
+		</nav>
+		<h1 class="header__title"><a href="/"></a></h1>
+		<h2 class="header__subtitle"></h2>
+	</header>
+
+	<main>
+		<article>
+	
+		<h1>c-cpp-struct</h1>
+	
+	<div class="article__infos">
+		<span class="article__date">2017-10-29</span><br />
+		
+		
+	</div>
+
+	
+
+	
+		<h4 id="C和C-关于struct用法的不同"><a href="#C和C-关于struct用法的不同" class="headerlink" title="C和C++关于struct用法的不同"></a>C和C++关于struct用法的不同</h4><p>在C++中struct和class几乎没有区别，除了默认的类里面的变量或函数是public还是private的区别，到底哪个默认是public，我也懒得记了，每次写清楚就好了。</p>
+<p>所以在C++中struct就看做是class好了。但是在struct，准确的叫法是结构体。<strong>结构体是一种把数据项组合在一起的数据结构。</strong></p>
+<p>再来吐槽一下C/C++，C/C++的语法真的丑陋，语法让人产生多种理解，或难以理解与记忆。从stack overflow上相关问题的点赞数都可以看出来，大家对struct这个语法很不熟，这个语法就是比较丑陋，这个锅就应该C/C++背，谁TM叫你虐我千百遍。</p>
+<p>（<a href="https://stackoverflow.com/questions/612328/difference-between-struct-and-typedef-struct-in-c/612350#612350）" target="_blank" rel="external">https://stackoverflow.com/questions/612328/difference-between-struct-and-typedef-struct-in-c/612350#612350）</a></p>
+<p>关键字struct引入结构声明。结构声明是由花括号内的一系列声明组成。</p>
+<p>struct声明定义了一种数据结构。在标志结构成员表结束的右花括号之后可以跟一个变量表，就像其他基本类型的变量声明一样。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">struct</span> &#123;</span></div><div class="line">  <span class="keyword">int</span> x;</div><div class="line">  <span class="keyword">int</span> y;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">struct</span> &#123;</span></div><div class="line">  <span class="keyword">int</span> x;</div><div class="line">  <span class="keyword">int</span> y;</div><div class="line">&#125; pt1, pt2;</div></pre></td></tr></table></figure>
+<p>当然这样写一大堆东西比较麻烦，就有了一个叫做<strong>结构标记</strong>的东西，它是optional，放在struct关键字后面。<strong>结构标记</strong>就代表花括号内的声明，可以用它作为该声明的简写形式（K&amp;R C的原话）。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Point</span> &#123;</span></div><div class="line">  <span class="keyword">int</span> x;</div><div class="line">  <span class="keyword">int</span> y;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>所以那句原话的意思就是，以后</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Point</span> <span class="title">p1</span>;</span></div></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">struct</span> &#123;</span></div><div class="line">  <span class="keyword">int</span> x;</div><div class="line">  <span class="keyword">int</span> y;</div><div class="line">&#125;p1;</div></pre></td></tr></table></figure>
+<p>就是同一个意思。</p>
+<p>当然，你在有结构标记这个可选项的同时，也可以声明变量</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Point</span> &#123;</span></div><div class="line">  <span class="keyword">int</span> x;</div><div class="line">  <span class="keyword">int</span> y;</div><div class="line">&#125;p1;</div></pre></td></tr></table></figure>
+<p>这条语句就是把结构的声明和结构变量p1的声明合在一起了。</p>
+<p>typedef也经常和struct用在一起。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">Point</span>&#123;</span></div><div class="line">  <span class="keyword">int</span> x;</div><div class="line">  <span class="keyword">int</span> y;</div><div class="line">&#125; Point_type;</div></pre></td></tr></table></figure>
+<p>这条语句因为有typedef，所以它是一个为某种类型引入一个新名字。我们读法就是把typedef去掉，然后按声明变量的读法读，只是这时候“变量名”不是变量了，而是某种类型的别名。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Point</span>&#123;</span></div><div class="line">  <span class="keyword">int</span> x;</div><div class="line">  <span class="keyword">int</span> y;</div><div class="line">&#125; Point_type;</div></pre></td></tr></table></figure>
+<p>Pint_type才是“变量名”，Point是可选的<strong>结构标记</strong>。</p>
+<p>以后你可以有两种方法来声明结构的变量了。一种是使用<strong>结构标记</strong>，一种是typedef引入的别名。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Point</span> <span class="title">p1</span>;</span></div><div class="line">Point_type p2;</div></pre></td></tr></table></figure>
+<p>情况1. 当你把上面的Point_type类型别名和Point<strong>结构标记</strong>写成同一个名字的时候，</p>
+<p>情况2. 当你把结构标记和变量声明写成同一个名字的时候，</p>
+<p>就可能发生confused。</p>
+<p>例如：</p>
+<p>情况1.引入了别名fruit和结构标记fruit</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">fruit</span>&#123;</span></div><div class="line">  <span class="keyword">float</span> weight;</div><div class="line">  <span class="keyword">float</span> price_per_kg;</div><div class="line">&#125; fruit;</div></pre></td></tr></table></figure>
+<p>情况2.引入了结构标记vegetable和声明了变量vegetable</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">vegetable</span>&#123;</span></div><div class="line">  <span class="keyword">float</span> weight;</div><div class="line">  <span class="keyword">float</span> price_per_kg;</div><div class="line">&#125; vegetable;</div></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">fruit</span> <span class="title">orange</span>;</span> <span class="comment">//使用结构标记fruit</span></div><div class="line">fruit orange; <span class="comment">//使用类型别名fruit</span></div><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">vegetable</span> <span class="title">potato</span>;</span> <span class="comment">//使用结构标记vegetable</span></div><div class="line">vegetable potato; <span class="comment">// 错误！！！</span></div></pre></td></tr></table></figure>
+<p>当有了C++时，confused进一步来了。</p>
+<p>上面的情况2在C++中可以这样写</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">vegetable</span>&#123;</span></div><div class="line">  <span class="keyword">float</span> weight;</div><div class="line">  <span class="keyword">float</span> price_per_kg;</div><div class="line">&#125;;</div><div class="line">vegetable potato;</div></pre></td></tr></table></figure>
+<p>这时候vegetable就不是一个结构标记了，就是一个类型了。所以可以使用类型名来声明一个对象potato了。</p>
+
+	
+
+	
+		<span class="different-posts"><a href="/2017/10/29/c-cpp-struct/" onclick="window.history.go(-1); return false;">⬅️ Go back </a></span>
+
+	
+
+</article>
+
+	</main>
+
+	<footer class="footer">
+	<div class="footer-content">
+		
+	      <div class="footer__element">
+	<p>Hi there, <br />welcome to my Blog glad you found it. Have a look around, will you?</p>
+</div>
+
+	    
+	      <div class="footer__element">
+	<h5>Check out</h5>
+	<ul class="footer-links">
+		<li class="footer-links__link"><a href="/archives">Archive</a></li>
+		
+		  <li class="footer-links__link"><a href="/atom.xml">RSS</a></li>
+	    
+		<li class="footer-links__link"><a href="/about">about page</a></li>
+		<li class="footer-links__link"><a href="/tags">Tags</a></li>
+		<li class="footer-links__link"><a href="/categories">Categories</a></li>
+	</ul>
+</div>
+
+	    
+
+		<div class="footer-credit">
+			<span>© 2017 John Doe | Powered by <a href="https://hexo.io/">Hexo</a> | Theme <a href="https://github.com/HoverBaum/meilidu-hexo">MeiliDu</a></span>
+		</div>
+
+	</div>
+
+
+</footer>
+
+
+
+</body>
+
+</html>
