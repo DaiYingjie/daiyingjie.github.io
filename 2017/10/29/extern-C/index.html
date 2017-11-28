@@ -15,6 +15,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/10/29/extern-C/index.html">
 <meta property="og:site_name">
 <meta property="og:description" content="Problem:  In C++ source, what is the effect of extern “C”? Real problem: In the project of dual camera bokeh, the api.h header file use the extern C. Stack overflow: https://stackoverflow.com/question">
+<meta property="og:locale" content="en">
 <meta property="og:image" content="http://yoursite.com/2017/10/29/extern-C/extern-C/pictures/屏幕快照%202017-10-29%20上午9.27.22.png">
 <meta property="og:image" content="http://yoursite.com/2017/10/29/extern-C/extern-C/pictures/屏幕快照%202017-10-29%20上午9.31.35.png">
 <meta property="og:image" content="http://yoursite.com/2017/10/29/extern-C/extern-C/pictures/屏幕快照%202017-10-29%20上午9.36.56.png">
@@ -101,11 +102,11 @@
             <div class="navbar-collapse collapse">
               <ul class="hnav navbar-nav">
                 
-                  <li> <a class="main-nav-link" href="/">Startseite</a> </li>
+                  <li> <a class="main-nav-link" href="/">Home</a> </li>
                 
-                  <li> <a class="main-nav-link" href="/archives">Archive</a> </li>
+                  <li> <a class="main-nav-link" href="/archives">Archives</a> </li>
                 
-                  <li> <a class="main-nav-link" href="/categories">Kategorien</a> </li>
+                  <li> <a class="main-nav-link" href="/categories">Categories</a> </li>
                 
                   <li> <a class="main-nav-link" href="/tags">Tags</a> </li>
                 
@@ -121,7 +122,7 @@
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="Schreib etwas..." />
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -133,11 +134,11 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Beiträge',
-            PAGES: 'Seiten',
-            CATEGORIES: 'Kategorien',
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
             TAGS: 'Tags',
-            UNTITLED: '(Unbenannt)',
+            UNTITLED: '(Untitled)',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',
@@ -340,7 +341,7 @@ var a = new Donate({
 <nav id="article-nav">
   
     <a href="/2017/10/29/cpp-complicated-declaration/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Neuer</strong>
+      <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
           cpp-complicated-declaration
@@ -350,7 +351,7 @@ var a = new Donate({
   
   
     <a href="/2017/09/26/expansion-quote-regex/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Älter</strong>
+      <strong class="article-nav-caption">Older</strong>
       <div class="article-nav-title">Expansion Quote Regex</div>
     </a>
   
@@ -363,7 +364,7 @@ var a = new Donate({
 
   <aside id="toc-sidebar">
     <div id="toc" class="toc-article">
-    <strong class="toc-title">Inhalt</strong>
+    <strong class="toc-title">Contents</strong>
     
         <ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#引言"><span class="nav-number">1.</span> <span class="nav-text">引言</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1、-ifdef-cplusplus-endif-cplusplus及发散"><span class="nav-number">2.</span> <span class="nav-text">1、#ifdef _cplusplus/#endif _cplusplus及发散</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、extern-“C”"><span class="nav-number">3.</span> <span class="nav-text">2、extern “C”</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1、extern关键字"><span class="nav-number">4.</span> <span class="nav-text">2.1、extern关键字</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2、”C”"><span class="nav-number">5.</span> <span class="nav-text">2.2、”C”</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3、小结extern-“C”"><span class="nav-number">6.</span> <span class="nav-text">2.3、小结extern “C”</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、C和C-互相调用"><span class="nav-number">7.</span> <span class="nav-text">3、C和C++互相调用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1、C-的编译和连接"><span class="nav-number">8.</span> <span class="nav-text">3.1、C++的编译和连接</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2、C的编译和连接"><span class="nav-number">9.</span> <span class="nav-text">3.2、C的编译和连接</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-3、C-中调用C的代码"><span class="nav-number">10.</span> <span class="nav-text">3.3、C++中调用C的代码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-4、C中调用C-的代码"><span class="nav-number">11.</span> <span class="nav-text">3.4、C中调用C++的代码</span></a></li></ol>
     
