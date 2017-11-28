@@ -3,22 +3,25 @@
 <head>
   <meta charset="utf-8">
   
-  <title>using-opencv-to-learn-cpp | </title>
+  <title>using opencv to learn cpp | </title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
+  <meta name="keywords" content="OpenCVCPP" />
   
   
   
-  <meta name="description" content="最近想完成一个心愿，就是写一下通过学习研究OpneCV的源码来学习C++。 我们首先来研究两个最简单的类Point和 Rect\类的源码，然后进阶学习Mat类的源码。通过研究这些类的源码，来了解C++的一些语言特性，一来可以熟悉C++（C++需要不断练习）；二来可以学习类设计的精华，以便自己以后再设计一个类的时候应该怎么写。 我们第一个要研究的类是Point_，它是一个2维空间的Point模板类。">
+  
+  <meta name="description" content="最近想完成一个心愿，就是写一下通过学习研究OpneCV的源码来学习C++。 我们首先来研究两个最简单的类Point和 Rect\类的源码，然后进阶学习Mat类的源码。通过研究这些类的源码，来了解C++的一些语言特性，一来可以熟悉C++（C++需要不断练习）；二来可以学习类设计的精华，以便自己以后再设计一个类的时候应该怎么写。">
+<meta name="keywords" content="OpenCV,CPP">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Using-OpenCV-to-Learn-CPP">
+<meta property="og:title" content="Using OpenCV to Learn CPP">
 <meta property="og:url" content="http://yoursite.com/2017/08/25/Using-OpenCV-to-Learn-CPP/index.html">
 <meta property="og:site_name">
-<meta property="og:description" content="最近想完成一个心愿，就是写一下通过学习研究OpneCV的源码来学习C++。 我们首先来研究两个最简单的类Point和 Rect\类的源码，然后进阶学习Mat类的源码。通过研究这些类的源码，来了解C++的一些语言特性，一来可以熟悉C++（C++需要不断练习）；二来可以学习类设计的精华，以便自己以后再设计一个类的时候应该怎么写。 我们第一个要研究的类是Point_，它是一个2维空间的Point模板类。">
-<meta property="og:updated_time" content="2017-08-27T15:07:48.000Z">
+<meta property="og:description" content="最近想完成一个心愿，就是写一下通过学习研究OpneCV的源码来学习C++。 我们首先来研究两个最简单的类Point和 Rect\类的源码，然后进阶学习Mat类的源码。通过研究这些类的源码，来了解C++的一些语言特性，一来可以熟悉C++（C++需要不断练习）；二来可以学习类设计的精华，以便自己以后再设计一个类的时候应该怎么写。">
+<meta property="og:updated_time" content="2017-11-28T15:41:32.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Using-OpenCV-to-Learn-CPP">
-<meta name="twitter:description" content="最近想完成一个心愿，就是写一下通过学习研究OpneCV的源码来学习C++。 我们首先来研究两个最简单的类Point和 Rect\类的源码，然后进阶学习Mat类的源码。通过研究这些类的源码，来了解C++的一些语言特性，一来可以熟悉C++（C++需要不断练习）；二来可以学习类设计的精华，以便自己以后再设计一个类的时候应该怎么写。 我们第一个要研究的类是Point_，它是一个2维空间的Point模板类。">
+<meta name="twitter:title" content="Using OpenCV to Learn CPP">
+<meta name="twitter:description" content="最近想完成一个心愿，就是写一下通过学习研究OpneCV的源码来学习C++。 我们首先来研究两个最简单的类Point和 Rect\类的源码，然后进阶学习Mat类的源码。通过研究这些类的源码，来了解C++的一些语言特性，一来可以熟悉C++（C++需要不断练习）；二来可以学习类设计的精华，以便自己以后再设计一个类的时候应该怎么写。">
   
     <link rel="alternate" href="/atom.xml" title="" type="application/atom+xml">
   
@@ -87,10 +90,8 @@
             </button>
 
             
-              <a class="brand" style="
-                 margin-top: 0px;"  
-                href="#" data-toggle="modal" data-target="#myModal" >
-                  <img width="124px" height="124px" alt="Hike News" src="/css/images/mylogo.jpg">
+              <a class="brand" style="border-width: 0;">
+                <p></p>
               </a>
             
             
@@ -166,7 +167,7 @@
         
   
     <h1 class="thumb" class="article-title" itemprop="name">
-      Using-OpenCV-to-Learn-CPP
+      Using OpenCV to Learn CPP
     </h1>
   
 
@@ -179,6 +180,8 @@
 	</a>
 
       
+    <a class="article-category-link" href="/categories/OpenCV/">OpenCV</a><a class="article-category-link" href="/categories/OpenCV/CPP/">CPP</a>
+
       
 	<a class="article-views">
 	<span id="busuanzi_container_page_pv">
@@ -191,6 +194,7 @@
       
         <p>最近想完成一个心愿，就是写一下通过学习研究OpneCV的源码来学习C++。</p>
 <p>我们首先来研究两个最简单的类Point<em>和 Rect\</em>类的源码，然后进阶学习Mat类的源码。通过研究这些类的源码，来了解C++的一些语言特性，一来可以熟悉C++（C++需要不断练习）；二来可以学习类设计的精华，以便自己以后再设计一个类的时候应该怎么写。</p>
+<a id="more"></a>
 <p><strong>我们第一个要研究的类是Point_，它是一个2维空间的Point模板类。</strong></p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> _Tp&gt; <span class="class"><span class="keyword">class</span> <span class="title">Point_</span></span></div><div class="line"><span class="class">&#123;</span></div><div class="line"><span class="keyword">public</span>:</div><div class="line">  <span class="keyword">typedef</span> _Tp value_type;</div><div class="line">  <span class="comment">//各种构造函数</span></div><div class="line">  Point_(); <span class="comment">//默认构造函数</span></div><div class="line">  Point_(_Tp x, _Tp y); <span class="comment">//常见的通过两个点的构造函数</span></div><div class="line">  Point_(<span class="keyword">const</span> Point_&amp; pt); <span class="comment">//拷贝构造函数</span></div><div class="line">  Point_(<span class="keyword">const</span> CvPoint&amp; pt); <span class="comment">//类型转换构造函数1</span></div><div class="line">  Point_(<span class="keyword">const</span> CvPoint2D32f&amp; pt); <span class="comment">//类型转换构造函数2</span></div><div class="line">  Point_(<span class="keyword">const</span> Size_&lt;Tp&gt;&amp; sz);  <span class="comment">//类型转换构造函数3</span></div><div class="line">  Point_(<span class="keyword">const</span> Vec_&lt;Tp, <span class="number">2</span>&gt;&amp; v);  <span class="comment">//类型转换构造函数4</span></div><div class="line">  </div><div class="line">  _Tp x, y; <span class="comment">//2维空间点的两个坐标</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h4 id="一个类最先要实现的肯定是各种各样的构造函数啦。"><a href="#一个类最先要实现的肯定是各种各样的构造函数啦。" class="headerlink" title="一个类最先要实现的肯定是各种各样的构造函数啦。"></a>一个类最先要实现的肯定是各种各样的构造函数啦。</h4><p>构造函数的任务是初始化类对象的数据成员，无论何时只要类的对象被创建，就会执行构造函数。</p>
@@ -282,17 +286,19 @@ var a = new Donate({
 
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CPP/">CPP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OpenCV/">OpenCV</a></li></ul>
+
     </footer>
   </div>
   
     
 <nav id="article-nav">
   
-    <a href="/2017/08/29/opencv-image-GeoTrans/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/09/26/expansion-quote-regex/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Neuer</strong>
       <div class="article-nav-title">
         
-          opencv-image-GeoTrans
+          Expansion Quote Regex
         
       </div>
     </a>
@@ -300,7 +306,7 @@ var a = new Donate({
   
     <a href="/2017/08/24/linux-I-O-redirection/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Älter</strong>
-      <div class="article-nav-title">linux-I/O-redirection</div>
+      <div class="article-nav-title">Linux I/O Redirection</div>
     </a>
   
 </nav>
@@ -328,7 +334,7 @@ var a = new Donate({
   <div class="container">
       	<div class="row">
 	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
-	      <p id="copyRightEn">Copyright &copy; 2013 - 2017 John Doe All Rights Reserved.</p>
+	      <p id="copyRightEn">Copyright &copy; 2013 - 2017  All Rights Reserved.</p>
 	      
 	      
     		<p class="busuanzi_uv">
@@ -482,7 +488,7 @@ var a = new Donate({
             
           </div>
           <div class="panel-body">
-            Copyright © 2017 John Doe All Rights Reserved.
+            Copyright © 2017  All Rights Reserved.
           </div>
         </div>
       </div>

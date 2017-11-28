@@ -11,7 +11,7 @@
   
   <meta property="og:type" content="website">
 <meta property="og:title">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:url" content="http://yoursite.com/page/2/index.html">
 <meta property="og:site_name">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title">
@@ -235,7 +235,7 @@
         
           <section id="main" style="float:none;">
   
-    <article id="post-c-cpp-struct"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-linux-I-O-redirection"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -243,7 +243,7 @@
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/10/29/c-cpp-struct/">c-cpp-struct</a>
+      <a class="article-title" href="/2017/08/24/linux-I-O-redirection/">Linux I/O Redirection</a>
     </h1>
   
 
@@ -251,160 +251,8 @@
     
     <div class="article-meta">
       
-	<a href="/2017/10/29/c-cpp-struct/" class="article-date">
-	  <time datetime="2017-10-29T11:20:43.000Z" itemprop="datePublished">2017-10-29</time>
-	</a>
-
-      
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="C和C-关于struct用法的不同"><a href="#C和C-关于struct用法的不同" class="headerlink" title="C和C++关于struct用法的不同"></a>C和C++关于struct用法的不同</h4><p>在C++中struct和class几乎没有区别，除了默认的类里面的变量或函数是public还是private的区别，到底哪个默认是public，我也懒得记了，每次写清楚就好了。</p>
-<p>所以在C++中struct就看做是class好了。但是在struct，准确的叫法是结构体。<strong>结构体是一种把数据项组合在一起的数据结构。</strong></p>
-<p>再来吐槽一下C/C++，C/C++的语法真的丑陋，语法让人产生多种理解，或难以理解与记忆。从stack overflow上相关问题的点赞数都可以看出来，大家对struct这个语法很不熟，这个语法就是比较丑陋，这个锅就应该C/C++背，谁TM叫你虐我千百遍。</p>
-<p>（<a href="https://stackoverflow.com/questions/612328/difference-between-struct-and-typedef-struct-in-c/612350#612350）" target="_blank" rel="external">https://stackoverflow.com/questions/612328/difference-between-struct-and-typedef-struct-in-c/612350#612350）</a></p>
-        <!-- C和C++关于struct用法的不同在C++中struct和class几乎没有区别，除了默认的类里面的变量或函数是public还是private的区别，到底哪个默认是public，我也懒得记了，每次写清楚就好了。
-所以在C++中struct就看做是class好了。但是在struct，准确的叫法是结构体。结构体是一种把数据项组合在一起的数据结构。
-再来吐槽一下C/C++，C/C++的语法真的丑......  -->
-        <p class="article-more-link">
-          <a href="/2017/10/29/c-cpp-struct/#more">weiter lesen</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-cpp-complicated-declaration"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/10/29/cpp-complicated-declaration/">cpp-complicated-declaration</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/10/29/cpp-complicated-declaration/" class="article-date">
-	  <time datetime="2017-10-29T05:11:38.000Z" itemprop="datePublished">2017-10-29</time>
-	</a>
-
-      
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="C-C-复杂的变量声明"><a href="#C-C-复杂的变量声明" class="headerlink" title="C/C++ 复杂的变量声明"></a>C/C++ 复杂的变量声明</h3><h4 id="读懂它"><a href="#读懂它" class="headerlink" title="读懂它"></a>读懂它</h4><p>​    C/C++虐我千百遍，我待C++如戴颖洁。</p>
-<p>​    C/C++最让我吐槽的地方，是它复杂的变量声明，变量声明可以说应该是最最最基础的东西，一个最最最基础的东西都这么复杂，这个确实不太合理，因为当你看代码，连一个声明都要看一半天，甚至拿着笔写一写来分析，会抓狂的。OK，吐槽完毕，最后当然是选择原谅C/C++啦。</p>
-<p>​    变量声明就是声明一个符号，及其对应的类型，类型有基本的内置类型，还有像数组这种派生类型，当然还有自己定义的各种类类型。类型就是某种数据结构吧。</p>
-<p>直接举例子来讲吧，下面这个声明是什么意思？</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">char</span> * <span class="keyword">const</span> * (*next) ();</div></pre></td></tr></table></figure>
-        <!-- C/C++ 复杂的变量声明读懂它​    C/C++虐我千百遍，我待C++如戴颖洁。
-​    C/C++最让我吐槽的地方，是它复杂的变量声明，变量声明可以说应该是最最最基础的东西，一个最最最基础的东西都这么复杂，这个确实不太合理，因为当你看代码，连一个声明都要看一半天，甚至拿着笔写一写来分析，会抓狂的。OK，吐槽完毕，最后当然是选择原谅C/C++啦。
-​    变量声明就是声明一个符号，及......  -->
-        <p class="article-more-link">
-          <a href="/2017/10/29/cpp-complicated-declaration/#more">weiter lesen</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-extern-C"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/10/29/extern-C/">extern-C</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/10/29/extern-C/" class="article-date">
-	  <time datetime="2017-10-29T00:52:03.000Z" itemprop="datePublished">2017-10-29</time>
-	</a>
-
-      
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Problem: </p>
-<p>In C++ source, what is the effect of extern “C”?</p>
-<p>Real problem: In the project of dual camera bokeh, the api.h header file use the extern C.</p>
-<p>Stack overflow: <a href="https://stackoverflow.com/questions/1041866/in-c-source-what-is-the-effect-of-extern-c/1041880#1041880" target="_blank" rel="external">https://stackoverflow.com/questions/1041866/in-c-source-what-is-the-effect-of-extern-c/1041880#1041880</a></p>
-<h4 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h4><p>在用C++的项目源码中，经常会不可避免的会看到下面的代码：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> __cplusplus</span></div><div class="line"><span class="keyword">extern</span> <span class="string">"C"</span> &#123;</div><div class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></div><div class="line"> </div><div class="line"><span class="comment">/*...*/</span></div><div class="line"> </div><div class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> __cplusplus</span></div><div class="line">&#125;</div><div class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></div></pre></td></tr></table></figure>
-<p>它到底有什么用呢，你知道吗？而且这样的问题经常会出现在面试or笔试中。下面我就从以下几个方面来介绍它：</p>
-        <!-- Problem: 
-In C++ source, what is the effect of extern “C”?
-Real problem: In the project of dual camera bokeh, the api.h header file use the extern C.
-Stack overflow: https://stackoverflow.com/quest......  -->
-        <p class="article-more-link">
-          <a href="/2017/10/29/extern-C/#more">weiter lesen</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-expansion-quote-regex"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/09/26/expansion-quote-regex/">Expansion Quote Regex</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/09/26/expansion-quote-regex/" class="article-date">
-	  <time datetime="2017-09-26T12:32:04.000Z" itemprop="datePublished">2017-09-26</time>
+	<a href="/2017/08/24/linux-I-O-redirection/" class="article-date">
+	  <time datetime="2017-08-24T13:27:59.000Z" itemprop="datePublished">2017-08-24</time>
 	</a>
 
       
@@ -414,12 +262,10 @@ Stack overflow: https://stackoverflow.com/quest......  -->
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>There are three conception in linux that may confusing. They are expansion, quote and regex.</p>
-        <!-- There are three conception in linux that may confusing. They are expansion, quote and regex.
-
-Expansion:Each time you type a command line and press the enter key, bash performs several processes up......  -->
+        <p>In this lesson we are going to unleash what may be the coolest feature of the command line. It’s called I/O redirection. The “I/O” stands for input/output and with this facility you can redirect the input and output of commands to and from files.</p>
+        <!-- In this lesson we are going to unleash what may be the coolest feature of the command line. It’s called I/O redirection. The “I/O” stands for input/output and with this facility you can redirect th......  -->
         <p class="article-more-link">
-          <a href="/2017/09/26/expansion-quote-regex/#more">weiter lesen</a>
+          <a href="/2017/08/24/linux-I-O-redirection/#more">weiter lesen</a>
         </p>
       
     </div>
@@ -437,7 +283,7 @@ Expansion:Each time you type a command line and press the enter key, bash perfor
 <!-- Table of Contents -->
 
   
-    <article id="post-Using-OpenCV-to-Learn-CPP"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-hello-world"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -445,7 +291,7 @@ Expansion:Each time you type a command line and press the enter key, bash perfor
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/08/25/Using-OpenCV-to-Learn-CPP/">Using OpenCV to Learn CPP</a>
+      <a class="article-title" href="/2017/07/30/hello-world/">Hello World</a>
     </h1>
   
 
@@ -453,34 +299,31 @@ Expansion:Each time you type a command line and press the enter key, bash perfor
     
     <div class="article-meta">
       
-	<a href="/2017/08/25/Using-OpenCV-to-Learn-CPP/" class="article-date">
-	  <time datetime="2017-08-25T07:43:15.000Z" itemprop="datePublished">2017-08-25</time>
+	<a href="/2017/07/30/hello-world/" class="article-date">
+	  <time datetime="2017-07-30T11:51:53.000Z" itemprop="datePublished">2017-07-30</time>
 	</a>
 
       
-    <a class="article-category-link" href="/categories/OpenCV/">OpenCV</a><a class="article-category-link" href="/categories/OpenCV/CPP/">CPP</a>
-
       
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>最近想完成一个心愿，就是写一下通过学习研究OpneCV的源码来学习C++。</p>
-<p>我们首先来研究两个最简单的类Point<em>和 Rect\</em>类的源码，然后进阶学习Mat类的源码。通过研究这些类的源码，来了解C++的一些语言特性，一来可以熟悉C++（C++需要不断练习）；二来可以学习类设计的精华，以便自己以后再设计一个类的时候应该怎么写。</p>
-        <!-- 最近想完成一个心愿，就是写一下通过学习研究OpneCV的源码来学习C++。
-我们首先来研究两个最简单的类Point和 Rect\类的源码，然后进阶学习Mat类的源码。通过研究这些类的源码，来了解C++的一些语言特性，一来可以熟悉C++（C++需要不断练习）；二来可以学习类设计的精华，以便自己以后再设计一个类的时候应该怎么写。
+        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
 
-我们第一个要研究的类是Point_，它是一个2维空间的Point......  -->
-        <p class="article-more-link">
-          <a href="/2017/08/25/Using-OpenCV-to-Learn-CPP/#more">weiter lesen</a>
-        </p>
       
     </div>
     <footer class="article-footer">
       
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CPP/">CPP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OpenCV/">OpenCV</a></li></ul>
-
     </footer>
   </div>
   
@@ -493,7 +336,7 @@ Expansion:Each time you type a command line and press the enter key, bash perfor
 
   <nav id="page-nav">
     
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">weiter &raquo;</a>
+    <a class="extend prev" rel="prev" href="/">&laquo; zurück</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
   </nav>
 
 </section>

@@ -20,7 +20,7 @@
 <meta property="og:image" content="http://yoursite.com/2017/10/29/extern-C/extern-C/pictures/屏幕快照%202017-10-29%20上午9.36.56.png">
 <meta property="og:image" content="http://yoursite.com/2017/10/29/extern-C/extern-C/pictures/Collage_Fotor.jpg">
 <meta property="og:image" content="http://yoursite.com/2017/10/29/extern-C/extern-C/pictures/屏幕快照%202017-10-29%20上午9.42.09.png">
-<meta property="og:updated_time" content="2017-10-29T03:11:13.000Z">
+<meta property="og:updated_time" content="2017-11-28T15:21:58.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="extern-C">
 <meta name="twitter:description" content="Problem:  In C++ source, what is the effect of extern “C”? Real problem: In the project of dual camera bokeh, the api.h header file use the extern C. Stack overflow: https://stackoverflow.com/question">
@@ -93,10 +93,8 @@
             </button>
 
             
-              <a class="brand" style="
-                 margin-top: 0px;"  
-                href="#" data-toggle="modal" data-target="#myModal" >
-                  <img width="124px" height="124px" alt="Hike News" src="/css/images/mylogo.jpg">
+              <a class="brand" style="border-width: 0;">
+                <p></p>
               </a>
             
             
@@ -202,6 +200,7 @@
 <h4 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h4><p>在用C++的项目源码中，经常会不可避免的会看到下面的代码：</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> __cplusplus</span></div><div class="line"><span class="keyword">extern</span> <span class="string">"C"</span> &#123;</div><div class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></div><div class="line"> </div><div class="line"><span class="comment">/*...*/</span></div><div class="line"> </div><div class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> __cplusplus</span></div><div class="line">&#125;</div><div class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></div></pre></td></tr></table></figure>
 <p>它到底有什么用呢，你知道吗？而且这样的问题经常会出现在面试or笔试中。下面我就从以下几个方面来介绍它：</p>
+<a id="more"></a>
 <ul>
 <li>1、#ifdef _cplusplus/#endif _cplusplus及发散</li>
 <li>2、extern “C”<ul>
@@ -352,7 +351,7 @@ var a = new Donate({
   
     <a href="/2017/09/26/expansion-quote-regex/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Älter</strong>
-      <div class="article-nav-title">expansion-quote-regex</div>
+      <div class="article-nav-title">Expansion Quote Regex</div>
     </a>
   
 </nav>
@@ -380,7 +379,7 @@ var a = new Donate({
   <div class="container">
       	<div class="row">
 	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
-	      <p id="copyRightEn">Copyright &copy; 2013 - 2017 John Doe All Rights Reserved.</p>
+	      <p id="copyRightEn">Copyright &copy; 2013 - 2017  All Rights Reserved.</p>
 	      
 	      
     		<p class="busuanzi_uv">
@@ -534,7 +533,7 @@ var a = new Donate({
             
           </div>
           <div class="panel-body">
-            Copyright © 2017 John Doe All Rights Reserved.
+            Copyright © 2017  All Rights Reserved.
           </div>
         </div>
       </div>
