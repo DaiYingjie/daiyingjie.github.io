@@ -19,16 +19,16 @@
 <meta property="og:site_name">
 <meta property="og:description" content="Introduce the problem:  In C++ source, what is the effect of extern “C”? Stack overflow: https://stackoverflow.com/questions/1041866/in-c-source-what-is-the-effect-of-extern-c/1041880#1041880 在用C++的项目">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="http://yoursite.com/2017/10/29/extern-C/extern-C/pictures/img0.jpg">
-<meta property="og:image" content="http://yoursite.com/2017/10/29/extern-C/extern-C/pictures/img1.jpg">
-<meta property="og:image" content="http://yoursite.com/2017/10/29/extern-C/extern-C/pictures/img2.jpg">
-<meta property="og:image" content="http://yoursite.com/2017/10/29/extern-C/extern-C/pictures/img3.jpg">
-<meta property="og:image" content="http://yoursite.com/2017/10/29/extern-C/extern-C/pictures/img4.jpg">
-<meta property="og:updated_time" content="2017-12-02T04:30:34.000Z">
+<meta property="og:image" content="https://daiyingjie.github.io/2017/10/29/extern-C/pictures/img0.jpg">
+<meta property="og:image" content="https://daiyingjie.github.io/2017/10/29/extern-C/pictures/img1.jpg">
+<meta property="og:image" content="https://daiyingjie.github.io/2017/10/29/extern-C/pictures/img2.jpg">
+<meta property="og:image" content="https://daiyingjie.github.io/2017/10/29/extern-C/pictures/img3.jpg">
+<meta property="og:image" content="https://daiyingjie.github.io/2017/10/29/extern-C/pictures/img4.jpg">
+<meta property="og:updated_time" content="2017-12-02T04:37:22.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="extern “C”">
 <meta name="twitter:description" content="Introduce the problem:  In C++ source, what is the effect of extern “C”? Stack overflow: https://stackoverflow.com/questions/1041866/in-c-source-what-is-the-effect-of-extern-c/1041880#1041880 在用C++的项目">
-<meta name="twitter:image" content="http://yoursite.com/2017/10/29/extern-C/extern-C/pictures/img0.jpg">
+<meta name="twitter:image" content="https://daiyingjie.github.io/2017/10/29/extern-C/pictures/img0.jpg">
   
     <link rel="alternate" href="/atom.xml" title="" type="application/atom+xml">
   
@@ -255,21 +255,21 @@
 <figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//math.h</span></div><div class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> MATH_H</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> MATH_H</span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> y)</span></span>;</div><div class="line"><span class="function"><span class="keyword">long</span> <span class="keyword">long</span> <span class="title">power</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> n)</span></span>;</div><div class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></div></pre></td></tr></table></figure>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//math.c</span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"math.h"</span></span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span></span>&#123;</div><div class="line">  <span class="keyword">return</span> x+y;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">long</span> <span class="keyword">long</span> <span class="title">power</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> n)</span></span>&#123;</div><div class="line">  <span class="keyword">long</span> <span class="keyword">long</span> result = <span class="number">1</span>;</div><div class="line">  <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</div><div class="line">    result *= x;</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> result;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//cpp_proj.cpp</span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;math.h&gt;</span></span></div><div class="line"><span class="meta">#incluse <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">  <span class="keyword">int</span> a = add(<span class="number">2</span>, <span class="number">5</span>);</div><div class="line">  <span class="keyword">int</span> b = power(<span class="number">2</span>, <span class="number">5</span>);  </div><div class="line">  <span class="built_in">cout</span> &lt;&lt; <span class="string">"add(2, 5) is: "</span> &lt;&lt; a &lt;&lt; <span class="built_in">endl</span>;</div><div class="line">  <span class="built_in">cout</span> &lt;&lt; <span class="string">"power(2, 5) is: "</span> &lt;&lt; b &lt;&lt; <span class="built_in">endl</span>;</div><div class="line">  <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><img src="./extern-C/pictures/img0.jpg" alt="屏幕快照 2017-10-29 上午9.27.22"></p>
+<p><img src="https://daiyingjie.github.io/2017/10/29/extern-C/pictures/img0.jpg" alt="屏幕快照 2017-10-29 上午9.27.22"></p>
 <p>既然说是调用C，那么math.c肯定得用gcc来编译。用gcc编译math.c成动态库libmath.so，然后用nm来查看此库。发现_add 和 _power两个函数符号。</p>
 <p>（nm的输出的意义，参考：<a href="http://www.cnblogs.com/itech/archive/2012/09/16/2687423.html）" target="_blank" rel="external">http://www.cnblogs.com/itech/archive/2012/09/16/2687423.html）</a></p>
 <p>下面来编译cpp_proj.cpp:</p>
-<p><img src="./extern-C/pictures/img1.jpg" alt="屏幕快照 2017-10-29 上午9.31.35"></p>
+<p><img src="https://daiyingjie.github.io/2017/10/29/extern-C/pictures/img1.jpg" alt="屏幕快照 2017-10-29 上午9.31.35"></p>
 <p>error: use of undeclared identifier ‘add’, ‘power’</p>
 <p>这种错误就是连接错误，找不到add, power函数的定义。我们的add是我们自己定义的，这个函数不在默认库里面，所以我们要使用-l和-L参数来找到此函数。但是还是报同样的错误。所以问题就来了，为什么链接器找不到对应的函数了？我们明明给了对应的参数。</p>
 <p>下面我们将cpp_proj.cpp改为如下形式，然后就编译通过了！</p>
-<p><img src="./extern-C/pictures/img2.jpg" alt="屏幕快照 2017-10-29 上午9.36.56"></p>
+<p><img src="https://daiyingjie.github.io/2017/10/29/extern-C/pictures/img2.jpg" alt="屏幕快照 2017-10-29 上午9.36.56"></p>
 <p>为什么对cpp_proj.cpp加了extern “C”就可以了了？</p>
 <p>我们将改之前，没有加extern “C”的文件命名为cpp_proj.c；改之后的，加了extern “C”的命名为cpp_proj_externC.cpp。然后将它们编译成.o文件，再链接。对编译之后的.o文件使用nm命令分析：</p>
 <p>发现没有加extern “C”的cpp_proj.o的add和power两个函数被表示为了<strong>Z3addii 和 \</strong>Z5powerii；而加了extern “C”的cpp_proj_externC.o被表示为了_add 和 _power。</p>
 <p>因为libmath.so是C语言的库，我们用nm也可以看出来，它的add和power两个函数的表示符号为_add 和 _power。所以cpp_proj_externC.cpp可以编译通过而cpp_proj.cpp无法编译通过，因为在C的库libmath.so中根本就找不到<strong>Z3addii 和 \</strong>Z5powerii这两个符号。</p>
-<p><img src="./extern-C/pictures/img3.jpg" alt="Collage_Fotor"></p>
-<p><img src="./extern-C/pictures/img4.jpg" alt="屏幕快照 2017-10-29 上午9.40.16"></p>
+<p><img src="https://daiyingjie.github.io/2017/10/29/extern-C/pictures/img3.jpg" alt="Collage_Fotor"></p>
+<p><img src="https://daiyingjie.github.io/2017/10/29/extern-C/pictures/img4.jpg" alt="屏幕快照 2017-10-29 上午9.40.16"></p>
 <p><strong>所以这就是extern C的作用，很简单，表示它后面的符号是用C的编译和链接的方法来进行。目的是为了能让C++和C混合使用</strong></p>
 <h3 id="C中调用C-的代码"><a href="#C中调用C-的代码" class="headerlink" title="C中调用C++的代码"></a><strong>C中调用C++的代码</strong></h3><p>现在换成在C中调用C++的代码，这与在C++中调用C的代码<strong>形式有所不同</strong>，但是<strong>本质都是一样</strong>，都是为了混用，<strong>为了能找到对应的函数或变量符号</strong>。</p>
 <p>形式有不同是因为：<code>extern &quot;C&quot;</code>在C中是语法错误。所以当在C项目中调用C++的代码，是需要对C++的头文件进行修改，即加上extern C修饰，并要重新编译C++的库。</p>
