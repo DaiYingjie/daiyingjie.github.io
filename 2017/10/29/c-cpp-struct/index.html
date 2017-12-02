@@ -3,23 +3,26 @@
 <head>
   <meta charset="utf-8">
   
-  <title>c-cpp-struct | </title>
+  <title>c/c++ struct的用法 | </title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
+  <meta name="keywords" content="C/C++struct" />
   
   
   
-  <meta name="description" content="C和C++关于struct用法的不同在C++中struct和class几乎没有区别，除了默认的类里面的变量或函数是public还是private的区别，到底哪个默认是public，我也懒得记了，每次写清楚就好了。 所以在C++中struct就看做是class好了。但是在struct，准确的叫法是结构体。结构体是一种把数据项组合在一起的数据结构。 再来吐槽一下C/C++，C/C++的语法真的丑陋，语">
+  
+  <meta name="description" content="在C++中struct和class几乎没有区别，除了默认的类里面的变量或函数是public还是private的区别，到底哪个默认是public，我也懒得记了，每次写清楚就好了。所以在C++中struct就看做是class好了。但是在C中，struct准确的叫法是结构体，它准确的定义是：结构体是一种把数据项组合在一起的数据结构。它和C++中的struct的用法（或者说class的用法）还有有些许差别">
+<meta name="keywords" content="C&#x2F;C++,struct">
 <meta property="og:type" content="article">
-<meta property="og:title" content="c-cpp-struct">
+<meta property="og:title" content="C&#x2F;C++ struct的用法">
 <meta property="og:url" content="http://yoursite.com/2017/10/29/c-cpp-struct/index.html">
 <meta property="og:site_name">
-<meta property="og:description" content="C和C++关于struct用法的不同在C++中struct和class几乎没有区别，除了默认的类里面的变量或函数是public还是private的区别，到底哪个默认是public，我也懒得记了，每次写清楚就好了。 所以在C++中struct就看做是class好了。但是在struct，准确的叫法是结构体。结构体是一种把数据项组合在一起的数据结构。 再来吐槽一下C/C++，C/C++的语法真的丑陋，语">
+<meta property="og:description" content="在C++中struct和class几乎没有区别，除了默认的类里面的变量或函数是public还是private的区别，到底哪个默认是public，我也懒得记了，每次写清楚就好了。所以在C++中struct就看做是class好了。但是在C中，struct准确的叫法是结构体，它准确的定义是：结构体是一种把数据项组合在一起的数据结构。它和C++中的struct的用法（或者说class的用法）还有有些许差别">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2017-11-27T14:32:21.000Z">
+<meta property="og:updated_time" content="2017-12-02T03:33:53.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="c-cpp-struct">
-<meta name="twitter:description" content="C和C++关于struct用法的不同在C++中struct和class几乎没有区别，除了默认的类里面的变量或函数是public还是private的区别，到底哪个默认是public，我也懒得记了，每次写清楚就好了。 所以在C++中struct就看做是class好了。但是在struct，准确的叫法是结构体。结构体是一种把数据项组合在一起的数据结构。 再来吐槽一下C/C++，C/C++的语法真的丑陋，语">
+<meta name="twitter:title" content="C&#x2F;C++ struct的用法">
+<meta name="twitter:description" content="在C++中struct和class几乎没有区别，除了默认的类里面的变量或函数是public还是private的区别，到底哪个默认是public，我也懒得记了，每次写清楚就好了。所以在C++中struct就看做是class好了。但是在C中，struct准确的叫法是结构体，它准确的定义是：结构体是一种把数据项组合在一起的数据结构。它和C++中的struct的用法（或者说class的用法）还有有些许差别">
   
     <link rel="alternate" href="/atom.xml" title="" type="application/atom+xml">
   
@@ -165,7 +168,7 @@
         
   
     <h1 class="thumb" class="article-title" itemprop="name">
-      c-cpp-struct
+      C/C++ struct的用法
     </h1>
   
 
@@ -178,6 +181,8 @@
 	</a>
 
       
+    <a class="article-category-link" href="/categories/C-C/">C/C++</a>
+
       
 	<a class="article-views">
 	<span id="busuanzi_container_page_pv">
@@ -188,12 +193,10 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="C和C-关于struct用法的不同"><a href="#C和C-关于struct用法的不同" class="headerlink" title="C和C++关于struct用法的不同"></a>C和C++关于struct用法的不同</h4><p>在C++中struct和class几乎没有区别，除了默认的类里面的变量或函数是public还是private的区别，到底哪个默认是public，我也懒得记了，每次写清楚就好了。</p>
-<p>所以在C++中struct就看做是class好了。但是在struct，准确的叫法是结构体。<strong>结构体是一种把数据项组合在一起的数据结构。</strong></p>
-<p>再来吐槽一下C/C++，C/C++的语法真的丑陋，语法让人产生多种理解，或难以理解与记忆。从stack overflow上相关问题的点赞数都可以看出来，大家对struct这个语法很不熟，这个语法就是比较丑陋，这个锅就应该C/C++背，谁TM叫你虐我千百遍。</p>
-<p>（<a href="https://stackoverflow.com/questions/612328/difference-between-struct-and-typedef-struct-in-c/612350#612350）" target="_blank" rel="external">https://stackoverflow.com/questions/612328/difference-between-struct-and-typedef-struct-in-c/612350#612350）</a></p>
+        <p>在C++中struct和class几乎没有区别，除了默认的类里面的变量或函数是public还是private的区别，到底哪个默认是public，我也懒得记了，每次写清楚就好了。所以在C++中struct就看做是class好了。但是在C中，struct准确的叫法是结构体，它准确的定义是：<strong>结构体是一种把数据项组合在一起的数据结构。</strong>它和C++中的struct的用法（或者说class的用法）还有有些许差别的。</p>
+<p>再来吐槽一下C/C++，C/C++的语法真的丑陋，语法让人产生多种理解，或难以理解与记忆。从stack overflow上相关问题的点赞数都可以看出来，大家对struct这个语法很不熟，这个语法就是比较丑陋，这个锅就应该C/C++背，谁TM叫你虐我千百遍。下面就是stack overflow上的一个关于struct的问题链接。（<a href="https://stackoverflow.com/questions/612328/difference-between-struct-and-typedef-struct-in-c/612350#612350）" target="_blank" rel="external">https://stackoverflow.com/questions/612328/difference-between-struct-and-typedef-struct-in-c/612350#612350）</a></p>
 <a id="more"></a>
-<p>关键字struct引入结构声明。结构声明是由花括号内的一系列声明组成。</p>
+<h4 id="C中strcut的用法"><a href="#C中strcut的用法" class="headerlink" title="C中strcut的用法"></a>C中strcut的用法</h4><p>在C中，关键字struct引入结构声明。结构声明是由花括号内的一系列声明组成。</p>
 <p>struct声明定义了一种数据结构。在标志结构成员表结束的右花括号之后可以跟一个变量表，就像其他基本类型的变量声明一样。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">struct</span> &#123;</span></div><div class="line">  <span class="keyword">int</span> x;</div><div class="line">  <span class="keyword">int</span> y;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">struct</span> &#123;</span></div><div class="line">  <span class="keyword">int</span> x;</div><div class="line">  <span class="keyword">int</span> y;</div><div class="line">&#125; pt1, pt2;</div></pre></td></tr></table></figure>
 <p>当然这样写一大堆东西比较麻烦，就有了一个叫做<strong>结构标记</strong>的东西，它是optional，放在struct关键字后面。<strong>结构标记</strong>就代表花括号内的声明，可以用它作为该声明的简写形式（K&amp;R C的原话）。</p>
@@ -212,19 +215,19 @@
 <p>Pint_type才是“变量名”，Point是可选的<strong>结构标记</strong>。</p>
 <p>以后你可以有两种方法来声明结构的变量了。一种是使用<strong>结构标记</strong>，一种是typedef引入的别名。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Point</span> <span class="title">p1</span>;</span></div><div class="line">Point_type p2;</div></pre></td></tr></table></figure>
+<h4 id="什么情况下会出现混淆"><a href="#什么情况下会出现混淆" class="headerlink" title="什么情况下会出现混淆"></a>什么情况下会出现混淆</h4><p>当你在C中如果用下面的方式来使用struct的时候，就可能发生confusing。</p>
 <p>情况1. 当你把上面的Point_type类型别名和Point<strong>结构标记</strong>写成同一个名字的时候，</p>
 <p>情况2. 当你把结构标记和变量声明写成同一个名字的时候，</p>
-<p>就可能发生confused。</p>
 <p>例如：</p>
 <p>情况1.引入了别名fruit和结构标记fruit</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">fruit</span>&#123;</span></div><div class="line">  <span class="keyword">float</span> weight;</div><div class="line">  <span class="keyword">float</span> price_per_kg;</div><div class="line">&#125; fruit;</div></pre></td></tr></table></figure>
 <p>情况2.引入了结构标记vegetable和声明了变量vegetable</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">vegetable</span>&#123;</span></div><div class="line">  <span class="keyword">float</span> weight;</div><div class="line">  <span class="keyword">float</span> price_per_kg;</div><div class="line">&#125; vegetable;</div></pre></td></tr></table></figure>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">fruit</span> <span class="title">orange</span>;</span> <span class="comment">//使用结构标记fruit</span></div><div class="line">fruit orange; <span class="comment">//使用类型别名fruit</span></div><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">vegetable</span> <span class="title">potato</span>;</span> <span class="comment">//使用结构标记vegetable</span></div><div class="line">vegetable potato; <span class="comment">// 错误！！！</span></div></pre></td></tr></table></figure>
-<p>当有了C++时，confused进一步来了。</p>
+<p>当有了C++时，confusing进一步来了。</p>
 <p>上面的情况2在C++中可以这样写</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">vegetable</span>&#123;</span></div><div class="line">  <span class="keyword">float</span> weight;</div><div class="line">  <span class="keyword">float</span> price_per_kg;</div><div class="line">&#125;;</div><div class="line">vegetable potato;</div></pre></td></tr></table></figure>
-<p>这时候vegetable就不是一个结构标记了，就是一个类型了。所以可以使用类型名来声明一个对象potato了。</p>
+<p>这时候vegetable就不是一个结构标记了，就是一个类型了。所以这时就可以使用类型名来声明一个对象potato了。</p>
 
       
     </div>
@@ -270,6 +273,8 @@ var a = new Donate({
 
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-C/">C/C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/struct/">struct</a></li></ul>
+
     </footer>
   </div>
   
@@ -279,7 +284,7 @@ var a = new Donate({
   
     <a href="/2017/10/29/cpp-complicated-declaration/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">cpp-complicated-declaration</div>
+      <div class="article-nav-title">C/C++ 复杂的变量声明</div>
     </a>
   
 </nav>
@@ -293,7 +298,7 @@ var a = new Donate({
     <div id="toc" class="toc-article">
     <strong class="toc-title">Contents</strong>
     
-        <ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#C和C-关于struct用法的不同"><span class="nav-number">1.</span> <span class="nav-text">C和C++关于struct用法的不同</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#C中strcut的用法"><span class="nav-number">1.</span> <span class="nav-text">C中strcut的用法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#什么情况下会出现混淆"><span class="nav-number">2.</span> <span class="nav-text">什么情况下会出现混淆</span></a></li></ol>
     
     </div>
   </aside>
