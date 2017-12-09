@@ -157,13 +157,16 @@
     
 
     
-      <div id="homelogo" class="homelogo"> 
+      <div id="homelogo" class="homelogo" style="background: rgba(255,255,255,1);"> 
     
 
         
-          
-            <img id="homelogoimg" src="/css/images/null.jpg" >
-          
+          <div class="homelogoback"  style="border: 1px solid #404040;" >
+            <h1><a href="#content" id="logo"></a></h1>
+            <h3></h3>
+            <h5></h5>
+            <!-- <p><a href="https://github.com/iTimeTraveler" target="_blank">Github</a></p> -->
+          </div>
         
     
     </div>
@@ -175,17 +178,14 @@
  <!-- home_logo_image居中 -->
  
     <script>
-        var img = new Image();
         var homelogodiv = document.getElementById("homelogo");
-        img.src = document.getElementById("homelogoimg").src;
-        img.onload=function(){
-          if (img.width > document.body.clientWidth) {
-            document.getElementById("homelogoimg").style.width = document.body.clientWidth + "px";
-            homelogodiv.style.marginLeft = document.body.clientWidth * -0.5 + "px";
-          } else {
-            homelogodiv.style.marginLeft = img.width * -0.5 + "px";
-          }
-        };
+        if (document.all.homelogo.offsetWidth > document.body.clientWidth) {
+          homelogodiv.style.width = document.body.clientWidth + "px";
+          homelogodiv.style.marginLeft = document.body.clientWidth * -0.5 + "px";
+        } else {
+          homelogodiv.style.width = homelogodiv.clientWidth  + "px";
+          homelogodiv.style.marginLeft = (homelogodiv.clientWidth)  * -0.5 + "px";
+        }
     </script>
   
 
@@ -214,6 +214,119 @@
       <div id="content" class="outer">
         
           <section id="main" style="float:none;">
+  
+    <article id="post-coursera-curriculum"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/11/01/coursera-curriculum/">Coursera Curriculum</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/11/01/coursera-curriculum/" class="article-date">
+	  <time datetime="2017-11-01T11:20:43.000Z" itemprop="datePublished">2017-11-01</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/Coursera-Curriculum/">Coursera-Curriculum</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>CS 101:</strong></p>
+<p>Course: Build a Modern Computer from First Principles: From Nand to Tetris Part I</p>
+<p>University: Hebrew University of Jerusalem</p>
+<p>Mentor: <a href="https://www.coursera.org/instructor/shimon" target="_blank" rel="external">Shimon Schocken</a>, <a href="https://www.coursera.org/instructor/noamnisan" target="_blank" rel="external">Noam Nisan</a></p>
+<p>Long: 6 weeks</p>
+<p>Homepage: <a href="https://www.coursera.org/learn/build-a-computer/home/welcome" target="_blank" rel="external">https://www.coursera.org/learn/build-a-computer/home/welcome</a></p>
+<p><strong>CS 102: </strong></p>
+<p>Course: Build a Modern Computer from First Principles: From Nand to Tetris Part II</p>
+<p>University: Hebrew University of Jerusalem</p>
+<p>Mentor: <a href="https://www.coursera.org/instructor/shimon" target="_blank" rel="external">Shimon Schocken</a> </p>
+<p>Long: 7 weeks</p>
+<p>Homepage: <a href="https://www.coursera.org/learn/nand2tetris2/home/info" target="_blank" rel="external">https://www.coursera.org/learn/nand2tetris2/home/info</a></p>
+        <!-- CS 101:
+Course: Build a Modern Computer from First Principles: From Nand to Tetris Part I
+University: Hebrew University of Jerusalem
+Mentor: Shimon Schocken, Noam Nisan
+Long: 6 weeks
+Homepage: http......  -->
+        <p class="article-more-link">
+          <a href="/2017/11/01/coursera-curriculum/#more">Read More</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Coursera/">Coursera</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-coursera-cs101-week1"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/10/30/coursera-cs101-week1/">Coursera CS101 Week 1</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/10/30/coursera-cs101-week1/" class="article-date">
+	  <time datetime="2017-10-30T11:20:43.000Z" itemprop="datePublished">2017-10-30</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/Coursera-CS101/">Coursera-CS101</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在C++中struct和class几乎没有区别，除了默认的类里面的变量或函数是public还是private的区别，到底哪个默认是public，我也懒得记了，每次写清楚就好了。所以在C++中struct就看做是class好了。但是在C中，struct准确的叫法是结构体，它准确的定义是：<strong>结构体是一种把数据项组合在一起的数据结构。</strong>它和C++中的struct的用法（或者说class的用法）还有有些许差别的。</p>
+<p>再来吐槽一下C/C++，C/C++的语法真的丑陋，语法让人产生多种理解，或难以理解与记忆。从stack overflow上相关问题的点赞数都可以看出来，大家对struct这个语法很不熟，这个语法就是比较丑陋，这个锅就应该C/C++背，谁TM叫你虐我千百遍。下面就是stack overflow上的一个关于struct的问题链接。（<a href="https://stackoverflow.com/questions/612328/difference-between-struct-and-typedef-struct-in-c/612350#612350）" target="_blank" rel="external">https://stackoverflow.com/questions/612328/difference-between-struct-and-typedef-struct-in-c/612350#612350）</a></p>
+        <!-- 在C++中struct和class几乎没有区别，除了默认的类里面的变量或函数是public还是private的区别，到底哪个默认是public，我也懒得记了，每次写清楚就好了。所以在C++中struct就看做是class好了。但是在C中，struct准确的叫法是结构体，它准确的定义是：结构体是一种把数据项组合在一起的数据结构。它和C++中的struct的用法（或者说class的用法）还有有些......  -->
+        <p class="article-more-link">
+          <a href="/2017/10/30/coursera-cs101-week1/#more">Read More</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Coursera/">Coursera</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
   
     <article id="post-c-cpp-struct"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
@@ -366,108 +479,6 @@ Stack overflow: https://stackoverflow.com/questions/1041866/in-c-source-what-is-
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-C/">C/C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/extern-C/">extern "C"</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-expansion-quote-regex"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/09/26/expansion-quote-regex/">Expansion Quote Regex</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/09/26/expansion-quote-regex/" class="article-date">
-	  <time datetime="2017-09-26T12:32:04.000Z" itemprop="datePublished">2017-09-26</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/Linux/">Linux</a>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>There are three conception in linux that may confusing. They are expansion, quote and regex.</p>
-        <!-- There are three conception in linux that may confusing. They are expansion, quote and regex.
-
-Expansion:Each time you type a command line and press the enter key, bash performs several processes up......  -->
-        <p class="article-more-link">
-          <a href="/2017/09/26/expansion-quote-regex/#more">Read More</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-Using-OpenCV-to-Learn-CPP"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/08/25/Using-OpenCV-to-Learn-CPP/">Using OpenCV to Learn CPP</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/08/25/Using-OpenCV-to-Learn-CPP/" class="article-date">
-	  <time datetime="2017-08-25T07:43:15.000Z" itemprop="datePublished">2017-08-25</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/OpenCV/">OpenCV</a><a class="article-category-link" href="/categories/OpenCV/CPP/">CPP</a>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>最近想完成一个心愿，就是写一下通过学习研究OpneCV的源码来学习C++。</p>
-<p>我们首先来研究两个最简单的类Point<em>和 Rect\</em>类的源码，然后进阶学习Mat类的源码。通过研究这些类的源码，来了解C++的一些语言特性，一来可以熟悉C++（C++需要不断练习）；二来可以学习类设计的精华，以便自己以后再设计一个类的时候应该怎么写。</p>
-        <!-- 最近想完成一个心愿，就是写一下通过学习研究OpneCV的源码来学习C++。
-我们首先来研究两个最简单的类Point和 Rect\类的源码，然后进阶学习Mat类的源码。通过研究这些类的源码，来了解C++的一些语言特性，一来可以熟悉C++（C++需要不断练习）；二来可以学习类设计的精华，以便自己以后再设计一个类的时候应该怎么写。
-
-我们第一个要研究的类是Point_，它是一个2维空间的Point......  -->
-        <p class="article-more-link">
-          <a href="/2017/08/25/Using-OpenCV-to-Learn-CPP/#more">Read More</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CPP/">CPP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OpenCV/">OpenCV</a></li></ul>
 
     </footer>
   </div>
