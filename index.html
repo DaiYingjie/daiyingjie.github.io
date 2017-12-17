@@ -157,16 +157,12 @@
     
 
     
-      <div id="homelogo" class="homelogo" style="background: rgba(255,255,255,1);"> 
+      <div id="homelogo" class="homelogo"> 
     
 
         
-          <div class="homelogoback"  style="border: 1px solid #404040;" >
-            <h1><a href="#content" id="logo"></a></h1>
-            <h3></h3>
-            <h5></h5>
-            <!-- <p><a href="https://github.com/iTimeTraveler" target="_blank">Github</a></p> -->
-          </div>
+          
+          
         
     
     </div>
@@ -178,14 +174,17 @@
  <!-- home_logo_image居中 -->
  
     <script>
+        var img = new Image();
         var homelogodiv = document.getElementById("homelogo");
-        if (document.all.homelogo.offsetWidth > document.body.clientWidth) {
-          homelogodiv.style.width = document.body.clientWidth + "px";
-          homelogodiv.style.marginLeft = document.body.clientWidth * -0.5 + "px";
-        } else {
-          homelogodiv.style.width = homelogodiv.clientWidth  + "px";
-          homelogodiv.style.marginLeft = (homelogodiv.clientWidth)  * -0.5 + "px";
-        }
+        img.src = document.getElementById("homelogoimg").src;
+        img.onload=function(){
+          if (img.width > document.body.clientWidth) {
+            document.getElementById("homelogoimg").style.width = document.body.clientWidth + "px";
+            homelogodiv.style.marginLeft = document.body.clientWidth * -0.5 + "px";
+          } else {
+            homelogodiv.style.marginLeft = img.width * -0.5 + "px";
+          }
+        };
     </script>
   
 
@@ -206,6 +205,7 @@
   </div>
 
 </header>
+
   
   <div id="container">
     <div id="wrap">
@@ -214,6 +214,59 @@
       <div id="content" class="outer">
         
           <section id="main" style="float:none;">
+  
+    <article id="post-book-reading"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/11/02/book-reading/">Book Reading</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/11/02/book-reading/" class="article-date">
+	  <time datetime="2017-11-02T11:20:43.000Z" itemprop="datePublished">2017-11-02</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/Book-Reading/">Book Reading</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="https://daiyingjie.github.io/imgs/mooc.jpg" alt=""></p>
+        <!-- 
+
+Computer ScienceCS101: Computer CompositionUniversity: Hebrew University of Jerusalem
+Mentor: Shimon Schocken, Noam Nisan
+CS101.1
+Course: Build a Modern Computer from First Principles: From Nand ......  -->
+        <p class="article-more-link">
+          <a href="/2017/11/02/book-reading/#more">Read More</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Book/">Book</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
   
     <article id="post-coursera-curriculum"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
@@ -245,10 +298,10 @@
         <p><img src="https://daiyingjie.github.io/imgs/mooc.jpg" alt=""></p>
         <!-- 
 
-Computer ScienceCS101.1Course: Build a Modern Computer from First Principles: From Nand to Tetris Part I
-University: Hebrew University of Jerusalem
+Computer ScienceCS101: Computer CompositionUniversity: Hebrew University of Jerusalem
 Mentor: Shimon Schocken, Noam Nisan
-Long: 6 wee......  -->
+CS101.1
+Course: Build a Modern Computer from First Principles: From Nand ......  -->
         <p class="article-more-link">
           <a href="/2017/11/01/coursera-curriculum/#more">Read More</a>
         </p>
@@ -407,62 +460,6 @@ Long: 6 wee......  -->
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-C/">C/C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/变量声明/">变量声明</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-extern-C"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/10/29/extern-C/">extern “C”</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/10/29/extern-C/" class="article-date">
-	  <time datetime="2017-10-29T00:52:03.000Z" itemprop="datePublished">2017-10-29</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/C-C/">C/C++</a>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Introduce the problem: </p>
-<p>In C++ source, what is the effect of extern “C”?</p>
-<p>Stack overflow: <a href="https://stackoverflow.com/questions/1041866/in-c-source-what-is-the-effect-of-extern-c/1041880#1041880" target="_blank" rel="external">https://stackoverflow.com/questions/1041866/in-c-source-what-is-the-effect-of-extern-c/1041880#1041880</a></p>
-<p>在用C++的项目源码中，经常会不可避免的会看到下面的代码：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> __cplusplus</span></div><div class="line"><span class="keyword">extern</span> <span class="string">"C"</span> &#123;</div><div class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></div><div class="line"> </div><div class="line"><span class="comment">/*...*/</span></div><div class="line"> </div><div class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> __cplusplus</span></div><div class="line">&#125;</div><div class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></div></pre></td></tr></table></figure>
-<p>它到底有什么用呢，你知道吗？而且这样的问题经常会出现在面试or笔试中。 如果你不知道是什么意思，点开Read More，我慢慢告诉你。</p>
-        <!-- Introduce the problem: 
-In C++ source, what is the effect of extern “C”?
-Stack overflow: https://stackoverflow.com/questions/1041866/in-c-source-what-is-the-effect-of-extern-c/1041880#1041880
-在用C++......  -->
-        <p class="article-more-link">
-          <a href="/2017/10/29/extern-C/#more">Read More</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-C/">C/C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/extern-C/">extern "C"</a></li></ul>
 
     </footer>
   </div>
