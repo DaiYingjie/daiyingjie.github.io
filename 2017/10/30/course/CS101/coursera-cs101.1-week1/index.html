@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>coursera cs101.1 week 1 | </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="Coursera" />
+  
+  
+  
+  
+  <meta name="description" content="In a nutshell: course introduction and overview, the roles of abstraction and implementation in systems design, the road ahead. Boolean Logic 布尔值：0，1  基本的布尔运算：与，或，非 x AND y, x OR y, NOT(x)  布尔表达式：由布尔值">
+<meta name="keywords" content="Coursera">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Coursera CS101.1 Week 1">
+<meta property="og:url" content="http://yoursite.com/2017/10/30/course/CS101/coursera-cs101.1-week1/index.html">
+<meta property="og:site_name">
+<meta property="og:description" content="In a nutshell: course introduction and overview, the roles of abstraction and implementation in systems design, the road ahead. Boolean Logic 布尔值：0，1  基本的布尔运算：与，或，非 x AND y, x OR y, NOT(x)  布尔表达式：由布尔值">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2017-12-17T13:19:02.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Coursera CS101.1 Week 1">
+<meta name="twitter:description" content="In a nutshell: course introduction and overview, the roles of abstraction and implementation in systems design, the road ahead. Boolean Logic 布尔值：0，1  基本的布尔运算：与，或，非 x AND y, x OR y, NOT(x)  布尔表达式：由布尔值">
+  
+    <link rel="alternate" href="/atom.xml" title="" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/css/images/d_Fotor.jpg">
+  <link rel="apple-touch-icon" href="/css/images/d_Fotor.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script src="/js/jquery-3.1.1.min.js"></script>
+  <script src="/js/bootstrap.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
+
+  
+    <link rel="stylesheet" href="/css/dialog.css">
+  
+
+  
+
+  
+    <link rel="stylesheet" href="/css/header-post.css" >
+  
+
+  
+  
+  
+    <link rel="stylesheet" href="/css/vdonate.css" >
+  
+
+</head>
+
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="border-width: 0;">
+                <p></p>
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="hnav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="/">Home</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/archives">Archives</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/categories">Categories</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/tags">Tags</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/about">About</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-course/CS101/coursera-cs101.1-week1" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      Coursera CS101.1 Week 1
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/10/30/course/CS101/coursera-cs101.1-week1/" class="article-date">
+	  <time datetime="2017-10-30T11:20:43.000Z" itemprop="datePublished">2017-10-30</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/Coursera-CS101-1/">Coursera-CS101.1</a>
+
+      
+	<a class="article-views">
+	<span id="busuanzi_container_page_pv">
+		PV:<span id="busuanzi_value_page_pv"></span>
+	</span>
+	</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>In a nutshell: </strong>course introduction and overview, the roles of abstraction and implementation in systems design, the road ahead.</p>
+<h1 id="Boolean-Logic"><a href="#Boolean-Logic" class="headerlink" title="Boolean Logic"></a>Boolean Logic</h1><ul>
+<li>布尔值：0，1</li>
+</ul>
+<p>基本的布尔运算：与，或，非</p>
+<p>x AND y, x OR y, NOT(x)</p>
+<ul>
+<li>布尔表达式：由布尔值和布尔运算符组成的表达式</li>
+</ul>
+<p>NOT(0 OR (1 AND 1)) = NOT(0 OR 1) = NOT 1 = 0</p>
+<ul>
+<li>布尔函数：</li>
+</ul>
+<p>f(x, y, z) = (x AND y) OR (NOT(x) AND z)</p>
+<p>真值表(Truth table)和公式(Formula)是两种不同但是等价的布尔函数的表达方式</p>
+<ul>
+<li>布尔运算性质：</li>
+</ul>
+<p>Commutative Laws:</p>
+<p>Associative Laws:</p>
+<p>Distributive Laws:</p>
+<p>De Morgan Laws: </p>
+<p>这些性质一般是为了简化布尔表达式的，例如：</p>
+<p>NOT(NOT(x) AND NOT(x OR y)) = De Morgan Law = NOT(NOT(x) AND (NOT(x) AND NOT(y))) = Associative Law =NOT((NOT(x) AND NOT(x)) AND NOT(y)) = Indempotence = NOT(NOT(x) AND NOT(y)) = De Morgan Law = NOT(NOT(x)) OR NOT(NOT(y)) = Double Negation = x OR y</p>
+<ul>
+<li>真值表与公式互推</li>
+</ul>
+<p>从公式推出真值表很简单，只需列出所有可能input，然后带入公式计算output。</p>
+<p>我们知道我们的unit要做什么（某种布尔函数），现在我们的任务就是将这个布尔函数用基本的运算（与、或、非）描述出来。所以，我们需要知道怎么样从真值表推理出布尔函数表达式：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">x</th>
+<th style="text-align:center">y</th>
+<th style="text-align:center">z</th>
+<th style="text-align:center">f</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+</tr>
+<tr>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+</tr>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+</tr>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+</tr>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+</tr>
+</tbody>
+</table>
+<p>方法：找到结果为1的行，然后将它们按下面的表达式写出来，然后简化</p>
+<p>NOT(x) AND NOT(y) AND NOT(z) OR</p>
+<p>NOT(x) AND y AND NOT(z) OR</p>
+<p>x AND NOT(y) AND NOT(z)<br>= (NOT(x) AND NOT(z)) OR (x AND NOT(y) AND NOT(z))</p>
+<p>= NOT(z) AND (NOT(x) OR NOT(y))</p>
+<ul>
+<li>布尔逻辑中的一个重要发现</li>
+</ul>
+<p>Any boolean funciton can be represented using an expression containing <strong>AND, OR, NOT</strong> operations.</p>
+<p>由于：</p>
+<p>x OR y = NOT( NOT(x) AND NOT(y) )</p>
+<p>所以可以改为：Any boolean funciton can be represented using an expression containing <strong>AND, NOT </strong>operations.</p>
+<p>Can we get less?</p>
+<p>有另外一个神奇的运算的存在：与非运算(NAND)</p>
+<p>x NAND y = NOT (x AND y), It gives 0 only if both its inputs are 1. </p>
+<p>又由于：</p>
+<p>NOT(x) = x NAND x</p>
+<p>x AND y = NOT(x NAND y) = (x NAND y) NAND (x NAND y)</p>
+<p><strong>So, if you have a NAND gate, you can computing everything!</strong></p>
+<h1 id="Logic-Gates"><a href="#Logic-Gates" class="headerlink" title="Logic Gates"></a>Logic Gates</h1><p>逻辑门其实就是布尔逻辑运算的物理实现</p>
+<p>最基础，最重要的逻辑门：与非门</p>
+<p>基础的逻辑门：与门，或门，非门</p>
+<p>组合门：有基础的逻辑门组合成的门，例如：加法门，乘法门</p>
+<h1 id="HDL-hardware-description-language"><a href="#HDL-hardware-description-language" class="headerlink" title="HDL: hardware description language"></a>HDL: hardware description language</h1><p>这门课并不会让你真的拿点洛铁，二极管来搭建一个真实的电脑。所有的操作都是在仿真环境下进行的，使用硬件描述语言（HDL）来完成的。只需要有最基础的与非门就可以实现一台功能完善的电脑。如第一章介绍的，就是使用与非门来实现基础的逻辑门，进一步实现各种组合门，再进一步实现各种功能器件（如内存，ALU等），在进一步实现一个Computer。</p>
+<p>我们以实现一个异或门为例，看看怎么使用HDL和与非门来实现这个新的门。</p>
+<ul>
+<li>HDL is a functional or declarative language. There is no procedure going on. There’s no program execution going on. It is nothing more than a static description of the gate diagram.</li>
+<li>The order of HDL statements is insignificant</li>
+<li>Before using a chip part, you must know its interface. For example: Not(in=, out=), And(a=, b=, out= ), Or(a=, b=, out= )</li>
+<li>Connections like partName(a=a,…) and partName(…, out=out) are common </li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div id="donation_div"></div>
+
+<script src="/js/vdonate.js"></script>
+<script>
+var a = new Donate({
+  title: '如果觉得我的文章对您有用，请随意打赏。您的支持将鼓励我继续创作!', // 可选参数，打赏标题
+  btnText: 'Donate', // 可选参数，打赏按钮文字
+  el: document.getElementById('donation_div'),
+  wechatImage: 'https://avatars1.githubusercontent.com/u/16939557?s=460&v=4',
+  alipayImage: 'https://avatars1.githubusercontent.com/u/16939557?s=460&v=4'
+});
+</script>
+      
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC8yOTQ4MS82MDQ5">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
+
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Coursera/">Coursera</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/11/01/course/coursera-curriculum/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Coursera Curriculum
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/10/29/cpp_common/c-cpp-struct/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">C/C++ struct的用法</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="toc-sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Contents</strong>
+    
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Boolean-Logic"><span class="nav-number">1.</span> <span class="nav-text">Boolean Logic</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Logic-Gates"><span class="nav-number">2.</span> <span class="nav-text">Logic Gates</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#HDL-hardware-description-language"><span class="nav-number">3.</span> <span class="nav-text">HDL: hardware description language</span></a></li></ol>
+    
+    </div>
+  </aside>
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2013 - 2018  All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				UV : <span id="busuanzi_value_site_uv"></span> |  
+				PV : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/scripts.js"></script>
+
+
+
+
+  <script src="/js/dialog.js"></script>
+
+
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            
+          </div>
+          <div class="panel-body">
+            Copyright © 2018  All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+    <a id="menu-switch"><i class="fa fa-bars fa-lg"></i></a>
+  
+</body>
+</html>

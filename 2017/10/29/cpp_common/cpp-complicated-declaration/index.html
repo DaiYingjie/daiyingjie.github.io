@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>c/c++ 复杂的变量声明 | </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="C/C++变量声明" />
+  
+  
+  
+  
+  <meta name="description" content="​    C/C++虐我千百遍，我待C++如颖洁。 ​    C/C++最让我吐槽的地方，是它复杂的变量声明，变量声明可以说应该是最最最基础的东西，一个最最最基础的东西都这么复杂，这个确实不太合理，因为当你看代码，连一个声明都要看一半天，甚至拿着笔写一写来分析，会抓狂的。OK，吐槽完毕，最后当然是选择原谅C/C++啦。 ​    变量声明就是声明一个符号，及其对应的类型，类型有基本的内置类型，还有">
+<meta name="keywords" content="C&#x2F;C++,变量声明">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C&#x2F;C++ 复杂的变量声明">
+<meta property="og:url" content="http://yoursite.com/2017/10/29/cpp_common/cpp-complicated-declaration/index.html">
+<meta property="og:site_name">
+<meta property="og:description" content="​    C/C++虐我千百遍，我待C++如颖洁。 ​    C/C++最让我吐槽的地方，是它复杂的变量声明，变量声明可以说应该是最最最基础的东西，一个最最最基础的东西都这么复杂，这个确实不太合理，因为当你看代码，连一个声明都要看一半天，甚至拿着笔写一写来分析，会抓狂的。OK，吐槽完毕，最后当然是选择原谅C/C++啦。 ​    变量声明就是声明一个符号，及其对应的类型，类型有基本的内置类型，还有">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2017-12-02T03:55:52.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="C&#x2F;C++ 复杂的变量声明">
+<meta name="twitter:description" content="​    C/C++虐我千百遍，我待C++如颖洁。 ​    C/C++最让我吐槽的地方，是它复杂的变量声明，变量声明可以说应该是最最最基础的东西，一个最最最基础的东西都这么复杂，这个确实不太合理，因为当你看代码，连一个声明都要看一半天，甚至拿着笔写一写来分析，会抓狂的。OK，吐槽完毕，最后当然是选择原谅C/C++啦。 ​    变量声明就是声明一个符号，及其对应的类型，类型有基本的内置类型，还有">
+  
+    <link rel="alternate" href="/atom.xml" title="" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/css/images/d_Fotor.jpg">
+  <link rel="apple-touch-icon" href="/css/images/d_Fotor.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script src="/js/jquery-3.1.1.min.js"></script>
+  <script src="/js/bootstrap.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
+
+  
+    <link rel="stylesheet" href="/css/dialog.css">
+  
+
+  
+
+  
+    <link rel="stylesheet" href="/css/header-post.css" >
+  
+
+  
+  
+  
+    <link rel="stylesheet" href="/css/vdonate.css" >
+  
+
+</head>
+
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="border-width: 0;">
+                <p></p>
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="hnav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="/">Home</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/archives">Archives</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/categories">Categories</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/tags">Tags</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/about">About</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-cpp_common/cpp-complicated-declaration" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      C/C++ 复杂的变量声明
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/10/29/cpp_common/cpp-complicated-declaration/" class="article-date">
+	  <time datetime="2017-10-29T05:11:38.000Z" itemprop="datePublished">2017-10-29</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/C-C/">C/C++</a>
+
+      
+	<a class="article-views">
+	<span id="busuanzi_container_page_pv">
+		PV:<span id="busuanzi_value_page_pv"></span>
+	</span>
+	</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>​    C/C++虐我千百遍，我待C++如颖洁。</p>
+<p>​    C/C++最让我吐槽的地方，是它复杂的变量声明，变量声明可以说应该是最最最基础的东西，一个最最最基础的东西都这么复杂，这个确实不太合理，因为当你看代码，连一个声明都要看一半天，甚至拿着笔写一写来分析，会抓狂的。OK，吐槽完毕，最后当然是选择原谅C/C++啦。</p>
+<p>​    变量声明就是声明一个符号，及其对应的类型，类型有基本的内置类型，还有像数组这种派生类型，当然还有自己定义的各种类类型。类型就是某种数据结构吧。</p>
+<p>​    直接举例子来讲吧，你知道下面这个声明是什么意思？</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">char</span> * <span class="keyword">const</span> * (*next) ();</div></pre></td></tr></table></figure>
+<p>​    如果你不知道是什么意思，点开Read More，我慢慢告诉你。</p>
+<a id="more"></a>
+<h4 id="ABC三步读懂变量声明法"><a href="#ABC三步读懂变量声明法" class="headerlink" title="ABC三步读懂变量声明法"></a>ABC三步读懂变量声明法</h4><p>我以<code>char * const * (*next)();</code>为例，一步一步讲解怎么读懂这个复杂的声明。</p>
+<p><strong>A 不管多复杂的变量声明，首先找到变量名。先不管const, volatile等关键字。</strong></p>
+<p>这个声明的变量名是next。去掉const之后，声明变成<code>char * * (*next)();</code></p>
+<p><strong>B 然后找到第一个基本内置类型，或类类型。</strong></p>
+<p>然后第一个基本内置类型是char，意思就是当变量next像声明那样写在表达式中的时候，其表示一个char类型的字符。即<code>* *(*next)()</code>在表达式中表示一个char字符。</p>
+<ul>
+<li><strong>C 然后按照优先级的顺序反向拆解这个表达</strong><ul>
+<li><strong>C. 1 括号的优先级第一</strong></li>
+<li><strong>C. 2 后缀操作符: 括号( )表示这是一个函数; 方括号[ ]表示这是一个数组</strong></li>
+<li><strong>C. 3 前缀操作符：星号*表示“指向…的指针”。</strong></li>
+</ul>
+</li>
+</ul>
+<p>所以对* *(*next)()这个表达进行分解：</p>
+<ol>
+<li><code>* *(*next)()</code>表示一个char字符，所以</li>
+<li><code>*(*next)()</code>就表示一个指针，指向char字符。</li>
+<li><code>(*next)()</code>就表示一个指针，指向一个char字符的指针。（即指针的指针）</li>
+<li><code>(*next)</code>就是一个函数，函数的参数为空，函数的返回值是一个指针的指针。（3所述）</li>
+<li><code>next</code>是一个指针，指向一个函数，这个函数的参数为空，返回值为一个指针的指针。</li>
+</ol>
+<p>所以，经过ABC三步，<code>char * const * (*next)();</code>这个复杂的变量声明的意思就是：声明了一个变量叫做next，next是一个指针，指向一个函数，这个函数的参数为空，返回值为一个指针的指针。</p>
+<h4 id="网易关于C-变量声明的笔试题目"><a href="#网易关于C-变量声明的笔试题目" class="headerlink" title="网易关于C++变量声明的笔试题目"></a>网易关于C++变量声明的笔试题目</h4><p>再来说一下知乎上被大家吐槽的网易的C++笔试题目：</p>
+<p><a href="https://www.zhihu.com/question/65116993" target="_blank" rel="external">https://www.zhihu.com/question/65116993</a></p>
+<p>a: <code>int * ptr[n];</code></p>
+<p>b: <code>int(*) ptr[n]; —&gt;  int (*ptr)[n];</code></p>
+<p>c: <code>int *ptr();</code></p>
+<p>d: <code>int(*)ptr(); —&gt; int(*ptr)();</code></p>
+<p>e: <code>int( *(  (*ptr(int, int))  ) ) (int);</code></p>
+<p>abcde分别表示什么意思？</p>
+<p><strong>首先，没有(*)这种写法，所以b、d选项修改为后面的形式</strong></p>
+<p>按照上面的方法来分析，这些声明中都没有const关键字，所以这一步的分析就不需要了。</p>
+<ul>
+<li>a:</li>
+</ul>
+<p>A: 变量名为<code>ptr</code></p>
+<p>B: 基本内置类型为int</p>
+<p>C:  1. <code>*ptr[n]</code>表示一个int型数字</p>
+<ol>
+<li><code>ptr[n]</code>表示一个指针，指向int型数字</li>
+<li><code>ptr</code>表示一个数组，数组的大小为n，数组中的元素为指向int型的指针。</li>
+</ol>
+<ul>
+<li>b:</li>
+</ul>
+<p>A: 变量名为<code>ptr</code></p>
+<p>B: 基本内置类型为int</p>
+<p>C: 1. <code>(*ptr)[n]</code>表示一个int型数字</p>
+<ol>
+<li><code>(*ptr)</code>是一个数组，数组的大小为n，数组中的元素为int型数字。</li>
+<li><code>ptr</code>是一个指针，指向数组，数组是这样的：数组的大小为n，数组中的元素为int型数字。</li>
+</ol>
+<ul>
+<li>c:</li>
+</ul>
+<p>A: 变量名为<code>ptr</code></p>
+<p>B: 基本内置类型为int</p>
+<p>C: 1. <code>*ptr()</code>表示一个int型数字</p>
+<ol>
+<li><code>ptr()</code>表示一个指针，指向int型数字。</li>
+<li><code>ptr</code>是一个函数，函数的参数为空，函数的返回值为一个指针，指向int型数字。</li>
+</ol>
+<ul>
+<li>d:</li>
+</ul>
+<p>A: 变量名为<code>ptr</code></p>
+<p>B: 基本内置类型为int</p>
+<p>C: 1. <code>(*ptr)()</code>表示一个int型数字</p>
+<ol>
+<li><code>(*ptr)</code>是一个函数，函数的参数为空，函数的返回值是int型数字。</li>
+<li><code>ptr</code>是一个指针，指向一个函数，这个函数的参数为空，函数的返回值是int型数字</li>
+</ol>
+<ul>
+<li>e: </li>
+</ul>
+<p>A: 变量名为<code>ptr</code></p>
+<p>B: 基本内置类型为int</p>
+<p>C: 1. <code>( *(  (*ptr(int, int))  ) ) (int)</code>表示一个int型数字</p>
+<ol>
+<li><code>*(  (*ptr(int, int))  )</code> 是一个函数，函数接收一个int型参数，返回一个int型</li>
+<li><code>(*ptr(int, int))</code>  是一个指针，指向一个函数，这个函数接收一个int型参数，返回值为int型</li>
+<li><code>ptr(int, int)</code>是一个指针，指向另一个指针，这个指针（另一个指针）指向一个函数，这个函数接收一个int型参数，返回值为int型。</li>
+<li><code>ptr</code>是一个函数，函数的参数为两个int型，返回值是一个指针，这个指针指向另一个指针，另一个指针指向一个函数，这个函数接收一个int型参数，返回值为int型。</li>
+</ol>
+<p>是不是很复杂，但是你现在有办法读懂它了，当然既然我吐槽这种写法，那么有什么办法避免这种写法了？答案是有的，typedef 和 using。</p>
+<h4 id="用typedef来简化复杂的声明"><a href="#用typedef来简化复杂的声明" class="headerlink" title="用typedef来简化复杂的声明"></a>用typedef来简化复杂的声明</h4><p>摘要《C专家编程》里面的话来介绍typedef。</p>
+<p>​    typedef 是一种有趣的声明形式：<strong>它为一种类型引入新的名字</strong>，而不是为变量分配空间。在某些方面，typedef类似于宏文本替换——它并没有引入新类型，而是为现有类型取了个新名字，但它们之间存在一个关键的区别，容我稍后解释。</p>
+<p>​    如果现在回过头过去看看“声明是如何形成的”那一节，会发现typedef关键字可以是一个常规声明的一部分，可以出现在靠近声明开始部分的任何地方。事实上，typedef的格式与变量声明完全一样，只是多了typedef这个关键字，来向你提醒它的实质。</p>
+<p>​    由于typedef看上去跟变量声明完全一样，其实它们读起来也是一样的。分析复杂变量声明的方法同样适用于typedef。<strong>普通声明表示“这个名字是一个指定类型的变量”，</strong>而<strong>typedef关键字并不创建一个变量，而是宣称“这个名字是指定类型的同义词”。</strong></p>
+<p>​    举个例子来看看typedef是如何帮助阅读复杂的声明的。</p>
+<p>​    标准库中有一个函数，signal。它的声明如下</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">void</span> (*signal(<span class="keyword">int</span> sig, <span class="keyword">void</span>(*func)(<span class="keyword">int</span>)))(<span class="keyword">int</span>);</div></pre></td></tr></table></figure>
+<p>我们也可以用前面介绍的方法来分析一下，这个声明是什么意思？</p>
+<ul>
+<li><p>A.:变量名为signal</p>
+</li>
+<li><p>B: 基本内置类型为void</p>
+</li>
+<li><p>C: </p>
+<ul>
+<li><ol>
+<li><code>(*signal(int sig, void(*func)(int)))(int);</code>表示一个void型。</li>
+</ol>
+</li>
+<li><ol>
+<li>很明显<code>*signal(int sig, void(*func)(int))</code>是一个函数，函数的参数是一个int，返回值为void（没有返回值）。</li>
+</ol>
+</li>
+<li><ol>
+<li><code>signal(int sig, void(*func)(int))</code>是一个指针，指向一个函数，函数的参数是一个int，返回值为void。</li>
+</ol>
+</li>
+<li><ol>
+<li><code>signal(int, xxx)</code>是一个函数，函数的参数为一个int，一个xxx（待分析），返回值为一个指针，该指针指向一个函数，函数的参数是一个int，返回值为void。</li>
+</ol>
+</li>
+<li><ol>
+<li>来分析xxx：void(func)(int)<ul>
+<li>A. 变量名为func</li>
+<li>B. 基本类型为void</li>
+<li>C. 1. <code>(*func)(int)</code>表示一个void型。<ol>
+<li>很明显<code>*func</code>是一个函数，参数为一个int，返回值为空。</li>
+<li>func是一个（函数）指针，指向一个函数，一个参数为一个int，返回值为空的函数。</li>
+</ol>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<p>连起来，这个声明声明了signal是一个函数，signal函数的参数有两个，一个是int，一个是一个函数指针，指向一个参数为int，返回值为空的函数；signal函数的返回值是一个指针，该指针指向一个函数（一个参数为int，返回值为空的函数）。</p>
+</li>
+</ul>
+<p>好复杂，是不是？这个时候typedef就派上用场了。</p>
+<p>我们发现通用的部分：一个参数为int，返回值为void的函数。我们用typedef来简化。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">typedef</span> <span class="title">void</span><span class="params">(*ptr_to_func)</span><span class="params">(<span class="keyword">int</span>)</span></span>;</div></pre></td></tr></table></figure>
+<p>这个怎么读了？</p>
+<p>首先有<code>typedef</code>关键字，所以不是一个声明，而是为一种类型引入一个新名字。我们把typedef去掉，然后“变量名”就是某种类型的新名字。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">void</span>(*ptr_to_func)(<span class="keyword">int</span>)</div></pre></td></tr></table></figure>
+<p>按照上面的分析方法：</p>
+<p>ptr_to_func是一个（函数）指针，指向一个函数，函数的参数是int，返回值为void。</p>
+<p>这样signal的声明就可以改写为下面的形式了：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function">ptr_to_func <span class="title">signal</span><span class="params">(<span class="keyword">int</span>, ptr_to_func)</span></span>;</div></pre></td></tr></table></figure>
+<p>这样一看，就知道signal是一个函数，函数的参数有两个，一个是一个int，一个是一个ptr_to_func指针，返回值是一个ptr_to_func的指针。</p>
+<h4 id="typedef-和宏文本替换的区别"><a href="#typedef-和宏文本替换的区别" class="headerlink" title="typedef 和宏文本替换的区别"></a>typedef 和宏文本替换的区别</h4><p>还是摘要一段《C专家编程》里面的话。</p>
+<p>typedef和宏文本替换之间存在一个关键性的区别。正确看待这个区别的方法是把typedef看成是一种彻底的“封装”类型——在声明它之后不能再往里面增加别的东西。它和宏的区别主要tti体现在两个方面</p>
+<ul>
+<li>首先，可以用其他类型说明符对宏类型名进行扩展，但对typedef所定义的类型名却不行。如下所示：</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">define</span> peach int</span></div><div class="line"><span class="keyword">unsigned</span> peach i;</div><div class="line"></div><div class="line"><span class="keyword">typedef</span> <span class="keyword">int</span> banana;</div><div class="line"><span class="keyword">unsigned</span> banana i; <span class="comment">/*错误！ 非法的！*/</span></div></pre></td></tr></table></figure>
+<ul>
+<li>其次，在连续几个变量的声明中，用typedef定义的类型能够保证声明中所有的变量均为同一种类型，而用#define定义的类型则无法保证。如下所示：</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">define</span> int_ptr int *;</span></div><div class="line">int_ptr chalk, cheese;</div></pre></td></tr></table></figure>
+<p>宏其实只是简单的替换，所以替换之后，第二行变为了：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> * chalk, cheese;</div></pre></td></tr></table></figure>
+<p>所以其实是将chalk声明为一个指向int的指针，而cheese是一个int型。</p>
+<p>相反，用typedef的代码，两个变量是一样的：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">typedef</span> <span class="keyword">char</span> * char_ptr;</div><div class="line">char_ptr Bentley, Rolls_Royce;</div></pre></td></tr></table></figure>
+<p>Bentley和Rolls_Royce的类型都是指向char的指针。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div id="donation_div"></div>
+
+<script src="/js/vdonate.js"></script>
+<script>
+var a = new Donate({
+  title: '如果觉得我的文章对您有用，请随意打赏。您的支持将鼓励我继续创作!', // 可选参数，打赏标题
+  btnText: 'Donate', // 可选参数，打赏按钮文字
+  el: document.getElementById('donation_div'),
+  wechatImage: 'https://avatars1.githubusercontent.com/u/16939557?s=460&v=4',
+  alipayImage: 'https://avatars1.githubusercontent.com/u/16939557?s=460&v=4'
+});
+</script>
+      
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC8yOTQ4MS82MDQ5">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
+
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-C/">C/C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/变量声明/">变量声明</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/10/29/cpp_common/cpp-common-initialization/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          C++ 中直接初始化和拷贝初始化
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/10/29/cpp_common/extern-C/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">extern “C”</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="toc-sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Contents</strong>
+    
+        <ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#ABC三步读懂变量声明法"><span class="nav-number">1.</span> <span class="nav-text">ABC三步读懂变量声明法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#网易关于C-变量声明的笔试题目"><span class="nav-number">2.</span> <span class="nav-text">网易关于C++变量声明的笔试题目</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#用typedef来简化复杂的声明"><span class="nav-number">3.</span> <span class="nav-text">用typedef来简化复杂的声明</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#typedef-和宏文本替换的区别"><span class="nav-number">4.</span> <span class="nav-text">typedef 和宏文本替换的区别</span></a></li></ol>
+    
+    </div>
+  </aside>
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2013 - 2018  All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				UV : <span id="busuanzi_value_site_uv"></span> |  
+				PV : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/scripts.js"></script>
+
+
+
+
+  <script src="/js/dialog.js"></script>
+
+
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            
+          </div>
+          <div class="panel-body">
+            Copyright © 2018  All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+    <a id="menu-switch"><i class="fa fa-bars fa-lg"></i></a>
+  
+</body>
+</html>

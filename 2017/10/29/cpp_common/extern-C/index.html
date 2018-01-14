@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>extern “c” | </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="C/C++extern "C"" />
+  
+  
+  
+  
+  <meta name="description" content="Introduce the problem:  In C++ source, what is the effect of extern “C”? Stack overflow: https://stackoverflow.com/questions/1041866/in-c-source-what-is-the-effect-of-extern-c/1041880#1041880 在用C++的项目">
+<meta name="keywords" content="C&#x2F;C++,extern &quot;C&quot;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="extern “C”">
+<meta property="og:url" content="http://yoursite.com/2017/10/29/cpp_common/extern-C/index.html">
+<meta property="og:site_name">
+<meta property="og:description" content="Introduce the problem:  In C++ source, what is the effect of extern “C”? Stack overflow: https://stackoverflow.com/questions/1041866/in-c-source-what-is-the-effect-of-extern-c/1041880#1041880 在用C++的项目">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://daiyingjie.github.io/2017/10/29/extern-C/pictures/img0.jpg">
+<meta property="og:image" content="https://daiyingjie.github.io/2017/10/29/extern-C/pictures/img1.jpg">
+<meta property="og:image" content="https://daiyingjie.github.io/2017/10/29/extern-C/pictures/img2.jpg">
+<meta property="og:image" content="https://daiyingjie.github.io/2017/10/29/extern-C/pictures/img3.jpg">
+<meta property="og:image" content="https://daiyingjie.github.io/2017/10/29/extern-C/pictures/img4.jpg">
+<meta property="og:updated_time" content="2017-12-02T04:37:22.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="extern “C”">
+<meta name="twitter:description" content="Introduce the problem:  In C++ source, what is the effect of extern “C”? Stack overflow: https://stackoverflow.com/questions/1041866/in-c-source-what-is-the-effect-of-extern-c/1041880#1041880 在用C++的项目">
+<meta name="twitter:image" content="https://daiyingjie.github.io/2017/10/29/extern-C/pictures/img0.jpg">
+  
+    <link rel="alternate" href="/atom.xml" title="" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/css/images/d_Fotor.jpg">
+  <link rel="apple-touch-icon" href="/css/images/d_Fotor.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script src="/js/jquery-3.1.1.min.js"></script>
+  <script src="/js/bootstrap.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
+
+  
+    <link rel="stylesheet" href="/css/dialog.css">
+  
+
+  
+
+  
+    <link rel="stylesheet" href="/css/header-post.css" >
+  
+
+  
+  
+  
+    <link rel="stylesheet" href="/css/vdonate.css" >
+  
+
+</head>
+
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="border-width: 0;">
+                <p></p>
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="hnav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="/">Home</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/archives">Archives</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/categories">Categories</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/tags">Tags</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/about">About</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-cpp_common/extern-C" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      extern “C”
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/10/29/cpp_common/extern-C/" class="article-date">
+	  <time datetime="2017-10-29T00:52:03.000Z" itemprop="datePublished">2017-10-29</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/C-C/">C/C++</a>
+
+      
+	<a class="article-views">
+	<span id="busuanzi_container_page_pv">
+		PV:<span id="busuanzi_value_page_pv"></span>
+	</span>
+	</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Introduce the problem: </p>
+<p>In C++ source, what is the effect of extern “C”?</p>
+<p>Stack overflow: <a href="https://stackoverflow.com/questions/1041866/in-c-source-what-is-the-effect-of-extern-c/1041880#1041880" target="_blank" rel="external">https://stackoverflow.com/questions/1041866/in-c-source-what-is-the-effect-of-extern-c/1041880#1041880</a></p>
+<p>在用C++的项目源码中，经常会不可避免的会看到下面的代码：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> __cplusplus</span></div><div class="line"><span class="keyword">extern</span> <span class="string">"C"</span> &#123;</div><div class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></div><div class="line"> </div><div class="line"><span class="comment">/*...*/</span></div><div class="line"> </div><div class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> __cplusplus</span></div><div class="line">&#125;</div><div class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></div></pre></td></tr></table></figure>
+<p>它到底有什么用呢，你知道吗？而且这样的问题经常会出现在面试or笔试中。 如果你不知道是什么意思，点开Read More，我慢慢告诉你。</p>
+<a id="more"></a>
+<h2 id="ifdef-cplusplus-endif-cplusplus及发散"><a href="#ifdef-cplusplus-endif-cplusplus及发散" class="headerlink" title="#ifdef _cplusplus/#endif _cplusplus及发散"></a><strong>#ifdef _cplusplus/#endif _cplusplus及发散</strong></h2><p>在介绍extern “C”之前，我们来看下#ifdef _cplusplus/#endif _cplusplus的作用。很明显#ifdef/#endif、#ifndef/#endif用于条件编译，#ifdef _cplusplus/#endif _cplusplus——表示如果定义了宏_cplusplus，就执行#ifdef/#endif之间的语句，否则就不执行。</p>
+<p>在这里为什么需要#ifdef _cplusplus/#endif _cplusplus呢？因为C语言中不支持extern “C”声明，如果你明白extern “C”的作用就知道在C中也没有必要这样做，这就是条件编译的作用！在.c文件中包含了extern “C”时会出现编译时错误。</p>
+<p>既然说到了条件编译，我就介绍它的一个重要应用——<strong>避免重复包含头文件</strong>。还记得腾讯笔试就考过这个题目，给出类似下面的代码（下面是我最近在研究的一个开源web服务器——Mongoose的头文件mongoose.h中的一段代码）：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> MONGOOSE_HEADER_INCLUDED</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span>    MONGOOSE_HEADER_INCLUDED</span></div><div class="line"> </div><div class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> __cplusplus</span></div><div class="line"><span class="keyword">extern</span> <span class="string">"C"</span> &#123;</div><div class="line"><span class="meta">#<span class="meta-keyword">endif</span> <span class="comment">/* __cplusplus */</span></span></div><div class="line"> </div><div class="line"><span class="comment">/*.................................</span></div><div class="line"><span class="comment"> * do something here</span></div><div class="line"><span class="comment"> *.................................</span></div><div class="line"><span class="comment"> */</span></div><div class="line"> </div><div class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> __cplusplus</span></div><div class="line">&#125;</div><div class="line"><span class="meta">#<span class="meta-keyword">endif</span> <span class="comment">/* __cplusplus */</span></span></div><div class="line"> </div><div class="line"><span class="meta">#<span class="meta-keyword">endif</span> <span class="comment">/* MONGOOSE_HEADER_INCLUDED */</span></span></div></pre></td></tr></table></figure>
+<p>然后叫你说明上面宏#ifndef/#endif的作用？为了解释一个问题，我们先来看两个事实：</p>
+<ul>
+<li>这个头文件mongoose.h可能在项目中被多个源文件包含（#include “mongoose.h”），而对于一个大型项目来说，这些冗余可能导致错误，因为一个头文件包含类定义或inline函数，在一个源文件中mongoose.h可能会被#include两次（如，a.h头文件包含了mongoose.h，而在b.c文件中#include a.h和mongoose.h）——这就会出错（在同一个源文件中一个结构体、类等被定义了两次）。</li>
+<li>从逻辑观点和减少编译时间上，都要求去除这些冗余。然而让程序员去分析和去掉这些冗余，不仅枯燥且不太实际，<strong>最重要的是有时候又需要这种冗余来保证各个模块的独立</strong>。</li>
+</ul>
+<p>为了解决这个问题，上面代码中的</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> MONGOOSE_HEADER_INCLUDED </span></div><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span>    MONGOOSE_HEADER_INCLUDED </span></div><div class="line"></div><div class="line">/……………………………/ </div><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">endif</span> <span class="comment">/* MONGOOSE_HEADER_INCLUDED */</span></span></div></pre></td></tr></table></figure>
+<p>就起作用了。如果定义了MONGOOSE_HEADER_INCLUDED，#ifndef/#endif之间的内容就被忽略掉。因此，编译时第一次看到mongoose.h头文件，它的内容会被读取且给定MONGOOSE_HEADER_INCLUDED一个值。之后再次看到mongoose.h头文件时，MONGOOSE_HEADER_INCLUDED就已经定义了，mongoose.h的内容就不会再次被读取了。</p>
+<h2 id="extern-“C”"><a href="#extern-“C”" class="headerlink" title="extern “C”"></a><strong>extern “C”</strong></h2><p>首先从字面上分析extern “C”，它由两部分组成——extern关键字、”C”。下面我就从这两个方面来解读extern “C”的含义。</p>
+<h3 id="extern关键字"><a href="#extern关键字" class="headerlink" title="extern关键字"></a><strong>extern关键字</strong></h3><p>在一个项目中必须保证函数、变量、枚举等在所有的源文件中保持一致，除非你指定定义为局部的。首先来一个例子：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//file1.c:</span></div><div class="line">    <span class="keyword">int</span> x=<span class="number">1</span>;</div><div class="line">    <span class="function"><span class="keyword">int</span> <span class="title">f</span><span class="params">()</span></span>&#123;<span class="keyword">do</span> something here&#125;</div><div class="line"><span class="comment">//file2.c:</span></div><div class="line">    <span class="keyword">extern</span> <span class="keyword">int</span> x;</div><div class="line">    <span class="function"><span class="keyword">int</span> <span class="title">f</span><span class="params">()</span></span>;</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">g</span><span class="params">()</span></span>&#123;x=f();&#125;</div></pre></td></tr></table></figure>
+<p>在file2.c中g()使用的x和f()是定义在file1.c中的。extern关键字表明file2.c中x，仅仅是一个变量的声明，其并不是在定义变量x，并未为x分配内存空间。变量x在所有模块中作为一种全局变量只能被定义一次，否则会出现连接错误。但是可以声明多次，且声明必须保证类型一致，如：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//file1.c:</span></div><div class="line">    <span class="keyword">int</span> x=<span class="number">1</span>;</div><div class="line">    <span class="keyword">int</span> b=<span class="number">1</span>;</div><div class="line">    <span class="keyword">extern</span> c;</div><div class="line"><span class="comment">//file2.c:</span></div><div class="line">    <span class="keyword">int</span> x;<span class="comment">// x equals to default of int type 0</span></div><div class="line">    <span class="function"><span class="keyword">int</span> <span class="title">f</span><span class="params">()</span></span>;</div><div class="line">    <span class="keyword">extern</span> <span class="keyword">double</span> b;</div><div class="line">    <span class="keyword">extern</span> <span class="keyword">int</span> c;</div></pre></td></tr></table></figure>
+<p>在这段代码中存在着这样的三个错误：</p>
+<ol>
+<li>x被定义了两次</li>
+<li>b两次被声明为不同的类型</li>
+<li>c被声明了两次，但却没有定义</li>
+</ol>
+<p>回到extern关键字，extern是C/C++语言中表明<strong>函数</strong>和<strong>全局变量</strong>作用范围（可见性）的关键字，该关键字告诉编译器，其声明的函数和变量可以在本模块或其它模块中使用。通常，在模块的头文件中对本模块提供给其它模块引用的函数和全局变量以关键字extern声明。例如，如果模块B欲引用该模块A中定义的全局变量和函数时只需包含模块A的头文件即可。这样，模块B中调用模块A中的函数时，在编译阶段，模块B虽然找不到该函数，但是并不会报错；它会在连接阶段中从模块A编译生成的目标代码中找到此函数。</p>
+<p>与extern对应的关键字是 static，被它修饰的全局变量和函数只能在本模块中使用。因此，一个函数或变量只可能被本模块使用时，其不可能被extern “C”修饰。</p>
+<h3 id="“C”"><a href="#“C”" class="headerlink" title="“C”"></a><strong>“C”</strong></h3><p>典型的，一个C++程序包含其它语言编写的部分代码。类似的，C++编写的代码片段可能被使用在其它语言编写的代码中。不同语言编写的代码互相调用是困难的，甚至是同一种编写的代码但不同的编译器编译的代码。例如，不同语言和同种语言的不同实现可能会在注册变量保持参数和参数在栈上的布局，这个方面不一样。</p>
+<p>为了使它们遵守统一规则，可以使用extern指定一个编译和连接规约。例如，声明C和C++标准库函数strcyp()，并指定它应该根据C的编译和连接规约来链接：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">extern</span> <span class="string">"C"</span> <span class="function"><span class="keyword">char</span>* <span class="title">strcpy</span><span class="params">(<span class="keyword">char</span>*,<span class="keyword">const</span> <span class="keyword">char</span>*)</span></span>;</div></pre></td></tr></table></figure>
+<p>注意它与下面的声明的不同之处：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">extern</span> <span class="keyword">char</span>* <span class="title">strcpy</span><span class="params">(<span class="keyword">char</span>*,<span class="keyword">const</span> <span class="keyword">char</span>*)</span></span>;</div></pre></td></tr></table></figure>
+<p>下面的这个声明仅表示在连接的时候调用strcpy()。</p>
+<p>extern “C”指令非常有用，因为C和C++的近亲关系。<strong>注意：extern “C”指令中的C，表示的一种编译和连接规约，而不是一种语言。C表示符合C语言的编译和连接规约的任何语言，如Fortran、assembler等。</strong></p>
+<p>还有要说明的是，extern “C”指令仅指定编译和连接规约，但不影响语义。例如在函数声明中，指定了extern “C”，仍然要遵守C++的类型检测、参数转换规则。</p>
+<p>再看下面的一个例子，为了声明一个变量而不是定义一个变量，你必须在声明时指定extern关键字，但是当你又加上了”C”，它不会改变语义，但是会改变它的编译和连接方式。</p>
+<p>如果你有很多语言要加上extern “C”，你可以将它们放到extern “C”{ }中。</p>
+<h3 id="小结extern-“C”"><a href="#小结extern-“C”" class="headerlink" title="小结extern “C”"></a><strong>小结extern “C”</strong></h3><p>通过上面两节的分析，我们知道extern “C”的真实目的是实现<strong>类C和C++的混合编程</strong>。在C++源文件中的语句前面加上extern “C”，表明它按照类C的编译和连接规约来编译和连接，而不是C++的编译的连接规约。这样在类C的代码中就可以调用C++的函数or变量等。（注：我在这里所说的类C，代表的是跟C语言的编译和连接方式一致的所有语言）</p>
+<h2 id="C和C-互相调用"><a href="#C和C-互相调用" class="headerlink" title="C和C++互相调用"></a><strong>C和C++互相调用</strong></h2><p>我们既然知道extern “C”是实现的类C和C++的混合编程。下面我们就分别介绍如何在C++中调用C的代码、C中调用C++的代码。首先要明白C和C++互相调用，你得知道它们之间的编译和连接差异，及如何利用extern “C”来实现相互调用。</p>
+<h3 id="C-的编译和连接"><a href="#C-的编译和连接" class="headerlink" title="C++的编译和连接"></a><strong>C++的编译和连接</strong></h3><p>C++是一个面向对象语言（虽不是纯粹的面向对象语言），它支持函数的重载，重载这个特性给我们带来了很大的便利。为了支持函数重载的这个特性，C++编译器实际上将下面这些重载函数：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">print</span><span class="params">(<span class="keyword">int</span> i)</span></span>;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">print</span><span class="params">(<span class="keyword">char</span> c)</span></span>;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">print</span><span class="params">(<span class="keyword">float</span> f)</span></span>;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">print</span><span class="params">(<span class="keyword">char</span>* s)</span></span>;</div></pre></td></tr></table></figure>
+<p>编译为：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">_print_int</div><div class="line">_print_char</div><div class="line">_print_float</div><div class="line">_pirnt_string</div></pre></td></tr></table></figure>
+<p>这样的函数名，来唯一标识每个函数。注：不同的编译器实现可能不一样，但是都是利用这种机制。所以当连接是调用print(3)时，它会去查找_print_int(3)这样的函数。下面说个题外话，正是因为这点，重载被认为不是多态，多态是运行时动态绑定（“一种接口多种实现”），如果硬要认为重载是多态，它顶多是编译时“多态”。</p>
+<p>C++中的变量，编译也类似，如全局变量可能编译g_xx，类变量编译为c_xx等。连接是也是按照这种机制去查找相应的变量。</p>
+<h3 id="C的编译和连接"><a href="#C的编译和连接" class="headerlink" title="C的编译和连接"></a><strong>C的编译和连接</strong></h3><p>C语言中并没有重载和类这些特性，故并不像C++那样print(int i)，会被编译为_print_int，而是直接编译为_print等。因此如果直接在C++中调用C的函数会失败，因为连接是调用C中的print(3)时，它会去找_print_int(3)。因此extern “C”的作用就体现出来了。</p>
+<h3 id="C-中调用C的代码"><a href="#C-中调用C的代码" class="headerlink" title="C++中调用C的代码"></a><strong>C++中调用C的代码</strong></h3><p>什么叫C++中调用C的代码？例如，整个项目大部分是C++代码，但其中有一些函数是C编写的库，</p>
+<p>如用C编写了一个数学库libmath.so, 其头文件为math.h。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//math.h</span></div><div class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> MATH_H</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> MATH_H</span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> y)</span></span>;</div><div class="line"><span class="function"><span class="keyword">long</span> <span class="keyword">long</span> <span class="title">power</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> n)</span></span>;</div><div class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></div></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//math.c</span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"math.h"</span></span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span></span>&#123;</div><div class="line">  <span class="keyword">return</span> x+y;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">long</span> <span class="keyword">long</span> <span class="title">power</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> n)</span></span>&#123;</div><div class="line">  <span class="keyword">long</span> <span class="keyword">long</span> result = <span class="number">1</span>;</div><div class="line">  <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</div><div class="line">    result *= x;</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> result;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//cpp_proj.cpp</span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;math.h&gt;</span></span></div><div class="line"><span class="meta">#incluse <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">  <span class="keyword">int</span> a = add(<span class="number">2</span>, <span class="number">5</span>);</div><div class="line">  <span class="keyword">int</span> b = power(<span class="number">2</span>, <span class="number">5</span>);  </div><div class="line">  <span class="built_in">cout</span> &lt;&lt; <span class="string">"add(2, 5) is: "</span> &lt;&lt; a &lt;&lt; <span class="built_in">endl</span>;</div><div class="line">  <span class="built_in">cout</span> &lt;&lt; <span class="string">"power(2, 5) is: "</span> &lt;&lt; b &lt;&lt; <span class="built_in">endl</span>;</div><div class="line">  <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><img src="https://daiyingjie.github.io/2017/10/29/extern-C/pictures/img0.jpg" alt="屏幕快照 2017-10-29 上午9.27.22"></p>
+<p>既然说是调用C，那么math.c肯定得用gcc来编译。用gcc编译math.c成动态库libmath.so，然后用nm来查看此库。发现_add 和 _power两个函数符号。</p>
+<p>（nm的输出的意义，参考：<a href="http://www.cnblogs.com/itech/archive/2012/09/16/2687423.html）" target="_blank" rel="external">http://www.cnblogs.com/itech/archive/2012/09/16/2687423.html）</a></p>
+<p>下面来编译cpp_proj.cpp:</p>
+<p><img src="https://daiyingjie.github.io/2017/10/29/extern-C/pictures/img1.jpg" alt="屏幕快照 2017-10-29 上午9.31.35"></p>
+<p>error: use of undeclared identifier ‘add’, ‘power’</p>
+<p>这种错误就是连接错误，找不到add, power函数的定义。我们的add是我们自己定义的，这个函数不在默认库里面，所以我们要使用-l和-L参数来找到此函数。但是还是报同样的错误。所以问题就来了，为什么链接器找不到对应的函数了？我们明明给了对应的参数。</p>
+<p>下面我们将cpp_proj.cpp改为如下形式，然后就编译通过了！</p>
+<p><img src="https://daiyingjie.github.io/2017/10/29/extern-C/pictures/img2.jpg" alt="屏幕快照 2017-10-29 上午9.36.56"></p>
+<p>为什么对cpp_proj.cpp加了extern “C”就可以了了？</p>
+<p>我们将改之前，没有加extern “C”的文件命名为cpp_proj.c；改之后的，加了extern “C”的命名为cpp_proj_externC.cpp。然后将它们编译成.o文件，再链接。对编译之后的.o文件使用nm命令分析：</p>
+<p>发现没有加extern “C”的cpp_proj.o的add和power两个函数被表示为了<strong>Z3addii 和 \</strong>Z5powerii；而加了extern “C”的cpp_proj_externC.o被表示为了_add 和 _power。</p>
+<p>因为libmath.so是C语言的库，我们用nm也可以看出来，它的add和power两个函数的表示符号为_add 和 _power。所以cpp_proj_externC.cpp可以编译通过而cpp_proj.cpp无法编译通过，因为在C的库libmath.so中根本就找不到<strong>Z3addii 和 \</strong>Z5powerii这两个符号。</p>
+<p><img src="https://daiyingjie.github.io/2017/10/29/extern-C/pictures/img3.jpg" alt="Collage_Fotor"></p>
+<p><img src="https://daiyingjie.github.io/2017/10/29/extern-C/pictures/img4.jpg" alt="屏幕快照 2017-10-29 上午9.40.16"></p>
+<p><strong>所以这就是extern C的作用，很简单，表示它后面的符号是用C的编译和链接的方法来进行。目的是为了能让C++和C混合使用</strong></p>
+<h3 id="C中调用C-的代码"><a href="#C中调用C-的代码" class="headerlink" title="C中调用C++的代码"></a><strong>C中调用C++的代码</strong></h3><p>现在换成在C中调用C++的代码，这与在C++中调用C的代码<strong>形式有所不同</strong>，但是<strong>本质都是一样</strong>，都是为了混用，<strong>为了能找到对应的函数或变量符号</strong>。</p>
+<p>形式有不同是因为：<code>extern &quot;C&quot;</code>在C中是语法错误。所以当在C项目中调用C++的代码，是需要对C++的头文件进行修改，即加上extern C修饰，并要重新编译C++的库。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// cppExample.h</span></div><div class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> CPP_EXAMPLE_H</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> CPP_EXAMPLE_H</span></div><div class="line"><span class="keyword">extern</span> <span class="string">"C"</span> &#123; <span class="function"><span class="keyword">int</span> <span class="title">add</span><span class="params">( <span class="keyword">int</span> x, <span class="keyword">int</span> y )</span></span>; &#125;</div><div class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></div><div class="line"></div><div class="line"><span class="comment">// cppExample.cpp</span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"cppExample.h"</span></span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">add</span><span class="params">( <span class="keyword">int</span> x, <span class="keyword">int</span> y )</span> </span>&#123;</div><div class="line">  <span class="keyword">return</span> x + y;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// cExample.c</span></div><div class="line"><span class="function"><span class="keyword">extern</span> <span class="keyword">int</span> <span class="title">add</span><span class="params">( <span class="keyword">int</span> x, <span class="keyword">int</span> y )</span></span>;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</div><div class="line">  add( <span class="number">2</span>, <span class="number">3</span> ); </div><div class="line">  <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p><a href="http://www.cnblogs.com/skynet/archive/2010/07/10/1774964.html" target="_blank" rel="external">http://www.cnblogs.com/skynet/archive/2010/07/10/1774964.html</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div id="donation_div"></div>
+
+<script src="/js/vdonate.js"></script>
+<script>
+var a = new Donate({
+  title: '如果觉得我的文章对您有用，请随意打赏。您的支持将鼓励我继续创作!', // 可选参数，打赏标题
+  btnText: 'Donate', // 可选参数，打赏按钮文字
+  el: document.getElementById('donation_div'),
+  wechatImage: 'https://avatars1.githubusercontent.com/u/16939557?s=460&v=4',
+  alipayImage: 'https://avatars1.githubusercontent.com/u/16939557?s=460&v=4'
+});
+</script>
+      
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC8yOTQ4MS82MDQ5">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
+
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-C/">C/C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/extern-C/">extern "C"</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/10/29/cpp_common/cpp-complicated-declaration/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          C/C++ 复杂的变量声明
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/10/29/course/CS102/Chap5/array-pointer-c_string/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">using class in cpp</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="toc-sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Contents</strong>
+    
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#ifdef-cplusplus-endif-cplusplus及发散"><span class="nav-number">1.</span> <span class="nav-text">#ifdef _cplusplus/#endif _cplusplus及发散</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#extern-“C”"><span class="nav-number">2.</span> <span class="nav-text">extern “C”</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#extern关键字"><span class="nav-number">2.1.</span> <span class="nav-text">extern关键字</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#“C”"><span class="nav-number">2.2.</span> <span class="nav-text">“C”</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#小结extern-“C”"><span class="nav-number">2.3.</span> <span class="nav-text">小结extern “C”</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#C和C-互相调用"><span class="nav-number">3.</span> <span class="nav-text">C和C++互相调用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#C-的编译和连接"><span class="nav-number">3.1.</span> <span class="nav-text">C++的编译和连接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#C的编译和连接"><span class="nav-number">3.2.</span> <span class="nav-text">C的编译和连接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#C-中调用C的代码"><span class="nav-number">3.3.</span> <span class="nav-text">C++中调用C的代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#C中调用C-的代码"><span class="nav-number">3.4.</span> <span class="nav-text">C中调用C++的代码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考文献"><span class="nav-number">4.</span> <span class="nav-text">参考文献</span></a></li></ol>
+    
+    </div>
+  </aside>
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2013 - 2018  All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				UV : <span id="busuanzi_value_site_uv"></span> |  
+				PV : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/scripts.js"></script>
+
+
+
+
+  <script src="/js/dialog.js"></script>
+
+
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            
+          </div>
+          <div class="panel-body">
+            Copyright © 2018  All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+    <a id="menu-switch"><i class="fa fa-bars fa-lg"></i></a>
+  
+</body>
+</html>
