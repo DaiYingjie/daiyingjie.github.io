@@ -215,7 +215,7 @@
         
           <section id="main" style="float:none;">
   
-    <article id="post-course/CS102/Chap4/class"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-cpp_common/extern-C"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -223,7 +223,7 @@
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/10/29/course/CS102/Chap4/class/">CS102: Chap4 using class in cpp</a>
+      <a class="article-title" href="/2017/10/29/cpp_common/extern-C/">CPP Common: extern “C”</a>
     </h1>
   
 
@@ -231,25 +231,29 @@
     
     <div class="article-meta">
       
-	<a href="/2017/10/29/course/CS102/Chap4/class/" class="article-date">
+	<a href="/2017/10/29/cpp_common/extern-C/" class="article-date">
 	  <time datetime="2017-10-29T00:52:03.000Z" itemprop="datePublished">2017-10-29</time>
 	</a>
 
       
-    <a class="article-category-link" href="/categories/Course-CS102/">Course/CS102</a>
+    <a class="article-category-link" href="/categories/cpp-common/">cpp_common</a>
 
       
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>第四章讲的是类</p>
-<p>类是c++与c的主要区别，太基础与概念性的话就不说了，直接来一个列子：大家知道c语言中是没有字符串类型的，在c语言中所谓的字符串就是以字符’\0’结尾的字符数组，一个面向对象的高级语言怎么能没有这么基础的数据类型，所以C++在标准库中就提供了string类型，我们就要自己动手来实现string类型。</p>
-        <!-- 第四章讲的是类
-类是c++与c的主要区别，太基础与概念性的话就不说了，直接来一个列子：大家知道c语言中是没有字符串类型的，在c语言中所谓的字符串就是以字符’\0’结尾的字符数组，一个面向对象的高级语言怎么能没有这么基础的数据类型，所以C++在标准库中就提供了string类型，我们就要自己动手来实现string类型。
-
-首先，在实现一个类之前要彻底了解你要实现的类，记住一句话，设计一个类其实就......  -->
+        <p>Introduce the problem: </p>
+<p>In C++ source, what is the effect of extern “C”?</p>
+<p>Stack overflow: <a href="https://stackoverflow.com/questions/1041866/in-c-source-what-is-the-effect-of-extern-c/1041880#1041880" target="_blank" rel="external">https://stackoverflow.com/questions/1041866/in-c-source-what-is-the-effect-of-extern-c/1041880#1041880</a></p>
+<p>在用C++的项目源码中，经常会不可避免的会看到下面的代码：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> __cplusplus</span></div><div class="line"><span class="keyword">extern</span> <span class="string">"C"</span> &#123;</div><div class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></div><div class="line"> </div><div class="line"><span class="comment">/*...*/</span></div><div class="line"> </div><div class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> __cplusplus</span></div><div class="line">&#125;</div><div class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></div></pre></td></tr></table></figure>
+<p>它到底有什么用呢，你知道吗？而且这样的问题经常会出现在面试or笔试中。 如果你不知道是什么意思，点开Read More，我慢慢告诉你。</p>
+        <!-- Introduce the problem: 
+In C++ source, what is the effect of extern “C”?
+Stack overflow: https://stackoverflow.com/questions/1041866/in-c-source-what-is-the-effect-of-extern-c/1041880#1041880
+在用C++......  -->
         <p class="article-more-link">
-          <a href="/2017/10/29/course/CS102/Chap4/class/#more">Read More</a>
+          <a href="/2017/10/29/cpp_common/extern-C/#more">Read More</a>
         </p>
       
     </div>
@@ -257,7 +261,7 @@
       
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-C/">C/C++</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-C/">C/C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/extern-C/">extern "C"</a></li></ul>
 
     </footer>
   </div>
@@ -310,6 +314,53 @@ It is simple in concept: variables declared with ‘const’ added become cons..
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-C/">C/C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/const/">const</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-git/git-QA"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/10/25/git/git-QA/">git: Q&amp;A</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/10/25/git/git-QA/" class="article-date">
+	  <time datetime="2017-10-25T11:20:43.000Z" itemprop="datePublished">2017-10-25</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/git/">git</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li>本地做了很多乱七八糟的修改，现在通通不想要了，怎么丢弃所有的修改？</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li></ul>
 
     </footer>
   </div>
@@ -373,53 +424,6 @@ It is simple in concept: variables declared with ‘const’ added become cons..
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-C/">C/C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/static/">static</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-git/git-QA"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/10/25/git/git-QA/">git: Q&amp;A</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/10/25/git/git-QA/" class="article-date">
-	  <time datetime="2017-10-25T11:20:43.000Z" itemprop="datePublished">2017-10-25</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/git/">git</a>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ol>
-<li>本地做了很多乱七八糟的修改，现在通通不想要了，怎么丢弃所有的修改？</li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li></ul>
 
     </footer>
   </div>
