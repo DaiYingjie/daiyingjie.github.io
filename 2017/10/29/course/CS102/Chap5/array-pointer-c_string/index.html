@@ -11,22 +11,22 @@
   
   
   
-  <meta name="description" content="数组 指针 C风格字符串 数组 数组是c语言中一种 指针和数组的区别让我们来看看指针与数组的区别  在function argument中，不管形参写成char str, char str[], 还是char str[n]，统统都“转化”为char str的形式  12345void func1(char *str);void func2(char str[]);void func3(char s">
+  <meta name="description" content="数组，指针，C风格字符串之间的关系">
 <meta name="keywords" content="C&#x2F;C++">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CS102: Chap5 array pointer c-style-string 之间的关系">
 <meta property="og:url" content="http://yoursite.com/2017/10/29/course/CS102/Chap5/array-pointer-c_string/index.html">
 <meta property="og:site_name">
-<meta property="og:description" content="数组 指针 C风格字符串 数组 数组是c语言中一种 指针和数组的区别让我们来看看指针与数组的区别  在function argument中，不管形参写成char str, char str[], 还是char str[n]，统统都“转化”为char str的形式  12345void func1(char *str);void func2(char str[]);void func3(char s">
+<meta property="og:description" content="数组，指针，C风格字符串之间的关系">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://daiyingjie.github.io/imgs/course/CS102/Chap5/1-1.jpg">
 <meta property="og:image" content="https://daiyingjie.github.io/imgs/course/CS102/Chap5/1-2.jpg">
 <meta property="og:image" content="https://daiyingjie.github.io/imgs/course/CS102/Chap5/2-1.jpg">
 <meta property="og:image" content="https://daiyingjie.github.io/imgs/course/CS102/Chap5/2-2.jpg">
-<meta property="og:updated_time" content="2018-01-14T12:50:20.000Z">
+<meta property="og:updated_time" content="2018-01-14T13:07:59.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CS102: Chap5 array pointer c-style-string 之间的关系">
-<meta name="twitter:description" content="数组 指针 C风格字符串 数组 数组是c语言中一种 指针和数组的区别让我们来看看指针与数组的区别  在function argument中，不管形参写成char str, char str[], 还是char str[n]，统统都“转化”为char str的形式  12345void func1(char *str);void func2(char str[]);void func3(char s">
+<meta name="twitter:description" content="数组，指针，C风格字符串之间的关系">
 <meta name="twitter:image" content="https://daiyingjie.github.io/imgs/course/CS102/Chap5/1-1.jpg">
   
     <link rel="alternate" href="/atom.xml" title="" type="application/atom+xml">
@@ -198,9 +198,8 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>数组 指针 C风格字符串</p>
-<p><strong>数组</strong></p>
-<p>数组是c语言中一种</p>
+        <p>数组，指针，C风格字符串之间的关系</p>
+<a id="more"></a>
 <h1 id="指针和数组的区别"><a href="#指针和数组的区别" class="headerlink" title="指针和数组的区别"></a>指针和数组的区别</h1><p>让我们来看看指针与数组的区别</p>
 <ol>
 <li>在function argument中，不管形参写成char <em>str, char str[], 还是char str[n]，统统都“转化”为char </em>str的形式</li>
@@ -225,6 +224,8 @@
 <p>但是注意有一种错误，声明为指针，定义为数组，然后以数组的方式引用， 如：</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">extern</span> <span class="keyword">char</span> *p;</div><div class="line"><span class="keyword">char</span> p[<span class="number">10</span>];</div><div class="line"><span class="keyword">char</span> c = p[<span class="number">2</span>];</div></pre></td></tr></table></figure>
 <p>当用p[i]这种形式提取时，由于声明为指针，所以还是会按照那三个步骤来操作，结果得到一个对ACSII字符作为地址的解引用，显然是错误的。</p>
+<p><br></p>
+<p><a href="https://zhuanlan.zhihu.com/p/24799071" target="_blank" rel="external">https://zhuanlan.zhihu.com/p/24799071</a></p>
 <p>但是数组和指针本来就是两码事，经常有人讲“数组名就是常量指针”，但是这是一种错误的说法：</p>
 <p>首先，数组名不是常量指针，从两方面：</p>
 <ol>
@@ -268,21 +269,40 @@
 </ol>
 <p><strong>综上，foo(s)[1]得到一个字符数组！！！</strong></p>
 <p>然后该字符数组加2，又有一次隐式转换，这个字符数组转换为指向其首元素的地址，也就是一个字符地址，字符地址+2，也就得到指向”LIONALAMB”中的O了，所以最后就是一个指向O的字符指针，打印它，得到：ONALAMB。</p>
-<p><img src="https://daiyingjie.github.io/imgs/course/CS102/Chap5/1-1.jpg" alt="img1-1"></p>
-<p><img src="https://daiyingjie.github.io/imgs/course/CS102/Chap5/1-2.jpg" alt="img1-2"></p>
+<p><img src="https://daiyingjie.github.io/imgs/course/CS102/Chap5/1-1.jpg" align="left" width="350" height="350"></p>
+<p><img src="https://daiyingjie.github.io/imgs/course/CS102/Chap5/1-2.jpg" align="right" width="350" height="350"></p>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><br></p>
 <h1 id="字符串字面值"><a href="#字符串字面值" class="headerlink" title="字符串字面值"></a>字符串字面值</h1><p><a href="https://stackoverflow.com/questions/2245664/what-is-the-type-of-string-literals-in-c-and-c" target="_blank" rel="external">https://stackoverflow.com/questions/2245664/what-is-the-type-of-string-literals-in-c-and-c</a></p>
 <p><a href="https://stackoverflow.com/questions/1704407/what-is-the-difference-between-char-s-and-char-s" target="_blank" rel="external">https://stackoverflow.com/questions/1704407/what-is-the-difference-between-char-s-and-char-s</a></p>
 <hr>
 <p>A C string literal has type <code>char [n]</code> where <code>n</code> equals number of characters + 1 to account for the implicit zero at the end of the string.</p>
 <p>The array will be statically allocated; it is not <code>const</code>, but modifying it is undefined behaviour.</p>
 <p>If it had pointer type <code>char *</code> or incomplete type <code>char []</code>, <code>sizeof</code> could not work as expected.</p>
-<p>In C++ the type of stirng literal is <figure class="highlight plain"><figcaption><span>char[n]```, ```n``` is also equals number of characters + 1. </span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">---------------------</div><div class="line"></div><div class="line">The difference here is that</div></pre></td></tr></table></figure></p>
-<p>char *s = “Hello world”;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">will place `&quot;Hello world&quot;` in the *read-only parts of the memory*, and making `s` a pointer to that makes any writing operation on this memory illegal.</div><div class="line"></div><div class="line">While doing:</div></pre></td></tr></table></figure></p>
-<p>char s[] = “Hello world”;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">puts the literal string in read-only memory and copies the string to newly allocated memory on the stack. Thus making</div></pre></td></tr></table></figure></p>
-<p>s[0] = ‘J’;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">legal.</div><div class="line"></div><div class="line">-------------------</div><div class="line"></div><div class="line">暂且不去深究字符串字面值到底是char [n]的字符数组还是const char [n]的字符数组 ，反正我们在程序中一般只会以两种方式来引用字符串字面值：1. 字符指针的形式；2. 字符数组的形式</div><div class="line"></div><div class="line">```Cpp</div><div class="line">char *name = &quot;daiyingjie&quot;;</div><div class="line">const char *name = &quot;daiyingjie&quot;;</div></pre></td></tr></table></figure></p>
+<p>In C++ the type of stirng literal is <code>const char[n]</code>, <code>n</code> is also equals number of characters + 1. </p>
+<hr>
+<p>The difference here is that</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">char *s = &quot;Hello world&quot;;</div></pre></td></tr></table></figure>
+<p>will place <code>&quot;Hello world&quot;</code> in the <em>read-only parts of the memory</em>, and making <code>s</code> a pointer to that makes any writing operation on this memory illegal.</p>
+<p>While doing:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">char s[] = &quot;Hello world&quot;;</div></pre></td></tr></table></figure>
+<p>puts the literal string in read-only memory and copies the string to newly allocated memory on the stack. Thus making legal.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">s[0] = &apos;J&apos;;</div></pre></td></tr></table></figure>
+<hr>
+<p>暂且不去深究字符串字面值到底是char [n]的字符数组还是const char [n]的字符数组 ，反正我们在程序中一般只会以两种方式来引用字符串字面值：1. 字符指针的形式；2. 字符数组的形式</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">char</span> *name = <span class="string">"daiyingjie"</span>;</div><div class="line"><span class="keyword">const</span> <span class="keyword">char</span> *name = <span class="string">"daiyingjie"</span>;</div></pre></td></tr></table></figure>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">char</span> name[] = <span class="string">"daiyingjie"</span>;</div></pre></td></tr></table></figure>
-<p><img src="https://daiyingjie.github.io/imgs/course/CS102/Chap5/2-1.jpg" alt="img2-1"></p>
-<p><img src="https://daiyingjie.github.io/imgs/course/CS102/Chap5/2-2.jpg" alt="img2-2"></p>
+<p><img src="https://daiyingjie.github.io/imgs/course/CS102/Chap5/2-1.jpg" align="left" width="350" height="350"></p>
+<p><img src="https://daiyingjie.github.io/imgs/course/CS102/Chap5/2-2.jpg" align="right" width="350" height="350"></p>
 
       
     </div>
