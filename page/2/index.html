@@ -264,7 +264,7 @@
 <!-- Table of Contents -->
 
   
-    <article id="post-cpp_common/int_char*_string"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-cpp_common/struct"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -272,7 +272,7 @@
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/10/29/cpp_common/int_char*_string/">CPP Common: int char* string 之间的相互转换</a>
+      <a class="article-title" href="/2017/10/29/cpp_common/struct/">CPP Common: C/C++中struct的用法</a>
     </h1>
   
 
@@ -280,7 +280,7 @@
     
     <div class="article-meta">
       
-	<a href="/2017/10/29/cpp_common/int_char*_string/" class="article-date">
+	<a href="/2017/10/29/cpp_common/struct/" class="article-date">
 	  <time datetime="2017-10-29T11:20:43.000Z" itemprop="datePublished">2017-10-29</time>
 	</a>
 
@@ -291,19 +291,19 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="int"><a href="#int" class="headerlink" title="int"></a>int</h4><p>int型数字转为char* </p>
-<p>itoa, sprintf</p>
-<p>int型数字转为string</p>
-<p>stringstream</p>
-<h4 id="char"><a href="#char" class="headerlink" title="char*"></a>char*</h4><p>char*转string</p>
-
+        <p>在C++中struct和class几乎没有区别，除了默认的类里面的变量或函数是public还是private的区别，到底哪个默认是public，我也懒得记了，每次写清楚就好了。所以在C++中struct就看做是class好了。但是在C中，struct准确的叫法是结构体，它准确的定义是：<strong>结构体是一种把数据项组合在一起的数据结构。</strong>它和C++中的struct的用法（或者说class的用法）还有有些许差别的。</p>
+<p>再来吐槽一下C/C++，C/C++的语法真的丑陋，语法让人产生多种理解，或难以理解与记忆。从stack overflow上相关问题的点赞数都可以看出来，大家对struct这个语法很不熟，这个语法就是比较丑陋，这个锅就应该C/C++背，谁TM叫你虐我千百遍。下面就是stack overflow上的一个关于struct的问题链接。（<a href="https://stackoverflow.com/questions/612328/difference-between-struct-and-typedef-struct-in-c/612350#612350）" target="_blank" rel="external">https://stackoverflow.com/questions/612328/difference-between-struct-and-typedef-struct-in-c/612350#612350）</a></p>
+        <!-- 在C++中struct和class几乎没有区别，除了默认的类里面的变量或函数是public还是private的区别，到底哪个默认是public，我也懒得记了，每次写清楚就好了。所以在C++中struct就看做是class好了。但是在C中，struct准确的叫法是结构体，它准确的定义是：结构体是一种把数据项组合在一起的数据结构。它和C++中的struct的用法（或者说class的用法）还有有些......  -->
+        <p class="article-more-link">
+          <a href="/2017/10/29/cpp_common/struct/#more">Read More</a>
+        </p>
       
     </div>
     <footer class="article-footer">
       
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-C/">C/C++</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-C/">C/C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/struct/">struct</a></li></ul>
 
     </footer>
   </div>
@@ -368,7 +368,7 @@
 <!-- Table of Contents -->
 
   
-    <article id="post-course/CS102/Chap4/class"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-course/CS102/Chap5/array-pointer-c_string"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -376,7 +376,7 @@
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/10/29/course/CS102/Chap4/class/">CS102: Chap4 using class in cpp</a>
+      <a class="article-title" href="/2017/10/29/course/CS102/Chap5/array-pointer-c_string/">CS102: Chap5 array pointer c-style-string 之间的关系</a>
     </h1>
   
 
@@ -384,7 +384,7 @@
     
     <div class="article-meta">
       
-	<a href="/2017/10/29/course/CS102/Chap4/class/" class="article-date">
+	<a href="/2017/10/29/course/CS102/Chap5/array-pointer-c_string/" class="article-date">
 	  <time datetime="2017-10-29T00:52:03.000Z" itemprop="datePublished">2017-10-29</time>
 	</a>
 
@@ -395,15 +395,88 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>第四章讲的是类</p>
-<p>类是c++与c的主要区别，太基础与概念性的话就不说了，直接来一个列子：大家知道c语言中是没有字符串类型的，在c语言中所谓的字符串就是以字符’\0’结尾的字符数组，一个面向对象的高级语言怎么能没有这么基础的数据类型，所以C++在标准库中就提供了string类型，我们就要自己动手来实现string类型。</p>
-        <!-- 第四章讲的是类
-类是c++与c的主要区别，太基础与概念性的话就不说了，直接来一个列子：大家知道c语言中是没有字符串类型的，在c语言中所谓的字符串就是以字符’\0’结尾的字符数组，一个面向对象的高级语言怎么能没有这么基础的数据类型，所以C++在标准库中就提供了string类型，我们就要自己动手来实现string类型。
+        <p>数组 指针 C风格字符串</p>
+<p><strong>数组</strong></p>
+<p>数组是c语言中一种</p>
+<h1 id="指针和数组的区别"><a href="#指针和数组的区别" class="headerlink" title="指针和数组的区别"></a>指针和数组的区别</h1><p>让我们来看看指针与数组的区别</p>
+<ol>
+<li>在function argument中，不管形参写成char <em>str, char str[], 还是char str[n]，统统都“转化”为char </em>str的形式</li>
+</ol>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">func1</span><span class="params">(<span class="keyword">char</span> *str)</span></span>;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">func2</span><span class="params">(<span class="keyword">char</span> str[])</span></span>;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">func3</span><span class="params">(<span class="keyword">char</span> str[<span class="number">5</span>])</span></span>;</div><div class="line">=====&gt;</div><div class="line"><span class="keyword">void</span> func(<span class="keyword">char</span> *str);</div></pre></td></tr></table></figure>
+<ol>
+<li>数组名不是常量指针</li>
+</ol>
+<p>其实指针就是指针，是用来存放地址的数据类型。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> a = <span class="number">5</span>;</div><div class="line"><span class="keyword">int</span> *p = &amp;a;</div></pre></td></tr></table></figure>
+<p>数组就是数组，是一种用来存放多个相同类型的数据结构（数据类型）。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> telephone[<span class="number">11</span>] = &#123;<span class="number">1</span>, <span class="number">3</span>, <span class="number">0</span>, <span class="number">8</span>, <span class="number">8</span>, <span class="number">8</span>, <span class="number">8</span>, <span class="number">6</span>, <span class="number">6</span>, <span class="number">6</span>, <span class="number">6</span>&#125;;</div></pre></td></tr></table></figure>
+<p>但是为什么这两个定义上没有关系的东西会让人产生混淆，因为：</p>
+<ol>
+<li>数组名在很多情况下可以转换为数组首元素的地址，也就是一个指针了。所以就是数组名经常会转换为一个指针（常量指针）。</li>
+</ol>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> last_num = *(telephone + <span class="number">10</span>);</div></pre></td></tr></table></figure>
+<ol>
+<li>人们也经常”定义为指针，但以数组的方式引用“</li>
+</ol>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> telephone[<span class="number">11</span>] = &#123;<span class="number">1</span>, <span class="number">3</span>, <span class="number">0</span>, <span class="number">8</span>, <span class="number">8</span>, <span class="number">8</span>, <span class="number">8</span>, <span class="number">6</span>, <span class="number">6</span>, <span class="number">6</span>, <span class="number">6</span>&#125;;</div><div class="line"><span class="keyword">int</span> last_num = telephone[<span class="number">10</span>]; <span class="comment">//这是数组的一种“自然的”访问方式</span></div><div class="line"></div><div class="line"><span class="keyword">int</span> *telephone = <span class="keyword">new</span> <span class="keyword">int</span>(<span class="number">11</span>);</div><div class="line"><span class="keyword">int</span> last_num = telephone[<span class="number">10</span>]; <span class="comment">//这就是所谓的定义为指针但以数组的方式引用</span></div><div class="line"><span class="comment">//等价于（待check）</span></div><div class="line"><span class="keyword">int</span> last_num = *(telephone + <span class="number">10</span>);</div></pre></td></tr></table></figure>
+<p>但是注意有一种错误，声明为指针，定义为数组，然后以数组的方式引用， 如：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">extern</span> <span class="keyword">char</span> *p;</div><div class="line"><span class="keyword">char</span> p[<span class="number">10</span>];</div><div class="line"><span class="keyword">char</span> c = p[<span class="number">2</span>];</div></pre></td></tr></table></figure>
+<p>当用p[i]这种形式提取时，由于声明为指针，所以还是会按照那三个步骤来操作，结果得到一个对ACSII字符作为地址的解引用，显然是错误的。</p>
+<p>但是数组和指针本来就是两码事，经常有人讲“数组名就是常量指针”，但是这是一种错误的说法：</p>
+<p>首先，数组名不是常量指针，从两方面：</p>
+<ol>
+<li>类型方面，数组的类型是type[size]，和常量指针类型type* const不同</li>
+<li>使用方面，sizeof(数组名)等于数组所有元素的大小，而不是sizeof(指针)；对数组取地址，得到的指针进行加减，增减字节数是sizeof(数组)；你可以用字符串字面量初始化一个字符数组，但是不能用常量指针来初始化一个字符数组。</li>
+</ol>
+<p>其次，为什么很多老师都说数组是常量指针</p>
+<ol>
+<li>他们不了解C语言的类型系统和隐式转换规则</li>
+<li>他们怕下面的人听不懂</li>
+<li>他们解释不清为什么数组名不能进行赋值或者++之类的运算而指针可以</li>
+</ol>
+<p>切入正题，我们从类型系统和隐式转换规则来讲：</p>
+<ul>
+<li>数组名的类型就是数组类型type[size] （参见<a href="http://link.zhihu.com/?target=http%3A//en.cppreference.com/w/c/language/array" target="_blank" rel="external">Array declaration</a>）</li>
+<li>对数组取址，得到的类型是指向数组的指针type(*)[size] （参见<a href="http://link.zhihu.com/?target=http%3A//en.cppreference.com/w/c/language/operator_member_access" target="_blank" rel="external">Member access operators</a>）</li>
+</ul>
+<ul>
+<li>数组名在大部分情况下会隐式转换为首元素指针右值，除了（参见 <a href="http://link.zhihu.com/?target=http%3A//en.cppreference.com/w/c/language/conversion" target="_blank" rel="external">Implicit conversions</a>）</li>
+</ul>
+<ol>
+<li><ol>
+<li>sizeof运算的时候</li>
+<li>取址的时候</li>
+<li>用字符串字面量初始化字符数组的时候</li>
+<li>以及C11的_Alignof运算符（这个本文不考虑）</li>
+</ol>
+</li>
+</ol>
+<p>其他情况下都会发生数组到指针隐式转换，比如你用方括号取值，如果方括号左边是个数组，那么数组会被隐式转换为首元素指针右值，然后对这个值进行的解引用。（参见<a href="http://link.zhihu.com/?target=http%3A//en.cppreference.com/w/c/language/operator_member_access" target="_blank" rel="external">Member access operators</a>）</p>
+<p>更进一步，二维数组type[size1][size2]，实际上就是元素类型是数组的数组，进行隐式转换后得到的首元素指针类型是type(*)[size2]，指向数组的指针，对这个指针加减，得到的也是数组的指针，对它解引用，得到数组。这一套过程，用那个什么数组名是常量指针的说法，是解释不来的。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">typedef char(*AP)[5];</div><div class="line"><span class="function">AP <span class="title">foo</span><span class="params">(<span class="keyword">char</span>* p)</span> </span>&#123;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">3</span>; i++) &#123;</div><div class="line">        p[<span class="built_in">strlen</span>(p)] = <span class="string">'A'</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> (AP)p+<span class="number">1</span>;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">char</span> s[] = <span class="string">"FROG\0SEAL\0LION\0LAMB"</span>;</div><div class="line">    <span class="built_in">puts</span>(foo(s)[<span class="number">1</span>] + <span class="number">2</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>解答：别小看这一段程序，考察了很多方面：</p>
+<p>首先main函数中s值一个字符数组，里面存放着一段字符串。</p>
+<p>将这个字符数组名传入foo函数的时候，就发生了隐式转换，从字符数组到常量字符指针的转换（顶层const可以转换），所以在函数foo中，p就指向了字符数组的首元素的地址，经过一个for循环就将字符数组中的前面3个\0修改成了’A’，所以字符数组就变成了”FROGA|SEALA|LIONA|LAMB”(|是我额外加的)，然后return出去的时候进行了强制类型转换，p由一个字符指针转换成了一个size为5的字符数组指针，对此指针+1，则该指针指向了”SEALA”中的S，然后将此字符数组指针return出去了。</p>
+<p>foo(s)就是return出去的那个字符数组指针，对该指针以数组的形式引用foo(s)[1]，这里就有3个步骤，</p>
+<ol>
+<li>首先取得foo(s)指针本身的地址，提取存储在本身地址的值：也就是取得foo(s)指针所指向的值。</li>
+<li>该值就是一个指向字符数组的地址，对这个地址加上偏移1，因为是字符数组的地址，其实移动了5个字符的长度，指向了“LIONA”的L</li>
+<li>对该地址解引用，取得字符数组</li>
+</ol>
+<p><strong>综上，foo(s)[1]得到一个字符数组！！！</strong></p>
+<p>然后该字符数组加2，又有一次隐式转换，这个字符数组转换为指向其首元素的地址，也就是一个字符地址，字符地址+2，也就得到指向”LIONALAMB”中的O了，所以最后就是一个指向O的字符指针，打印它，得到：ONALAMB。</p>
+<h1 id="字符串字面值"><a href="#字符串字面值" class="headerlink" title="字符串字面值"></a>字符串字面值</h1><p><a href="https://stackoverflow.com/questions/2245664/what-is-the-type-of-string-literals-in-c-and-c" target="_blank" rel="external">https://stackoverflow.com/questions/2245664/what-is-the-type-of-string-literals-in-c-and-c</a></p>
+<p><a href="https://stackoverflow.com/questions/1704407/what-is-the-difference-between-char-s-and-char-s" target="_blank" rel="external">https://stackoverflow.com/questions/1704407/what-is-the-difference-between-char-s-and-char-s</a></p>
+<hr>
+<p>A C string literal has type <code>char [n]</code> where <code>n</code> equals number of characters + 1 to account for the implicit zero at the end of the string.</p>
+<p>The array will be statically allocated; it is not <code>const</code>, but modifying it is undefined behaviour.</p>
+<p>If it had pointer type <code>char *</code> or incomplete type <code>char []</code>, <code>sizeof</code> could not work as expected.</p>
+<p>In C++ the type of stirng literal is <figure class="highlight plain"><figcaption><span>char[n]```, ```n``` is also equals number of characters + 1. </span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">---------------------</div><div class="line"></div><div class="line">The difference here is that</div></pre></td></tr></table></figure></p>
+<p>char *s = “Hello world”;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">will place `&quot;Hello world&quot;` in the *read-only parts of the memory*, and making `s` a pointer to that makes any writing operation on this memory illegal.</div><div class="line"></div><div class="line">While doing:</div></pre></td></tr></table></figure></p>
+<p>char s[] = “Hello world”;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">puts the literal string in read-only memory and copies the string to newly allocated memory on the stack. Thus making</div></pre></td></tr></table></figure></p>
+<p>s[0] = ‘J’;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">legal.</div><div class="line"></div><div class="line">-------------------</div><div class="line"></div><div class="line">暂且不去深究字符串字面值到底是char [n]的字符数组还是const char [n]的字符数组 ，反正我们在程序中一般只会以两种方式来引用字符串字面值：1. 字符指针的形式；2. 字符数组的形式</div><div class="line"></div><div class="line">```Cpp</div><div class="line">char *name = &quot;daiyingjie&quot;;</div><div class="line">const char *name = &quot;daiyingjie&quot;;</div></pre></td></tr></table></figure></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">char</span> name[] = <span class="string">"daiyingjie"</span>;</div></pre></td></tr></table></figure>
 
-首先，在实现一个类之前要彻底了解你要实现的类，记住一句话，设计一个类其实就......  -->
-        <p class="article-more-link">
-          <a href="/2017/10/29/course/CS102/Chap4/class/#more">Read More</a>
-        </p>
       
     </div>
     <footer class="article-footer">
