@@ -264,7 +264,7 @@
 <!-- Table of Contents -->
 
   
-    <article id="post-cpp_common/initialization"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-cpp_common/reference"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -272,7 +272,7 @@
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/10/29/cpp_common/initialization/">CPP Common: C++中直接初始化和拷贝初始化</a>
+      <a class="article-title" href="/2017/10/29/cpp_common/reference/">CPP Common: C/C++中什么是引用</a>
     </h1>
   
 
@@ -280,7 +280,7 @@
     
     <div class="article-meta">
       
-	<a href="/2017/10/29/cpp_common/initialization/" class="article-date">
+	<a href="/2017/10/29/cpp_common/reference/" class="article-date">
 	  <time datetime="2017-10-29T11:20:43.000Z" itemprop="datePublished">2017-10-29</time>
 	</a>
 
@@ -291,23 +291,19 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>转载自 <a href="https://sqrt-1.me/?p=241" target="_blank" rel="external">https://sqrt-1.me/?p=241</a></p>
-        <!-- 转载自 https://sqrt-1.me/?p=241
+        <h1 id="什么是引用？"><a href="#什么是引用？" class="headerlink" title="什么是引用？"></a>什么是引用？</h1><p>引用就是一个对象的别名。</p>
+<p>引用常常被用于按引用的方式传值：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span>&amp; i, <span class="keyword">int</span>&amp; j)</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">  <span class="keyword">int</span> tmp = i;</div><div class="line">  i = j;</div><div class="line">  j = tmp;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">  <span class="keyword">int</span> x, y;</div><div class="line">  <span class="comment">// ...</span></div><div class="line">  swap(x,y);</div><div class="line">  <span class="comment">// ...</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这里i和j是main函数中x和y的别名。换句话说，i就是x，并不是指向x的指针，也不是x的拷贝，就是x本身。你对i进行的任何操作都会对x发生，反过来也一样。</p>
+<p>这就是作为一个程序员你应该对引用的认识。现在，给你一种不同的视角，但是可能会让你产生混淆，那就是引用是如何实现的。</p>
 
-C++的直接初始化与复制初始化C++中的直接初始化指的是直接调用类的构造函数进行初始化，例如
-123string a; //调用默认构造函数string a("hello"); //调用参数为const char *类型的构造函数string b(a); //调用拷贝构造函数
-复制初始化指的是用“=”号来初始化对象，例如
-12str......  -->
-        <p class="article-more-link">
-          <a href="/2017/10/29/cpp_common/initialization/#more">Read More</a>
-        </p>
       
     </div>
     <footer class="article-footer">
       
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-C/">C/C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/initialization/">initialization</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-C/">C/C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/reference/">reference</a></li></ul>
 
     </footer>
   </div>
@@ -424,7 +420,7 @@ C++的直接初始化与复制初始化C++中的直接初始化指的是直接�
 <!-- Table of Contents -->
 
   
-    <article id="post-course/CS102/Chap5/array-pointer-c_string"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-cpp_common/extern-C"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -432,7 +428,7 @@ C++的直接初始化与复制初始化C++中的直接初始化指的是直接�
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/10/29/course/CS102/Chap5/array-pointer-c_string/">CS102: Chap5 array pointer c-style-string 之间的关系</a>
+      <a class="article-title" href="/2017/10/29/cpp_common/extern-C/">CPP Common: extern “C”</a>
     </h1>
   
 
@@ -440,28 +436,37 @@ C++的直接初始化与复制初始化C++中的直接初始化指的是直接�
     
     <div class="article-meta">
       
-	<a href="/2017/10/29/course/CS102/Chap5/array-pointer-c_string/" class="article-date">
+	<a href="/2017/10/29/cpp_common/extern-C/" class="article-date">
 	  <time datetime="2017-10-29T00:52:03.000Z" itemprop="datePublished">2017-10-29</time>
 	</a>
 
       
-    <a class="article-category-link" href="/categories/Course-CS102/">Course/CS102</a>
+    <a class="article-category-link" href="/categories/cpp-common/">cpp_common</a>
 
       
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>数组 指针 C风格字符串</p>
-<p><strong>数组</strong></p>
-<p>数组是c语言中一种</p>
-
+        <p>Introduce the problem: </p>
+<p>In C++ source, what is the effect of extern “C”?</p>
+<p>Stack overflow: <a href="https://stackoverflow.com/questions/1041866/in-c-source-what-is-the-effect-of-extern-c/1041880#1041880" target="_blank" rel="external">https://stackoverflow.com/questions/1041866/in-c-source-what-is-the-effect-of-extern-c/1041880#1041880</a></p>
+<p>在用C++的项目源码中，经常会不可避免的会看到下面的代码：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> __cplusplus</span></div><div class="line"><span class="keyword">extern</span> <span class="string">"C"</span> &#123;</div><div class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></div><div class="line"> </div><div class="line"><span class="comment">/*...*/</span></div><div class="line"> </div><div class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> __cplusplus</span></div><div class="line">&#125;</div><div class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></div></pre></td></tr></table></figure>
+<p>它到底有什么用呢，你知道吗？而且这样的问题经常会出现在面试or笔试中。 如果你不知道是什么意思，点开Read More，我慢慢告诉你。</p>
+        <!-- Introduce the problem: 
+In C++ source, what is the effect of extern “C”?
+Stack overflow: https://stackoverflow.com/questions/1041866/in-c-source-what-is-the-effect-of-extern-c/1041880#1041880
+在用C++......  -->
+        <p class="article-more-link">
+          <a href="/2017/10/29/cpp_common/extern-C/#more">Read More</a>
+        </p>
       
     </div>
     <footer class="article-footer">
       
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-C/">C/C++</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-C/">C/C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/extern-C/">extern "C"</a></li></ul>
 
     </footer>
   </div>
