@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>cpp common: c++中static关键字 | </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="C/C++static" />
+  
+  
+  
+  
+  <meta name="description" content="static是C++的一个关键字，被static关键字修饰的变量具有静态生存期，和整个程序具有相同的生存期。static关键字主要用于以下四个方面。  函数内的静态变量 静态对象 类中的静态数据成员 类中的静态函数成员">
+<meta name="keywords" content="C&#x2F;C++,static">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CPP Common: C++中static关键字">
+<meta property="og:url" content="http://yoursite.com/2017/10/25/cpp_common/keyword_static/index.html">
+<meta property="og:site_name">
+<meta property="og:description" content="static是C++的一个关键字，被static关键字修饰的变量具有静态生存期，和整个程序具有相同的生存期。static关键字主要用于以下四个方面。  函数内的静态变量 静态对象 类中的静态数据成员 类中的静态函数成员">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2018-01-14T04:39:22.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CPP Common: C++中static关键字">
+<meta name="twitter:description" content="static是C++的一个关键字，被static关键字修饰的变量具有静态生存期，和整个程序具有相同的生存期。static关键字主要用于以下四个方面。  函数内的静态变量 静态对象 类中的静态数据成员 类中的静态函数成员">
+  
+    <link rel="alternate" href="/atom.xml" title="" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/css/images/d_Fotor.jpg">
+  <link rel="apple-touch-icon" href="/css/images/d_Fotor.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script src="/js/jquery-3.1.1.min.js"></script>
+  <script src="/js/bootstrap.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
+
+  
+    <link rel="stylesheet" href="/css/dialog.css">
+  
+
+  
+
+  
+    <link rel="stylesheet" href="/css/header-post.css" >
+  
+
+  
+  
+  
+    <link rel="stylesheet" href="/css/vdonate.css" >
+  
+
+</head>
+
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="border-width: 0;">
+                <p></p>
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="hnav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="/">Home</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/archives">Archives</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/categories">Categories</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/tags">Tags</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/about">About</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-cpp_common/keyword_static" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      CPP Common: C++中static关键字
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/10/25/cpp_common/keyword_static/" class="article-date">
+	  <time datetime="2017-10-25T11:20:43.000Z" itemprop="datePublished">2017-10-25</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/cpp-common/">cpp_common</a>
+
+      
+	<a class="article-views">
+	<span id="busuanzi_container_page_pv">
+		PV:<span id="busuanzi_value_page_pv"></span>
+	</span>
+	</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>static是C++的一个关键字，被static关键字修饰的变量具有静态生存期，和整个程序具有相同的生存期。static关键字主要用于以下四个方面。</p>
+<ol>
+<li>函数内的静态变量</li>
+<li>静态对象</li>
+<li>类中的静态数据成员</li>
+<li>类中的静态函数成员</li>
+</ol>
+<a id="more"></a>
+<h2 id="函数内的静态变量"><a href="#函数内的静态变量" class="headerlink" title="函数内的静态变量"></a>函数内的静态变量</h2><p>当静态变量在函数内部中时，它们只会被初始化一次，即使再次调用该函数，静态变量也会保持它当前的值而不会重新初始化。</p>
+<p>这些静态变量存储在静态存储区而不是在栈中。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">counter</span><span class="params">()</span></span>&#123;</div><div class="line">  <span class="keyword">static</span> <span class="keyword">int</span> count = <span class="number">0</span>;</div><div class="line">  <span class="built_in">cout</span> &lt;&lt; count++;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">  <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++)&#123;</div><div class="line">    counter();</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">0 1 2 3 4</div></pre></td></tr></table></figure>
+<p>让我们看一下同样的程序，但是没有使用静态变量，会是怎样的结果。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">counter</span><span class="params">()</span></span>&#123;</div><div class="line">  <span class="keyword">static</span> <span class="keyword">int</span> count = <span class="number">0</span>;</div><div class="line">  <span class="built_in">cout</span> &lt;&lt; count++;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">  <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++)&#123;</div><div class="line">    counter();</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">0 0 0 0 0</div></pre></td></tr></table></figure>
+<p>如果我们不使用static关键字，变量count，在counter函数每次被调用的时候都会重新初始化，在每次离开counter函数的时候都会消亡。但是，如果我们使用static关键字，一旦count变量被第一次初始化，它就会在整个main函数阶段保持生存期，并且即使再次调用该函数，count变量也会保持它上一次的值，而不是被重新初始化。</p>
+<p>如果你没有初始化一个静态变量，它们会默认被初始化为0。</p>
+<h2 id="静态对象"><a href="#静态对象" class="headerlink" title="静态对象"></a>静态对象</h2><p>Static关键字对对象也有同样的作用。对象被声明为static，其会被分配在静态存储区，并且它的生存期为整个程序阶段。</p>
+<p>静态对象像其他的对象一样，使用构造函数进行初始化。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">class Abc&#123;</div><div class="line">private:</div><div class="line">  int i;</div><div class="line">public:</div><div class="line">  Abc()&#123;</div><div class="line">    i = 0;</div><div class="line">    cout &lt;&lt; &quot;constructor&quot; &lt;&lt; endl;</div><div class="line">  &#125;</div><div class="line">  ~Abc()&#123;</div><div class="line">    cout &lt;&lt; &quot;destructor&quot; &lt;&lt; endl;</div><div class="line">  &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">void f()&#123;</div><div class="line">  static Abc obj;</div><div class="line">&#125;</div><div class="line"></div><div class="line">int main()&#123;</div><div class="line">  int x = 0;</div><div class="line">  if(x == 0)&#123;</div><div class="line">    f();</div><div class="line">  &#125;</div><div class="line">  cout &lt;&lt; &quot;END&quot; &lt;&lt; endl;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">constructor END destructor</div></pre></td></tr></table></figure>
+<p>你一定在想：为什么析构函数没有在if语句的末尾被调用。那是因为obj为声明为static的了，它和程序拥有相同的生命期，因此obj的析构函数在main函数退出的时候被调用。</p>
+<p>如果你将上面代码的static关键字去掉，会得到如下输出：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">constructor destructor END</div></pre></td></tr></table></figure>
+<h2 id="类中的静态数据成员"><a href="#类中的静态数据成员" class="headerlink" title="类中的静态数据成员"></a>类中的静态数据成员</h2><p>类中的静态数据成员为该类的所有对象共享，静态数据成员具有静态生存期。</p>
+<p>类的静态数据成员不是使用构造函数进行初始化，因为它们并不依赖于对象的初始化。</p>
+<p>此外，类的静态数据成员必须被明确的初始化，一般在类外。如果没有被初始化，链接器会报错。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Point</span> &#123;</span>     <span class="comment">//Point类定义</span></div><div class="line"></div><div class="line"><span class="keyword">public</span>:       <span class="comment">//外部接口</span></div><div class="line"></div><div class="line">       Point(<span class="keyword">int</span> x = <span class="number">0</span>, <span class="keyword">int</span> y = <span class="number">0</span>) : x(x), y(y) &#123; <span class="comment">//构造函数</span></div><div class="line"></div><div class="line">           <span class="comment">//在构造函数中对count累加，所有对象共同维护同一个count</span></div><div class="line"></div><div class="line">           count++;</div><div class="line"></div><div class="line">       &#125;</div><div class="line"></div><div class="line">       Point(Point &amp;p) &#123;    <span class="comment">//复制构造函数</span></div><div class="line"></div><div class="line">           x = p.x;</div><div class="line"></div><div class="line">           y = p.y;</div><div class="line"></div><div class="line">           count++;</div><div class="line"></div><div class="line">       &#125;</div><div class="line"></div><div class="line">       ~Point() &#123;  count--; &#125;</div><div class="line"></div><div class="line">       <span class="function"><span class="keyword">int</span> <span class="title">getX</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> x; &#125;</div><div class="line"></div><div class="line">       <span class="function"><span class="keyword">int</span> <span class="title">getY</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> y; &#125;</div><div class="line"></div><div class="line">      <span class="function"><span class="keyword">void</span> <span class="title">showCount</span><span class="params">()</span> </span>&#123;           <span class="comment">//输出静态数据成员</span></div><div class="line"></div><div class="line">           <span class="built_in">cout</span> &lt;&lt; <span class="string">"  Object count = "</span> &lt;&lt; count &lt;&lt; <span class="built_in">endl</span>;</div><div class="line"></div><div class="line">       &#125;</div><div class="line"></div><div class="line"><span class="keyword">private</span>:      <span class="comment">//私有数据成员</span></div><div class="line"></div><div class="line">       <span class="keyword">int</span> x, y;</div><div class="line"></div><div class="line">       <span class="keyword">static</span> <span class="keyword">int</span> count;       <span class="comment">//静态数据成员声明，用于记录点的个数</span></div><div class="line"></div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">int</span> Point::count = <span class="number">0</span>;<span class="comment">//静态数据成员定义和初始化，使用类名限定</span></div></pre></td></tr></table></figure>
+<h2 id="类的静态函数成员"><a href="#类的静态函数成员" class="headerlink" title="类的静态函数成员"></a>类的静态函数成员</h2><p>类的静态函数成员是为整个类工作，而不是为某个类的对象工作。</p>
+<p>可以通过obj.static_function()的方式访问静态函数成员，也可以通过calssName::static_function()的方式来访问静态函数成员。</p>
+<p>类的静态函数成员和非静态函数成员的区别：</p>
+<p>当进入函数体时，非静态函数成员知道具体是哪个对象调用了它，而静态函数成员不知道是哪个对象调用了它，因为非静态函数成员被调用的时候，会有一个隐含的this指针，这个this指针就指向当前调用非静态函数成员的对象；即使你使用obj.static_function()这种形式调用静态函数成员，它也没法知道是哪个对象调用了它。</p>
+<p>静态函数成员不能访问普通的数据成员和函数成员，只能访问静态数据成员和静态函数成员，非要访问非静态数据的时候，需要显式的将对象（指针）传入静态函数中。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div id="donation_div"></div>
+
+<script src="/js/vdonate.js"></script>
+<script>
+var a = new Donate({
+  title: '如果觉得我的文章对您有用，请随意打赏。您的支持将鼓励我继续创作!', // 可选参数，打赏标题
+  btnText: 'Donate', // 可选参数，打赏按钮文字
+  el: document.getElementById('donation_div'),
+  wechatImage: 'https://avatars1.githubusercontent.com/u/16939557?s=460&v=4',
+  alipayImage: 'https://avatars1.githubusercontent.com/u/16939557?s=460&v=4'
+});
+</script>
+      
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC8yOTQ4MS82MDQ5">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
+
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-C/">C/C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/static/">static</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/10/25/cpp_common/keyword_const/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          CPP Common: C++中const关键字
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/10/25/git/git-QA/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">git: Q&amp;A</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="toc-sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Contents</strong>
+    
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#函数内的静态变量"><span class="nav-number">1.</span> <span class="nav-text">函数内的静态变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#静态对象"><span class="nav-number">2.</span> <span class="nav-text">静态对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类中的静态数据成员"><span class="nav-number">3.</span> <span class="nav-text">类中的静态数据成员</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类的静态函数成员"><span class="nav-number">4.</span> <span class="nav-text">类的静态函数成员</span></a></li></ol>
+    
+    </div>
+  </aside>
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2013 - 2018  All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				UV : <span id="busuanzi_value_site_uv"></span> |  
+				PV : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/scripts.js"></script>
+
+
+
+
+  <script src="/js/dialog.js"></script>
+
+
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            
+          </div>
+          <div class="panel-body">
+            Copyright © 2018  All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+    <a id="menu-switch"><i class="fa fa-bars fa-lg"></i></a>
+  
+</body>
+</html>

@@ -342,7 +342,7 @@ Course: Build a Modern Computer f......  -->
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/10/30/course/CS101/coursera-cs101.1-week1/">Coursera CS101.1 Week 1</a>
+      <a class="article-title" href="/2017/10/30/course/CS101/coursera-cs101.1-week1/">Course: CS101.1 Week 1</a>
     </h1>
   
 
@@ -355,133 +355,25 @@ Course: Build a Modern Computer f......  -->
 	</a>
 
       
-    <a class="article-category-link" href="/categories/Coursera-CS101-1/">Coursera-CS101.1</a>
+    <a class="article-category-link" href="/categories/Course-CS101-1/">Course/CS101.1</a>
 
       
     </div>
     <div class="article-entry" itemprop="articleBody">
       
         <p><strong>In a nutshell: </strong>course introduction and overview, the roles of abstraction and implementation in systems design, the road ahead.</p>
-<h1 id="Boolean-Logic"><a href="#Boolean-Logic" class="headerlink" title="Boolean Logic"></a>Boolean Logic</h1><ul>
-<li>布尔值：0，1</li>
-</ul>
-<p>基本的布尔运算：与，或，非</p>
-<p>x AND y, x OR y, NOT(x)</p>
-<ul>
-<li>布尔表达式：由布尔值和布尔运算符组成的表达式</li>
-</ul>
-<p>NOT(0 OR (1 AND 1)) = NOT(0 OR 1) = NOT 1 = 0</p>
-<ul>
-<li>布尔函数：</li>
-</ul>
-<p>f(x, y, z) = (x AND y) OR (NOT(x) AND z)</p>
-<p>真值表(Truth table)和公式(Formula)是两种不同但是等价的布尔函数的表达方式</p>
-<ul>
-<li>布尔运算性质：</li>
-</ul>
-<p>Commutative Laws:</p>
-<p>Associative Laws:</p>
-<p>Distributive Laws:</p>
-<p>De Morgan Laws: </p>
-<p>这些性质一般是为了简化布尔表达式的，例如：</p>
-<p>NOT(NOT(x) AND NOT(x OR y)) = De Morgan Law = NOT(NOT(x) AND (NOT(x) AND NOT(y))) = Associative Law =NOT((NOT(x) AND NOT(x)) AND NOT(y)) = Indempotence = NOT(NOT(x) AND NOT(y)) = De Morgan Law = NOT(NOT(x)) OR NOT(NOT(y)) = Double Negation = x OR y</p>
-<ul>
-<li>真值表与公式互推</li>
-</ul>
-<p>从公式推出真值表很简单，只需列出所有可能input，然后带入公式计算output。</p>
-<p>我们知道我们的unit要做什么（某种布尔函数），现在我们的任务就是将这个布尔函数用基本的运算（与、或、非）描述出来。所以，我们需要知道怎么样从真值表推理出布尔函数表达式：</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">x</th>
-<th style="text-align:center">y</th>
-<th style="text-align:center">z</th>
-<th style="text-align:center">f</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">0</td>
-<td style="text-align:center">0</td>
-<td style="text-align:center">0</td>
-<td style="text-align:center">1</td>
-</tr>
-<tr>
-<td style="text-align:center">0</td>
-<td style="text-align:center">0</td>
-<td style="text-align:center">1</td>
-<td style="text-align:center">0</td>
-</tr>
-<tr>
-<td style="text-align:center">0</td>
-<td style="text-align:center">1</td>
-<td style="text-align:center">0</td>
-<td style="text-align:center">1</td>
-</tr>
-<tr>
-<td style="text-align:center">0</td>
-<td style="text-align:center">1</td>
-<td style="text-align:center">1</td>
-<td style="text-align:center">0</td>
-</tr>
-<tr>
-<td style="text-align:center">1</td>
-<td style="text-align:center">0</td>
-<td style="text-align:center">0</td>
-<td style="text-align:center">1</td>
-</tr>
-<tr>
-<td style="text-align:center">1</td>
-<td style="text-align:center">0</td>
-<td style="text-align:center">1</td>
-<td style="text-align:center">0</td>
-</tr>
-<tr>
-<td style="text-align:center">1</td>
-<td style="text-align:center">1</td>
-<td style="text-align:center">0</td>
-<td style="text-align:center">0</td>
-</tr>
-<tr>
-<td style="text-align:center">1</td>
-<td style="text-align:center">1</td>
-<td style="text-align:center">1</td>
-<td style="text-align:center">0</td>
-</tr>
-</tbody>
-</table>
-<p>方法：找到结果为1的行，然后将它们按下面的表达式写出来，然后简化</p>
-<p>NOT(x) AND NOT(y) AND NOT(z) OR</p>
-<p>NOT(x) AND y AND NOT(z) OR</p>
-<p>x AND NOT(y) AND NOT(z)<br>= (NOT(x) AND NOT(z)) OR (x AND NOT(y) AND NOT(z))</p>
-<p>= NOT(z) AND (NOT(x) OR NOT(y))</p>
-<ul>
-<li>布尔逻辑中的一个重要发现</li>
-</ul>
-<p>Any boolean funciton can be represented using an expression containing <strong>AND, OR, NOT</strong> operations.</p>
-<p>由于：</p>
-<p>x OR y = NOT( NOT(x) AND NOT(y) )</p>
-<p>所以可以改为：Any boolean funciton can be represented using an expression containing <strong>AND, NOT </strong>operations.</p>
-<p>Can we get less?</p>
-<p>有另外一个神奇的运算的存在：与非运算(NAND)</p>
-<p>x NAND y = NOT (x AND y), It gives 0 only if both its inputs are 1. </p>
-<p>又由于：</p>
-<p>NOT(x) = x NAND x</p>
-<p>x AND y = NOT(x NAND y) = (x NAND y) NAND (x NAND y)</p>
-<p><strong>So, if you have a NAND gate, you can computing everything!</strong></p>
-<h1 id="Logic-Gates"><a href="#Logic-Gates" class="headerlink" title="Logic Gates"></a>Logic Gates</h1><p>逻辑门其实就是布尔逻辑运算的物理实现</p>
-<p>最基础，最重要的逻辑门：与非门</p>
-<p>基础的逻辑门：与门，或门，非门</p>
-<p>组合门：有基础的逻辑门组合成的门，例如：加法门，乘法门</p>
-<h1 id="HDL-hardware-description-language"><a href="#HDL-hardware-description-language" class="headerlink" title="HDL: hardware description language"></a>HDL: hardware description language</h1><p>这门课并不会让你真的拿点洛铁，二极管来搭建一个真实的电脑。所有的操作都是在仿真环境下进行的，使用硬件描述语言（HDL）来完成的。只需要有最基础的与非门就可以实现一台功能完善的电脑。如第一章介绍的，就是使用与非门来实现基础的逻辑门，进一步实现各种组合门，再进一步实现各种功能器件（如内存，ALU等），在进一步实现一个Computer。</p>
-<p>我们以实现一个异或门为例，看看怎么使用HDL和与非门来实现这个新的门。</p>
-<ul>
-<li>HDL is a functional or declarative language. There is no procedure going on. There’s no program execution going on. It is nothing more than a static description of the gate diagram.</li>
-<li>The order of HDL statements is insignificant</li>
-<li>Before using a chip part, you must know its interface. For example: Not(in=, out=), And(a=, b=, out= ), Or(a=, b=, out= )</li>
-<li>Connections like partName(a=a,…) and partName(…, out=out) are common </li>
-</ul>
+        <!-- In a nutshell: course introduction and overview, the roles of abstraction and implementation in systems design, the road ahead.
 
+Boolean Logic
+布尔值：0，1
+
+基本的布尔运算：与，或，非
+x AND y, x OR y, NOT(x)
+
+布尔表达式：......  -->
+        <p class="article-more-link">
+          <a href="/2017/10/30/course/CS101/coursera-cs101.1-week1/#more">Read More</a>
+        </p>
       
     </div>
     <footer class="article-footer">
@@ -498,7 +390,7 @@ Course: Build a Modern Computer f......  -->
 <!-- Table of Contents -->
 
   
-    <article id="post-cpp_common/c-cpp-struct"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-cpp_common/struct"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -506,7 +398,7 @@ Course: Build a Modern Computer f......  -->
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/10/29/cpp_common/c-cpp-struct/">C/C++ struct的用法</a>
+      <a class="article-title" href="/2017/10/29/cpp_common/struct/">CPP Common: C/C++中struct的用法</a>
     </h1>
   
 
@@ -514,12 +406,12 @@ Course: Build a Modern Computer f......  -->
     
     <div class="article-meta">
       
-	<a href="/2017/10/29/cpp_common/c-cpp-struct/" class="article-date">
+	<a href="/2017/10/29/cpp_common/struct/" class="article-date">
 	  <time datetime="2017-10-29T11:20:43.000Z" itemprop="datePublished">2017-10-29</time>
 	</a>
 
       
-    <a class="article-category-link" href="/categories/C-C/">C/C++</a>
+    <a class="article-category-link" href="/categories/cpp-common/">cpp_common</a>
 
       
     </div>
@@ -529,7 +421,7 @@ Course: Build a Modern Computer f......  -->
 <p>再来吐槽一下C/C++，C/C++的语法真的丑陋，语法让人产生多种理解，或难以理解与记忆。从stack overflow上相关问题的点赞数都可以看出来，大家对struct这个语法很不熟，这个语法就是比较丑陋，这个锅就应该C/C++背，谁TM叫你虐我千百遍。下面就是stack overflow上的一个关于struct的问题链接。（<a href="https://stackoverflow.com/questions/612328/difference-between-struct-and-typedef-struct-in-c/612350#612350）" target="_blank" rel="external">https://stackoverflow.com/questions/612328/difference-between-struct-and-typedef-struct-in-c/612350#612350）</a></p>
         <!-- 在C++中struct和class几乎没有区别，除了默认的类里面的变量或函数是public还是private的区别，到底哪个默认是public，我也懒得记了，每次写清楚就好了。所以在C++中struct就看做是class好了。但是在C中，struct准确的叫法是结构体，它准确的定义是：结构体是一种把数据项组合在一起的数据结构。它和C++中的struct的用法（或者说class的用法）还有有些......  -->
         <p class="article-more-link">
-          <a href="/2017/10/29/cpp_common/c-cpp-struct/#more">Read More</a>
+          <a href="/2017/10/29/cpp_common/struct/#more">Read More</a>
         </p>
       
     </div>
@@ -547,7 +439,7 @@ Course: Build a Modern Computer f......  -->
 <!-- Table of Contents -->
 
   
-    <article id="post-cpp_common/cpp-common-initialization"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-cpp_common/reference"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -555,7 +447,7 @@ Course: Build a Modern Computer f......  -->
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/10/29/cpp_common/cpp-common-initialization/">C++ 中直接初始化和拷贝初始化</a>
+      <a class="article-title" href="/2017/10/29/cpp_common/reference/">CPP Common: C/C++中什么是引用</a>
     </h1>
   
 
@@ -563,45 +455,22 @@ Course: Build a Modern Computer f......  -->
     
     <div class="article-meta">
       
-	<a href="/2017/10/29/cpp_common/cpp-common-initialization/" class="article-date">
+	<a href="/2017/10/29/cpp_common/reference/" class="article-date">
 	  <time datetime="2017-10-29T11:20:43.000Z" itemprop="datePublished">2017-10-29</time>
 	</a>
 
       
-    <a class="article-category-link" href="/categories/C-C/">C/C++</a>
+    <a class="article-category-link" href="/categories/cpp-common/">cpp_common</a>
 
       
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>转载自 <a href="https://sqrt-1.me/?p=241" target="_blank" rel="external">https://sqrt-1.me/?p=241</a></p>
-<h1 id="C-的直接初始化与复制初始化"><a href="#C-的直接初始化与复制初始化" class="headerlink" title="C++的直接初始化与复制初始化"></a>C++的直接初始化与复制初始化</h1><p>C++中的<strong>直接初始化</strong>指的是直接调用类的构造函数进行初始化，例如</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">string</span> a; <span class="comment">//调用默认构造函数</span></div><div class="line"><span class="function"><span class="built_in">string</span> <span class="title">a</span><span class="params">(<span class="string">"hello"</span>)</span></span>; <span class="comment">//调用参数为const char *类型的构造函数</span></div><div class="line"><span class="function"><span class="built_in">string</span> <span class="title">b</span><span class="params">(a)</span></span>; <span class="comment">//调用拷贝构造函数</span></div></pre></td></tr></table></figure>
-<p><strong>复制初始化</strong>指的是用“=”号来初始化对象，例如</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">string</span> a=<span class="string">"hello"</span>;</div><div class="line"><span class="built_in">string</span> b=a;</div></pre></td></tr></table></figure>
-<p>在上面的例子中，这两种写法是完全等效的，但是直接初始化和复制初始化在一些情况下还是有区别的。</p>
-<p>根据C++的标准，直接初始化就是直接调用类的构造函数来初始化对象，例如在string a(“hello”)中，string类的string(const char *)构造函数会被调用，a被直接初始化。</p>
-<p>然而根据标准，复制初始化应该是先调用对应的构造函数创建一个临时对象，再调用拷贝构造函数将临时对象拷贝给要创建的对象。例如在string a=”hello”中，string类的string(const char *)构造函数会被首先调用，创建一个临时对象，然后拷贝构造函数将这个临时对象复制到a。</p>
-<p>标准还规定，为了提高效率，允许编译器跳过创建临时对象这一步，直接调用构造函数构造要创建的对象，这样就完全等价于直接初始化了。</p>
-<p>经过我的测试，常见的编译器（gcc和VC++）都会直接跳过创建临时对象这一步，即使没有打开任何优化选项。</p>
-<p>这样一来，也许你就会认为他们完全等同了，其实不然。下面分析两种情况。</p>
-<p><strong>1、当拷贝构造函数为private时。</strong></p>
-<p>虽然编译器会跳过创建临时对象这一步，但是这个类必须要能够正确的调用指定的构造函数和拷贝构造函数才能编译通过。优化是编译器采取的措施，但是程序必须使得不优化时代码也符合语法。</p>
-<p>C++中有一些系统类型不允许复制，例如iostream和fstream这样的类。如果你想把自定义的类设置为不允许复制，把拷贝构造函数和赋值运算符声明为private即可，前面所说的系统类型也是这样做的。</p>
-<p>我们用ifstream举例说明直接初始化和复制初始化的区别。用一个字符串来构造ifstream对象，即打开以字符串为文件名的文件输入流。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="function">ifstream <span class="title">file</span><span class="params">(<span class="string">"filename"</span>)</span></span>; <span class="comment">//编译通过</span></div><div class="line">ifstream file=<span class="string">"filename"</span>; <span class="comment">//编译出错，ifstream类的拷贝构造函数为private</span></div></pre></td></tr></table></figure>
-<p>我们来分析一下为什么第二个语句会编译出错。根据C++标准，第二个语句应该做以下两件事情：用”filename”初始化一个临时的ifstream对象，把临时的对象用拷贝构造函数复制给file。由于拷贝构造函数是private，所以没有权限调用此函数，编译出错。</p>
-<p>注：Visual Studio的C++编译器并没有遵循标准，而是不考虑拷贝构造函数是否为private，直接编译通过。</p>
-<p><strong>2、当拷贝构造函数为explicit，或者指定的构造函数为explicit时。</strong></p>
-<p>C++中如果一个构造函数为explicit，那么只能显式调用这个构造函数，把这个构造函数用作“隐式类型转换”是不可以的。</p>
-<p>我们定义一个类A，然后进行以下测试</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span>&#123;</span></div><div class="line">  <span class="keyword">public</span>:</div><div class="line">  A(<span class="keyword">int</span> a)&#123;&#125; </div><div class="line">  A(<span class="keyword">const</span> A &amp;a)&#123;&#125;</div><div class="line">&#125;;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">  <span class="function">A <span class="title">a</span><span class="params">(<span class="number">1</span>)</span></span>;</div><div class="line">  A b=<span class="number">1</span>;</div><div class="line">  <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>可以编译通过。然后我们把参数为int的构造函数改为explicit，代码如下</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span>&#123;</span></div><div class="line">  <span class="keyword">public</span>:</div><div class="line">  <span class="function"><span class="keyword">explicit</span> <span class="title">A</span><span class="params">(<span class="keyword">int</span> a)</span></span>&#123;&#125;</div><div class="line">  A(<span class="keyword">const</span> A &amp;a)&#123;&#125;</div><div class="line">&#125;;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">  <span class="function">A <span class="title">a</span><span class="params">(<span class="number">1</span>)</span></span>;</div><div class="line">  A b=<span class="number">1</span>;</div><div class="line">  <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>“A a(1)”可以编译通过，“A b=1”这句报错，错误信息是“conversion from ‘int’ to non-scalar type ‘A’ requested”。这意味着编译器找不到int类型转换成A类型的转换函数了。如果不加explicit，参数为int的构造函数可以用于自动把int转换为A类型，但是现在不可以了。第一句的“A a(1)”有参数为int的构造函数的显式调用，而第二句“A b=1”没有显式调用。</p>
-<p>下面我们只把拷贝构造函数改成explicit</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span>&#123;</span></div><div class="line">  <span class="keyword">public</span>:</div><div class="line">  A(<span class="keyword">int</span> a)&#123;&#125;</div><div class="line">  <span class="function"><span class="keyword">explicit</span> <span class="title">A</span><span class="params">(<span class="keyword">const</span> A &amp;a)</span></span>&#123;&#125;&#125;;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">  <span class="function">A <span class="title">a</span><span class="params">(<span class="number">1</span>)</span></span>;</div><div class="line">  A b=<span class="number">1</span>;</div><div class="line">  <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>还是第二句编译错误。错误信息是“no matching function for call to ‘A::A(A)’”，这说明编译器找不到拷贝构造函数了。和前面第一种情况中说明的一样，编译器在把临时对象复制到b中时，需要调用A类的拷贝构造函数。现在拷贝构造函数是explicit的，只能显式的调用，不能隐含调用。第二句没有“A b(temp)”这样显式复制对象，所以编译出错。</p>
+        <h1 id="什么是引用？"><a href="#什么是引用？" class="headerlink" title="什么是引用？"></a>什么是引用？</h1><p>引用就是一个对象的别名。</p>
+<p>引用常常被用于按引用的方式传值：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span>&amp; i, <span class="keyword">int</span>&amp; j)</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">  <span class="keyword">int</span> tmp = i;</div><div class="line">  i = j;</div><div class="line">  j = tmp;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">  <span class="keyword">int</span> x, y;</div><div class="line">  <span class="comment">// ...</span></div><div class="line">  swap(x,y);</div><div class="line">  <span class="comment">// ...</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这里i和j是main函数中x和y的别名。换句话说，i就是x，并不是指向x的指针，也不是x的拷贝，就是x本身。你对i进行的任何操作都会对x发生，反过来也一样。</p>
+<p>这就是作为一个程序员你应该对引用的认识。现在，给你一种不同的视角，但是可能会让你产生混淆，那就是引用是如何实现的。</p>
 
       
     </div>
@@ -609,7 +478,7 @@ Course: Build a Modern Computer f......  -->
       
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-C/">C/C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/initialization/">initialization</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-C/">C/C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/reference/">reference</a></li></ul>
 
     </footer>
   </div>

@@ -215,7 +215,7 @@
         
           <section id="main" style="float:none;">
   
-    <article id="post-cpp_common/cpp-complicated-declaration"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-cpp_common/initialization"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -223,7 +223,7 @@
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/10/29/cpp_common/cpp-complicated-declaration/">C/C++ 复杂的变量声明</a>
+      <a class="article-title" href="/2017/10/29/cpp_common/initialization/">CPP Common: C++中直接初始化和拷贝初始化</a>
     </h1>
   
 
@@ -231,12 +231,114 @@
     
     <div class="article-meta">
       
-	<a href="/2017/10/29/cpp_common/cpp-complicated-declaration/" class="article-date">
+	<a href="/2017/10/29/cpp_common/initialization/" class="article-date">
+	  <time datetime="2017-10-29T11:20:43.000Z" itemprop="datePublished">2017-10-29</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/cpp-common/">cpp_common</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>转载自 <a href="https://sqrt-1.me/?p=241" target="_blank" rel="external">https://sqrt-1.me/?p=241</a></p>
+        <!-- 转载自 https://sqrt-1.me/?p=241
+
+C++的直接初始化与复制初始化C++中的直接初始化指的是直接调用类的构造函数进行初始化，例如
+123string a; //调用默认构造函数string a("hello"); //调用参数为const char *类型的构造函数string b(a); //调用拷贝构造函数
+复制初始化指的是用“=”号来初始化对象，例如
+12str......  -->
+        <p class="article-more-link">
+          <a href="/2017/10/29/cpp_common/initialization/#more">Read More</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-C/">C/C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/initialization/">initialization</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-cpp_common/int_char*_string"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/10/29/cpp_common/int_char*_string/">CPP Common: int char* string 之间的相互转换</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/10/29/cpp_common/int_char*_string/" class="article-date">
+	  <time datetime="2017-10-29T11:20:43.000Z" itemprop="datePublished">2017-10-29</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/cpp-common/">cpp_common</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="int"><a href="#int" class="headerlink" title="int"></a>int</h4><p>int型数字转为char* </p>
+<p>itoa, sprintf</p>
+<p>int型数字转为string</p>
+<p>stringstream</p>
+<h4 id="char"><a href="#char" class="headerlink" title="char*"></a>char*</h4><p>char*转string</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-C/">C/C++</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-cpp_common/complicated_declaration"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/10/29/cpp_common/complicated_declaration/">CPP Common: C/C++ 复杂的变量声明</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/10/29/cpp_common/complicated_declaration/" class="article-date">
 	  <time datetime="2017-10-29T05:11:38.000Z" itemprop="datePublished">2017-10-29</time>
 	</a>
 
       
-    <a class="article-category-link" href="/categories/C-C/">C/C++</a>
+    <a class="article-category-link" href="/categories/cpp-common/">cpp_common</a>
 
       
     </div>
@@ -252,7 +354,7 @@
 ​    C/C++最让我吐槽的地方，是它复杂的变量声明，变量声明可以说应该是最最最基础的东西，一个最最最基础的东西都这么复杂，这个确实不太合理，因为当你看代码，连一个声明都要看一半天，甚至拿着笔写一写来分析，会抓狂的。OK，吐槽完毕，最后当然是选择原谅C/C++啦。
 ​    变量声明就是声明一个符号，及其对应的类型，类型有基本的内置类型......  -->
         <p class="article-more-link">
-          <a href="/2017/10/29/cpp_common/cpp-complicated-declaration/#more">Read More</a>
+          <a href="/2017/10/29/cpp_common/complicated_declaration/#more">Read More</a>
         </p>
       
     </div>
@@ -270,6 +372,53 @@
 <!-- Table of Contents -->
 
   
+    <article id="post-course/CS102/Chap5/array-pointer-c_string"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/10/29/course/CS102/Chap5/array-pointer-c_string/">CS102: Chap5 array pointer c-style-string 之间的关系</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/10/29/course/CS102/Chap5/array-pointer-c_string/" class="article-date">
+	  <time datetime="2017-10-29T00:52:03.000Z" itemprop="datePublished">2017-10-29</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/Course-CS102/">Course/CS102</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>数组 指针 C风格字符串</p>
+<p><strong>数组</strong></p>
+<p>数组是c语言中一种</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-C/">C/C++</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
     <article id="post-cpp_common/extern-C"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
@@ -278,7 +427,7 @@
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/10/29/cpp_common/extern-C/">extern “C”</a>
+      <a class="article-title" href="/2017/10/29/cpp_common/extern-C/">CPP Common: extern “C”</a>
     </h1>
   
 
@@ -291,7 +440,7 @@
 	</a>
 
       
-    <a class="article-category-link" href="/categories/C-C/">C/C++</a>
+    <a class="article-category-link" href="/categories/cpp-common/">cpp_common</a>
 
       
     </div>
@@ -317,184 +466,6 @@ Stack overflow: https://stackoverflow.com/questions/1041866/in-c-source-what-is-
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-C/">C/C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/extern-C/">extern "C"</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-course/CS102/Chap5/array-pointer-c_string"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/10/29/course/CS102/Chap5/array-pointer-c_string/">using class in cpp</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/10/29/course/CS102/Chap5/array-pointer-c_string/" class="article-date">
-	  <time datetime="2017-10-29T00:52:03.000Z" itemprop="datePublished">2017-10-29</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/C-C/">C/C++</a>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>数组 指针 C风格字符串</p>
-<p><strong>数组</strong></p>
-<p>数组是c语言中一种</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-C/">C/C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/class/">class</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-course/CS102/Chap4/class"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/10/29/course/CS102/Chap4/class/">using class in cpp</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/10/29/course/CS102/Chap4/class/" class="article-date">
-	  <time datetime="2017-10-29T00:52:03.000Z" itemprop="datePublished">2017-10-29</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/C-C/">C/C++</a>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>第四章讲的是类</p>
-<p>类是c++与c的主要区别，太基础与概念性的话就不说了，直接来一个列子：大家知道c语言中是没有字符串类型的，在c语言中所谓的字符串就是以字符’\0’结尾的字符数组，一个面向对象的高级语言怎么能没有这么基础的数据类型，所以C++在标准库中就提供了string类型，我们就要自己动手来实现string类型。</p>
-<p>首先，在实现一个类之前要彻底了解你要实现的类，记住一句话，设计一个类其实就是设计一种类型。我们要设计的类是字符串，字符串就是一个用来存储连续一段字符的数据结构，</p>
-<p>第一个要实现的函数：<strong>构造函数</strong></p>
-<p>构造函数在定义这个类的某个对象的时候被调用的，想要写好构造函数，首先就要想好你的这个类的对象会以哪些方式被定义（被构造），对于一个字符串，我能想到被以下几种方式定义：</p>
-<ol>
-<li>默认的，不带参数的定义：</li>
-</ol>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">my_string left_img_name;</div></pre></td></tr></table></figure>
-<ol>
-<li>传入字符串字面值来定义：</li>
-</ol>
-<p>注意：字符串字面值的类型为const char[n]</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">my_string left_img_name = <span class="string">"/data/misc/camera/dump_data/img/frame0-left.jpg"</span>;</div><div class="line"><span class="function">my_string <span class="title">right_img_name</span><span class="params">(<span class="string">"/data/misc/camera/dump_data/img/frame0-left.jpg"</span>)</span></span>;</div></pre></td></tr></table></figure>
-<ol>
-<li>重复某个字符n次来定义：</li>
-</ol>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function">my_string <span class="title">str1</span><span class="params">(<span class="number">6</span>, <span class="string">'a'</span>)</span></span>;</div></pre></td></tr></table></figure>
-<ol>
-<li>​</li>
-</ol>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">my_string</span>&#123;</span></div><div class="line">  <span class="keyword">public</span>:</div><div class="line">    my_string(); <span class="comment">//默认构造函数</span></div><div class="line">    my_string();</div><div class="line">  </div><div class="line">  <span class="keyword">private</span>:</div><div class="line">    <span class="keyword">int</span> length_;</div><div class="line">    <span class="keyword">char</span> *data_;</div><div class="line">     </div><div class="line">&#125;；</div></pre></td></tr></table></figure>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//默认构造函数</span></div><div class="line">my_string::my_string()&#123;</div><div class="line">  length_ = <span class="number">0</span>;</div><div class="line">  data_ = <span class="keyword">new</span> <span class="keyword">char</span>[length_ + <span class="number">1</span>];</div><div class="line">  data_[<span class="number">0</span>] = <span class="string">'\0'</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//由c风格的字符串来构造</span></div><div class="line">my_string::my_string(<span class="keyword">const</span> <span class="keyword">char</span> *c_str)&#123;</div><div class="line">  length_ = <span class="built_in">strlen</span>(c_str);</div><div class="line">  data_ = <span class="keyword">new</span> <span class="keyword">char</span>[length_ + <span class="number">1</span>];</div><div class="line">  <span class="built_in">strcpy</span>(data_, c_str);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-C/">C/C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/class/">class</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-cpp_common/static-keyword-in-cpp"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/10/25/cpp_common/static-keyword-in-cpp/">C++ 中static关键字</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/10/25/cpp_common/static-keyword-in-cpp/" class="article-date">
-	  <time datetime="2017-10-25T11:20:43.000Z" itemprop="datePublished">2017-10-25</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/C-C/">C/C++</a>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>static是C++的一个关键字，被static关键字修饰的变量具有静态生存期，和整个程序具有相同的生存期。static关键字主要用于以下四个方面。</p>
-<ol>
-<li>函数内的静态变量</li>
-<li>静态对象</li>
-<li>类中的静态数据成员</li>
-<li>类中的静态函数成员</li>
-</ol>
-        <!-- static是C++的一个关键字，被static关键字修饰的变量具有静态生存期，和整个程序具有相同的生存期。static关键字主要用于以下四个方面。
-
-函数内的静态变量
-静态对象
-类中的静态数据成员
-类中的静态函数成员
-
-
-函数内的静态变量当静态变量在函数内部中时，它们只会被初始化一次，即使再次调用该函数，静态变量也会保持它当前的值而不会重新初始化。
-这些静态变量存储在静态存储区而不是在栈中......  -->
-        <p class="article-more-link">
-          <a href="/2017/10/25/cpp_common/static-keyword-in-cpp/#more">Read More</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-C/">C/C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/static/">static</a></li></ul>
 
     </footer>
   </div>

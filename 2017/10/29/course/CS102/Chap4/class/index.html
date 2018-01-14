@@ -3,26 +3,26 @@
 <head>
   <meta charset="utf-8">
   
-  <title>using class in cpp | </title>
+  <title>cs102: chap4 using class in cpp | </title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="keywords" content="C/C++class" />
+  <meta name="keywords" content="C/C++" />
   
   
   
   
-  <meta name="description" content="第四章讲的是类 类是c++与c的主要区别，太基础与概念性的话就不说了，直接来一个列子：大家知道c语言中是没有字符串类型的，在c语言中所谓的字符串就是以字符’\0’结尾的字符数组，一个面向对象的高级语言怎么能没有这么基础的数据类型，所以C++在标准库中就提供了string类型，我们就要自己动手来实现string类型。 首先，在实现一个类之前要彻底了解你要实现的类，记住一句话，设计一个类其实就是设计一">
-<meta name="keywords" content="C&#x2F;C++,class">
+  <meta name="description" content="第四章讲的是类 类是c++与c的主要区别，太基础与概念性的话就不说了，直接来一个列子：大家知道c语言中是没有字符串类型的，在c语言中所谓的字符串就是以字符’\0’结尾的字符数组，一个面向对象的高级语言怎么能没有这么基础的数据类型，所以C++在标准库中就提供了string类型，我们就要自己动手来实现string类型。">
+<meta name="keywords" content="C&#x2F;C++">
 <meta property="og:type" content="article">
-<meta property="og:title" content="using class in cpp">
+<meta property="og:title" content="CS102: Chap4 using class in cpp">
 <meta property="og:url" content="http://yoursite.com/2017/10/29/course/CS102/Chap4/class/index.html">
 <meta property="og:site_name">
-<meta property="og:description" content="第四章讲的是类 类是c++与c的主要区别，太基础与概念性的话就不说了，直接来一个列子：大家知道c语言中是没有字符串类型的，在c语言中所谓的字符串就是以字符’\0’结尾的字符数组，一个面向对象的高级语言怎么能没有这么基础的数据类型，所以C++在标准库中就提供了string类型，我们就要自己动手来实现string类型。 首先，在实现一个类之前要彻底了解你要实现的类，记住一句话，设计一个类其实就是设计一">
+<meta property="og:description" content="第四章讲的是类 类是c++与c的主要区别，太基础与概念性的话就不说了，直接来一个列子：大家知道c语言中是没有字符串类型的，在c语言中所谓的字符串就是以字符’\0’结尾的字符数组，一个面向对象的高级语言怎么能没有这么基础的数据类型，所以C++在标准库中就提供了string类型，我们就要自己动手来实现string类型。">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-01-14T02:40:12.000Z">
+<meta property="og:updated_time" content="2018-01-14T04:04:59.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="using class in cpp">
-<meta name="twitter:description" content="第四章讲的是类 类是c++与c的主要区别，太基础与概念性的话就不说了，直接来一个列子：大家知道c语言中是没有字符串类型的，在c语言中所谓的字符串就是以字符’\0’结尾的字符数组，一个面向对象的高级语言怎么能没有这么基础的数据类型，所以C++在标准库中就提供了string类型，我们就要自己动手来实现string类型。 首先，在实现一个类之前要彻底了解你要实现的类，记住一句话，设计一个类其实就是设计一">
+<meta name="twitter:title" content="CS102: Chap4 using class in cpp">
+<meta name="twitter:description" content="第四章讲的是类 类是c++与c的主要区别，太基础与概念性的话就不说了，直接来一个列子：大家知道c语言中是没有字符串类型的，在c语言中所谓的字符串就是以字符’\0’结尾的字符数组，一个面向对象的高级语言怎么能没有这么基础的数据类型，所以C++在标准库中就提供了string类型，我们就要自己动手来实现string类型。">
   
     <link rel="alternate" href="/atom.xml" title="" type="application/atom+xml">
   
@@ -168,7 +168,7 @@
         
   
     <h1 class="thumb" class="article-title" itemprop="name">
-      using class in cpp
+      CS102: Chap4 using class in cpp
     </h1>
   
 
@@ -181,7 +181,7 @@
 	</a>
 
       
-    <a class="article-category-link" href="/categories/C-C/">C/C++</a>
+    <a class="article-category-link" href="/categories/Course-CS102/">Course/CS102</a>
 
       
 	<a class="article-views">
@@ -195,6 +195,7 @@
       
         <p>第四章讲的是类</p>
 <p>类是c++与c的主要区别，太基础与概念性的话就不说了，直接来一个列子：大家知道c语言中是没有字符串类型的，在c语言中所谓的字符串就是以字符’\0’结尾的字符数组，一个面向对象的高级语言怎么能没有这么基础的数据类型，所以C++在标准库中就提供了string类型，我们就要自己动手来实现string类型。</p>
+<a id="more"></a>
 <p>首先，在实现一个类之前要彻底了解你要实现的类，记住一句话，设计一个类其实就是设计一种类型。我们要设计的类是字符串，字符串就是一个用来存储连续一段字符的数据结构，</p>
 <p>第一个要实现的函数：<strong>构造函数</strong></p>
 <p>构造函数在定义这个类的某个对象的时候被调用的，想要写好构造函数，首先就要想好你的这个类的对象会以哪些方式被定义（被构造），对于一个字符串，我能想到被以下几种方式定义：</p>
@@ -262,7 +263,7 @@ var a = new Donate({
 
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-C/">C/C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/class/">class</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-C/">C/C++</a></li></ul>
 
     </footer>
   </div>
@@ -270,19 +271,19 @@ var a = new Donate({
     
 <nav id="article-nav">
   
-    <a href="/2017/10/29/course/CS102/Chap5/array-pointer-c_string/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/10/29/cpp_common/extern-C/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          using class in cpp
+          CPP Common: extern “C”
         
       </div>
     </a>
   
   
-    <a href="/2017/10/25/cpp_common/static-keyword-in-cpp/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2017/10/25/cpp_common/keyword_const/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">C++ 中static关键字</div>
+      <div class="article-nav-title">CPP Common: C++中const关键字</div>
     </a>
   
 </nav>
