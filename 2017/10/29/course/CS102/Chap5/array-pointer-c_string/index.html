@@ -19,10 +19,15 @@
 <meta property="og:site_name">
 <meta property="og:description" content="数组 指针 C风格字符串 数组 数组是c语言中一种 指针和数组的区别让我们来看看指针与数组的区别  在function argument中，不管形参写成char str, char str[], 还是char str[n]，统统都“转化”为char str的形式  12345void func1(char *str);void func2(char str[]);void func3(char s">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-01-14T12:35:38.000Z">
+<meta property="og:image" content="https://daiyingjie.github.io/imgs/course/CS102/Chap5/1-1.jpg">
+<meta property="og:image" content="https://daiyingjie.github.io/imgs/course/CS102/Chap5/1-2.jpg">
+<meta property="og:image" content="https://daiyingjie.github.io/imgs/course/CS102/Chap5/2-1.jpg">
+<meta property="og:image" content="https://daiyingjie.github.io/imgs/course/CS102/Chap5/2-2.jpg">
+<meta property="og:updated_time" content="2018-01-14T12:50:20.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CS102: Chap5 array pointer c-style-string 之间的关系">
 <meta name="twitter:description" content="数组 指针 C风格字符串 数组 数组是c语言中一种 指针和数组的区别让我们来看看指针与数组的区别  在function argument中，不管形参写成char str, char str[], 还是char str[n]，统统都“转化”为char str的形式  12345void func1(char *str);void func2(char str[]);void func3(char s">
+<meta name="twitter:image" content="https://daiyingjie.github.io/imgs/course/CS102/Chap5/1-1.jpg">
   
     <link rel="alternate" href="/atom.xml" title="" type="application/atom+xml">
   
@@ -263,6 +268,8 @@
 </ol>
 <p><strong>综上，foo(s)[1]得到一个字符数组！！！</strong></p>
 <p>然后该字符数组加2，又有一次隐式转换，这个字符数组转换为指向其首元素的地址，也就是一个字符地址，字符地址+2，也就得到指向”LIONALAMB”中的O了，所以最后就是一个指向O的字符指针，打印它，得到：ONALAMB。</p>
+<p><img src="https://daiyingjie.github.io/imgs/course/CS102/Chap5/1-1.jpg" alt="img1-1"></p>
+<p><img src="https://daiyingjie.github.io/imgs/course/CS102/Chap5/1-2.jpg" alt="img1-2"></p>
 <h1 id="字符串字面值"><a href="#字符串字面值" class="headerlink" title="字符串字面值"></a>字符串字面值</h1><p><a href="https://stackoverflow.com/questions/2245664/what-is-the-type-of-string-literals-in-c-and-c" target="_blank" rel="external">https://stackoverflow.com/questions/2245664/what-is-the-type-of-string-literals-in-c-and-c</a></p>
 <p><a href="https://stackoverflow.com/questions/1704407/what-is-the-difference-between-char-s-and-char-s" target="_blank" rel="external">https://stackoverflow.com/questions/1704407/what-is-the-difference-between-char-s-and-char-s</a></p>
 <hr>
@@ -274,6 +281,8 @@
 <p>char s[] = “Hello world”;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">puts the literal string in read-only memory and copies the string to newly allocated memory on the stack. Thus making</div></pre></td></tr></table></figure></p>
 <p>s[0] = ‘J’;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">legal.</div><div class="line"></div><div class="line">-------------------</div><div class="line"></div><div class="line">暂且不去深究字符串字面值到底是char [n]的字符数组还是const char [n]的字符数组 ，反正我们在程序中一般只会以两种方式来引用字符串字面值：1. 字符指针的形式；2. 字符数组的形式</div><div class="line"></div><div class="line">```Cpp</div><div class="line">char *name = &quot;daiyingjie&quot;;</div><div class="line">const char *name = &quot;daiyingjie&quot;;</div></pre></td></tr></table></figure></p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">char</span> name[] = <span class="string">"daiyingjie"</span>;</div></pre></td></tr></table></figure>
+<p><img src="https://daiyingjie.github.io/imgs/course/CS102/Chap5/2-1.jpg" alt="img2-1"></p>
+<p><img src="https://daiyingjie.github.io/imgs/course/CS102/Chap5/2-2.jpg" alt="img2-2"></p>
 
       
     </div>
@@ -327,19 +336,19 @@ var a = new Donate({
     
 <nav id="article-nav">
   
-    <a href="/2017/10/29/cpp_common/complicated_declaration/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/10/29/cpp_common/extern-C/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          CPP Common: C/C++ 复杂的变量声明
+          CPP Common: extern “C”
         
       </div>
     </a>
   
   
-    <a href="/2017/10/29/cpp_common/extern-C/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2017/10/29/course/CS102/Chap4/class/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">CPP Common: extern “C”</div>
+      <div class="article-nav-title">CS102: Chap4 using class in cpp</div>
     </a>
   
 </nav>

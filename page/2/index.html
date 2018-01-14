@@ -215,7 +215,7 @@
         
           <section id="main" style="float:none;">
   
-    <article id="post-cpp_common/initialization"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-cpp_common/struct"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -223,7 +223,7 @@
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/10/29/cpp_common/initialization/">CPP Common: C++中直接初始化和拷贝初始化</a>
+      <a class="article-title" href="/2017/10/29/cpp_common/struct/">CPP Common: C/C++中struct的用法</a>
     </h1>
   
 
@@ -231,7 +231,7 @@
     
     <div class="article-meta">
       
-	<a href="/2017/10/29/cpp_common/initialization/" class="article-date">
+	<a href="/2017/10/29/cpp_common/struct/" class="article-date">
 	  <time datetime="2017-10-29T11:20:43.000Z" itemprop="datePublished">2017-10-29</time>
 	</a>
 
@@ -242,15 +242,11 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>转载自 <a href="https://sqrt-1.me/?p=241" target="_blank" rel="external">https://sqrt-1.me/?p=241</a></p>
-        <!-- 转载自 https://sqrt-1.me/?p=241
-
-C++的直接初始化与复制初始化C++中的直接初始化指的是直接调用类的构造函数进行初始化，例如
-123string a; //调用默认构造函数string a("hello"); //调用参数为const char *类型的构造函数string b(a); //调用拷贝构造函数
-复制初始化指的是用“=”号来初始化对象，例如
-12str......  -->
+        <p>在C++中struct和class几乎没有区别，除了默认的类里面的变量或函数是public还是private的区别，到底哪个默认是public，我也懒得记了，每次写清楚就好了。所以在C++中struct就看做是class好了。但是在C中，struct准确的叫法是结构体，它准确的定义是：<strong>结构体是一种把数据项组合在一起的数据结构。</strong>它和C++中的struct的用法（或者说class的用法）还有有些许差别的。</p>
+<p>再来吐槽一下C/C++，C/C++的语法真的丑陋，语法让人产生多种理解，或难以理解与记忆。从stack overflow上相关问题的点赞数都可以看出来，大家对struct这个语法很不熟，这个语法就是比较丑陋，这个锅就应该C/C++背，谁TM叫你虐我千百遍。下面就是stack overflow上的一个关于struct的问题链接。（<a href="https://stackoverflow.com/questions/612328/difference-between-struct-and-typedef-struct-in-c/612350#612350）" target="_blank" rel="external">https://stackoverflow.com/questions/612328/difference-between-struct-and-typedef-struct-in-c/612350#612350）</a></p>
+        <!-- 在C++中struct和class几乎没有区别，除了默认的类里面的变量或函数是public还是private的区别，到底哪个默认是public，我也懒得记了，每次写清楚就好了。所以在C++中struct就看做是class好了。但是在C中，struct准确的叫法是结构体，它准确的定义是：结构体是一种把数据项组合在一起的数据结构。它和C++中的struct的用法（或者说class的用法）还有有些......  -->
         <p class="article-more-link">
-          <a href="/2017/10/29/cpp_common/initialization/#more">Read More</a>
+          <a href="/2017/10/29/cpp_common/struct/#more">Read More</a>
         </p>
       
     </div>
@@ -258,7 +254,7 @@ C++的直接初始化与复制初始化C++中的直接初始化指的是直接�
       
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-C/">C/C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/initialization/">initialization</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-C/">C/C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/struct/">struct</a></li></ul>
 
     </footer>
   </div>
@@ -372,6 +368,62 @@ C++的直接初始化与复制初始化C++中的直接初始化指的是直接�
 <!-- Table of Contents -->
 
   
+    <article id="post-cpp_common/extern-C"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/10/29/cpp_common/extern-C/">CPP Common: extern “C”</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/10/29/cpp_common/extern-C/" class="article-date">
+	  <time datetime="2017-10-29T00:52:03.000Z" itemprop="datePublished">2017-10-29</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/cpp-common/">cpp_common</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Introduce the problem: </p>
+<p>In C++ source, what is the effect of extern “C”?</p>
+<p>Stack overflow: <a href="https://stackoverflow.com/questions/1041866/in-c-source-what-is-the-effect-of-extern-c/1041880#1041880" target="_blank" rel="external">https://stackoverflow.com/questions/1041866/in-c-source-what-is-the-effect-of-extern-c/1041880#1041880</a></p>
+<p>在用C++的项目源码中，经常会不可避免的会看到下面的代码：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> __cplusplus</span></div><div class="line"><span class="keyword">extern</span> <span class="string">"C"</span> &#123;</div><div class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></div><div class="line"> </div><div class="line"><span class="comment">/*...*/</span></div><div class="line"> </div><div class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> __cplusplus</span></div><div class="line">&#125;</div><div class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></div></pre></td></tr></table></figure>
+<p>它到底有什么用呢，你知道吗？而且这样的问题经常会出现在面试or笔试中。 如果你不知道是什么意思，点开Read More，我慢慢告诉你。</p>
+        <!-- Introduce the problem: 
+In C++ source, what is the effect of extern “C”?
+Stack overflow: https://stackoverflow.com/questions/1041866/in-c-source-what-is-the-effect-of-extern-c/1041880#1041880
+在用C++......  -->
+        <p class="article-more-link">
+          <a href="/2017/10/29/cpp_common/extern-C/#more">Read More</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-C/">C/C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/extern-C/">extern "C"</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
     <article id="post-course/CS102/Chap5/array-pointer-c_string"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
@@ -469,6 +521,8 @@ C++的直接初始化与复制初始化C++中的直接初始化指的是直接�
 </ol>
 <p><strong>综上，foo(s)[1]得到一个字符数组！！！</strong></p>
 <p>然后该字符数组加2，又有一次隐式转换，这个字符数组转换为指向其首元素的地址，也就是一个字符地址，字符地址+2，也就得到指向”LIONALAMB”中的O了，所以最后就是一个指向O的字符指针，打印它，得到：ONALAMB。</p>
+<p><img src="https://daiyingjie.github.io/imgs/course/CS102/Chap5/1-1.jpg" alt="img1-1"></p>
+<p><img src="https://daiyingjie.github.io/imgs/course/CS102/Chap5/1-2.jpg" alt="img1-2"></p>
 <h1 id="字符串字面值"><a href="#字符串字面值" class="headerlink" title="字符串字面值"></a>字符串字面值</h1><p><a href="https://stackoverflow.com/questions/2245664/what-is-the-type-of-string-literals-in-c-and-c" target="_blank" rel="external">https://stackoverflow.com/questions/2245664/what-is-the-type-of-string-literals-in-c-and-c</a></p>
 <p><a href="https://stackoverflow.com/questions/1704407/what-is-the-difference-between-char-s-and-char-s" target="_blank" rel="external">https://stackoverflow.com/questions/1704407/what-is-the-difference-between-char-s-and-char-s</a></p>
 <hr>
@@ -480,6 +534,8 @@ C++的直接初始化与复制初始化C++中的直接初始化指的是直接�
 <p>char s[] = “Hello world”;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">puts the literal string in read-only memory and copies the string to newly allocated memory on the stack. Thus making</div></pre></td></tr></table></figure></p>
 <p>s[0] = ‘J’;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">legal.</div><div class="line"></div><div class="line">-------------------</div><div class="line"></div><div class="line">暂且不去深究字符串字面值到底是char [n]的字符数组还是const char [n]的字符数组 ，反正我们在程序中一般只会以两种方式来引用字符串字面值：1. 字符指针的形式；2. 字符数组的形式</div><div class="line"></div><div class="line">```Cpp</div><div class="line">char *name = &quot;daiyingjie&quot;;</div><div class="line">const char *name = &quot;daiyingjie&quot;;</div></pre></td></tr></table></figure></p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">char</span> name[] = <span class="string">"daiyingjie"</span>;</div></pre></td></tr></table></figure>
+<p><img src="https://daiyingjie.github.io/imgs/course/CS102/Chap5/2-1.jpg" alt="img2-1"></p>
+<p><img src="https://daiyingjie.github.io/imgs/course/CS102/Chap5/2-2.jpg" alt="img2-2"></p>
 
       
     </div>
@@ -488,62 +544,6 @@ C++的直接初始化与复制初始化C++中的直接初始化指的是直接�
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-C/">C/C++</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-cpp_common/extern-C"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/10/29/cpp_common/extern-C/">CPP Common: extern “C”</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/10/29/cpp_common/extern-C/" class="article-date">
-	  <time datetime="2017-10-29T00:52:03.000Z" itemprop="datePublished">2017-10-29</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/cpp-common/">cpp_common</a>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Introduce the problem: </p>
-<p>In C++ source, what is the effect of extern “C”?</p>
-<p>Stack overflow: <a href="https://stackoverflow.com/questions/1041866/in-c-source-what-is-the-effect-of-extern-c/1041880#1041880" target="_blank" rel="external">https://stackoverflow.com/questions/1041866/in-c-source-what-is-the-effect-of-extern-c/1041880#1041880</a></p>
-<p>在用C++的项目源码中，经常会不可避免的会看到下面的代码：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> __cplusplus</span></div><div class="line"><span class="keyword">extern</span> <span class="string">"C"</span> &#123;</div><div class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></div><div class="line"> </div><div class="line"><span class="comment">/*...*/</span></div><div class="line"> </div><div class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> __cplusplus</span></div><div class="line">&#125;</div><div class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></div></pre></td></tr></table></figure>
-<p>它到底有什么用呢，你知道吗？而且这样的问题经常会出现在面试or笔试中。 如果你不知道是什么意思，点开Read More，我慢慢告诉你。</p>
-        <!-- Introduce the problem: 
-In C++ source, what is the effect of extern “C”?
-Stack overflow: https://stackoverflow.com/questions/1041866/in-c-source-what-is-the-effect-of-extern-c/1041880#1041880
-在用C++......  -->
-        <p class="article-more-link">
-          <a href="/2017/10/29/cpp_common/extern-C/#more">Read More</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-C/">C/C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/extern-C/">extern "C"</a></li></ul>
 
     </footer>
   </div>

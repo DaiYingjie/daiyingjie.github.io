@@ -267,7 +267,7 @@
 <!-- Table of Contents -->
 
   
-    <article id="post-cpp_common/keyword_static"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-cpp_common/keyword_const"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -275,7 +275,7 @@
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/10/25/cpp_common/keyword_static/">CPP Common: C++中static关键字</a>
+      <a class="article-title" href="/2017/10/25/cpp_common/keyword_const/">CPP Common: C++中const关键字</a>
     </h1>
   
 
@@ -283,7 +283,7 @@
     
     <div class="article-meta">
       
-	<a href="/2017/10/25/cpp_common/keyword_static/" class="article-date">
+	<a href="/2017/10/25/cpp_common/keyword_const/" class="article-date">
 	  <time datetime="2017-10-25T11:20:43.000Z" itemprop="datePublished">2017-10-25</time>
 	</a>
 
@@ -294,25 +294,14 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>static是C++的一个关键字，被static关键字修饰的变量具有静态生存期，和整个程序具有相同的生存期。static关键字主要用于以下四个方面。</p>
-<ol>
-<li>函数内的静态变量</li>
-<li>静态对象</li>
-<li>类中的静态数据成员</li>
-<li>类中的静态函数成员</li>
-</ol>
-        <!-- static是C++的一个关键字，被static关键字修饰的变量具有静态生存期，和整个程序具有相同的生存期。static关键字主要用于以下四个方面。
-
-函数内的静态变量
-静态对象
-类中的静态数据成员
-类中的静态函数成员
-
-
-函数内的静态变量当静态变量在函数内部中时，它们只会被初始化一次，即使再次调用该函数，静态变量也会保持它当前的值而不会重新初始化。
-这些静态变量存储在静态存储区而不是在栈中......  -->
+        <h4 id="The-C-‘const’-Declaration-Why-amp-How"><a href="#The-C-‘const’-Declaration-Why-amp-How" class="headerlink" title="The C++ ‘const’ Declaration: Why &amp; How"></a>The C++ ‘const’ Declaration: Why &amp; How</h4><h4 id="C-与const关键字有关的声明"><a href="#C-与const关键字有关的声明" class="headerlink" title="C++ 与const关键字有关的声明"></a>C++ 与const关键字有关的声明</h4><p>The ‘const’ system is one of the really messy features of C++.</p>
+<p>It is simple in concept: variables declared with ‘const’ added become constants and cannot be altered by the program. However it is also used to bodge in a substitute for one of the missing features of C++ and there it gets horridly complicated and sometimes frustratingly restrictive. The following attempts to explain how ‘const’ is used and why it exists.</p>
+<p>‘const’的确是C++的一个很麻烦的特性。</p>
+<p>‘const’在概念上非常简单：一个添加了’const’关键字声明的变量将变为“常量”，也就是它的值不能再被程序所改变了。然而‘const’作为C++语言一个缺失特性的替代修补事物，使得它变得令人讨厌的复杂以及有时令人沮丧的局限。下面我们将来解释一下如何使用’const‘以及‘const’存在的原因。</p>
+        <!-- The C++ ‘const’ Declaration: Why &amp; HowC++ 与const关键字有关的声明The ‘const’ system is one of the really messy features of C++.
+It is simple in concept: variables declared with ‘const’ added become cons......  -->
         <p class="article-more-link">
-          <a href="/2017/10/25/cpp_common/keyword_static/#more">Read More</a>
+          <a href="/2017/10/25/cpp_common/keyword_const/#more">Read More</a>
         </p>
       
     </div>
@@ -320,7 +309,7 @@
       
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-C/">C/C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/static/">static</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-C/">C/C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/const/">const</a></li></ul>
 
     </footer>
   </div>
@@ -377,7 +366,7 @@
 <!-- Table of Contents -->
 
   
-    <article id="post-cpp_common/keyword_const"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-cpp_common/keyword_static"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -385,7 +374,7 @@
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/10/25/cpp_common/keyword_const/">CPP Common: C++中const关键字</a>
+      <a class="article-title" href="/2017/10/25/cpp_common/keyword_static/">CPP Common: C++中static关键字</a>
     </h1>
   
 
@@ -393,7 +382,7 @@
     
     <div class="article-meta">
       
-	<a href="/2017/10/25/cpp_common/keyword_const/" class="article-date">
+	<a href="/2017/10/25/cpp_common/keyword_static/" class="article-date">
 	  <time datetime="2017-10-25T11:20:43.000Z" itemprop="datePublished">2017-10-25</time>
 	</a>
 
@@ -404,14 +393,25 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="The-C-‘const’-Declaration-Why-amp-How"><a href="#The-C-‘const’-Declaration-Why-amp-How" class="headerlink" title="The C++ ‘const’ Declaration: Why &amp; How"></a>The C++ ‘const’ Declaration: Why &amp; How</h4><h4 id="C-与const关键字有关的声明"><a href="#C-与const关键字有关的声明" class="headerlink" title="C++ 与const关键字有关的声明"></a>C++ 与const关键字有关的声明</h4><p>The ‘const’ system is one of the really messy features of C++.</p>
-<p>It is simple in concept: variables declared with ‘const’ added become constants and cannot be altered by the program. However it is also used to bodge in a substitute for one of the missing features of C++ and there it gets horridly complicated and sometimes frustratingly restrictive. The following attempts to explain how ‘const’ is used and why it exists.</p>
-<p>‘const’的确是C++的一个很麻烦的特性。</p>
-<p>‘const’在概念上非常简单：一个添加了’const’关键字声明的变量将变为“常量”，也就是它的值不能再被程序所改变了。然而‘const’作为C++语言一个缺失特性的替代修补事物，使得它变得令人讨厌的复杂以及有时令人沮丧的局限。下面我们将来解释一下如何使用’const‘以及‘const’存在的原因。</p>
-        <!-- The C++ ‘const’ Declaration: Why &amp; HowC++ 与const关键字有关的声明The ‘const’ system is one of the really messy features of C++.
-It is simple in concept: variables declared with ‘const’ added become cons......  -->
+        <p>static是C++的一个关键字，被static关键字修饰的变量具有静态生存期，和整个程序具有相同的生存期。static关键字主要用于以下四个方面。</p>
+<ol>
+<li>函数内的静态变量</li>
+<li>静态对象</li>
+<li>类中的静态数据成员</li>
+<li>类中的静态函数成员</li>
+</ol>
+        <!-- static是C++的一个关键字，被static关键字修饰的变量具有静态生存期，和整个程序具有相同的生存期。static关键字主要用于以下四个方面。
+
+函数内的静态变量
+静态对象
+类中的静态数据成员
+类中的静态函数成员
+
+
+函数内的静态变量当静态变量在函数内部中时，它们只会被初始化一次，即使再次调用该函数，静态变量也会保持它当前的值而不会重新初始化。
+这些静态变量存储在静态存储区而不是在栈中......  -->
         <p class="article-more-link">
-          <a href="/2017/10/25/cpp_common/keyword_const/#more">Read More</a>
+          <a href="/2017/10/25/cpp_common/keyword_static/#more">Read More</a>
         </p>
       
     </div>
@@ -419,7 +419,7 @@ It is simple in concept: variables declared with ‘const’ added become cons..
       
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-C/">C/C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/const/">const</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-C/">C/C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/static/">static</a></li></ul>
 
     </footer>
   </div>
